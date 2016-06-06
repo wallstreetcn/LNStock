@@ -30,8 +30,9 @@ TODO: Add long description of the pod here.
   s.platform = :ios
   s.ios.deployment_target = '8.0'
   s.source_files = 'LNStock/Classes/**/*'
-  s.vendored_frameworks = 'ShareSDK/LNStock.framework','ShareSDK/LNChart.framework'
+  s.vendored_frameworks = 'LNStock/LNStock.framework','LNStock/LNChart.framework'
   s.frameworks = 'UIKit', 'QuartzCore'
+  s.resources = 'LNStock/LNStock.bundle'
 
   # s.resource_bundles = {
   #   'LNStock' => ['LNStock/Assets/*.png']
