@@ -13,8 +13,10 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ##安装前准备
 在Podfile 中添加已下两条
+```
 source 'https://wedxz@bitbucket.org/vvusu/lnspecs.git' 
 source 'https://github.com/CocoaPods/Specs.git' 
+```
 
 ## Installation
 
