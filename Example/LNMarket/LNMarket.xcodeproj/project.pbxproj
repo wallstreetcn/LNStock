@@ -8,10 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		AC580A1C41ED88975B7BFC5F /* libPods-LNMarket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C51E011C9EB1752923C223BD /* libPods-LNMarket.a */; };
-		AF504EEB1D054DE8006C7B3B /* LNStock.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AF504EEA1D054DE8006C7B3B /* LNStock.bundle */; };
 		AF504F0D1D054F4B006C7B3B /* UIColor+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = AF504F011D054F4B006C7B3B /* UIColor+Tool.m */; };
 		AF504F111D054F4B006C7B3B /* UIView+LoadNib.m in Sources */ = {isa = PBXBuildFile; fileRef = AF504F0B1D054F4B006C7B3B /* UIView+LoadNib.m */; };
-		AF504F121D0550DD006C7B3B /* libLNStock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF9214131D00313100F3E172 /* libLNStock.a */; };
 		AF6766921D0160EA0073A329 /* price_line_night.png in Resources */ = {isa = PBXBuildFile; fileRef = AF6766911D0160EA0073A329 /* price_line_night.png */; };
 		AF6766941D01613B0073A329 /* price_nav_backbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = AF6766931D01613B0073A329 /* price_nav_backbtn.png */; };
 		AF6766991D0163F10073A329 /* price_nav_refreshbtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF6766971D0163F10073A329 /* price_nav_refreshbtn@2x.png */; };
@@ -51,20 +49,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		AF9214121D00313100F3E172 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AF92140C1D00313100F3E172 /* LNStock.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = AFCCBEB31CFFE12F00D07BA6;
-			remoteInfo = LNStock;
-		};
-		AF92144F1D00531D00F3E172 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AF92140C1D00313100F3E172 /* LNStock.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = AF92143E1D00519E00F3E172;
-			remoteInfo = LNStockResources;
-		};
 		AFCCC02C1CFFF4F400D07BA6 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AFCCC00A1CFFF4F400D07BA6 /* Project object */;
@@ -84,20 +68,16 @@
 /* Begin PBXFileReference section */
 		38E55C1D17C70C6E92FAA497 /* Pods-LNMarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LNMarket.release.xcconfig"; path = "Pods/Target Support Files/Pods-LNMarket/Pods-LNMarket.release.xcconfig"; sourceTree = "<group>"; };
 		6E5ECE75B90C7597FC84B81A /* Pods-LNMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LNMarket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LNMarket/Pods-LNMarket.debug.xcconfig"; sourceTree = "<group>"; };
-		AF504EEA1D054DE8006C7B3B /* LNStock.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LNStock.bundle; sourceTree = "<group>"; };
 		AF504F001D054F4B006C7B3B /* UIColor+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Tool.h"; sourceTree = "<group>"; };
 		AF504F011D054F4B006C7B3B /* UIColor+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Tool.m"; sourceTree = "<group>"; };
 		AF504F0A1D054F4B006C7B3B /* UIView+LoadNib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LoadNib.h"; sourceTree = "<group>"; };
 		AF504F0B1D054F4B006C7B3B /* UIView+LoadNib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LoadNib.m"; sourceTree = "<group>"; };
-		AF504F131D0550DD006C7B3B /* libLNChart.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLNChart.a; path = "../../../../Library/Developer/Xcode/DerivedData/LNMarket-dyxbkruoomnirwcavcrjpywagqvp/Build/Products/Debug-iphoneos/libLNChart.a"; sourceTree = "<group>"; };
-		AF67668C1D0135EA0073A329 /* libLNChart.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLNChart.a; path = "../LNChart/build/Debug-iphoneos/libLNChart.a"; sourceTree = "<group>"; };
 		AF6766911D0160EA0073A329 /* price_line_night.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = price_line_night.png; sourceTree = "<group>"; };
 		AF6766931D01613B0073A329 /* price_nav_backbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = price_nav_backbtn.png; sourceTree = "<group>"; };
 		AF6766971D0163F10073A329 /* price_nav_refreshbtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "price_nav_refreshbtn@2x.png"; sourceTree = "<group>"; };
 		AF6766981D0163F10073A329 /* price_nav_refreshbtn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "price_nav_refreshbtn@3x.png"; sourceTree = "<group>"; };
 		AF67669B1D01656E0073A329 /* price_line_day.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = price_line_day.png; sourceTree = "<group>"; };
 		AF90C8771D06CB9100CAC494 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AF92140C1D00313100F3E172 /* LNStock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LNStock.xcodeproj; path = ../LNStock/LNStock.xcodeproj; sourceTree = "<group>"; };
 		AF9214601D005A4600F3E172 /* LNNetworkAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNNetworkAPI.h; sourceTree = "<group>"; };
 		AF9214611D005A4600F3E172 /* LNNetworkAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNNetworkAPI.m; sourceTree = "<group>"; };
 		AF9214621D005A4600F3E172 /* LNNetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNNetWorking.h; sourceTree = "<group>"; };
@@ -172,7 +152,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF504F121D0550DD006C7B3B /* libLNStock.a in Frameworks */,
 				AC580A1C41ED88975B7BFC5F /* libPods-LNMarket.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,9 +185,6 @@
 		9F7B2034C5BDB4248D90682F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AF504EEA1D054DE8006C7B3B /* LNStock.bundle */,
-				AF504F131D0550DD006C7B3B /* libLNChart.a */,
-				AF67668C1D0135EA0073A329 /* libLNChart.a */,
 				C51E011C9EB1752923C223BD /* libPods-LNMarket.a */,
 			);
 			name = Frameworks;
@@ -261,15 +237,6 @@
 			path = PriceResources;
 			sourceTree = "<group>";
 		};
-		AF92140D1D00313100F3E172 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				AF9214131D00313100F3E172 /* libLNStock.a */,
-				AF9214501D00531D00F3E172 /* LNStock.bundle */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		AF92145F1D005A4600F3E172 /* LNNetwork */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,7 +261,6 @@
 				AFCCC0131CFFF4F400D07BA6 /* Products */,
 				6567F0A2F95F9DF330529547 /* Pods */,
 				9F7B2034C5BDB4248D90682F /* Frameworks */,
-				AF92140C1D00313100F3E172 /* LNStock.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -640,12 +606,6 @@
 			mainGroup = AFCCC0091CFFF4F400D07BA6;
 			productRefGroup = AFCCC0131CFFF4F400D07BA6 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = AF92140D1D00313100F3E172 /* Products */;
-					ProjectRef = AF92140C1D00313100F3E172 /* LNStock.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				AFCCC0111CFFF4F400D07BA6 /* LNMarket */,
@@ -655,23 +615,6 @@
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		AF9214131D00313100F3E172 /* libLNStock.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libLNStock.a;
-			remoteRef = AF9214121D00313100F3E172 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		AF9214501D00531D00F3E172 /* LNStock.bundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = LNStock.bundle;
-			remoteRef = AF92144F1D00531D00F3E172 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
 /* Begin PBXResourcesBuildPhase section */
 		AFCCC0101CFFF4F400D07BA6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
@@ -680,7 +623,6 @@
 				AF67669A1D0163F10073A329 /* price_nav_refreshbtn@3x.png in Resources */,
 				AF67669C1D01656E0073A329 /* price_line_day.png in Resources */,
 				AFCCC0711CFFF59300D07BA6 /* Main.storyboard in Resources */,
-				AF504EEB1D054DE8006C7B3B /* LNStock.bundle in Resources */,
 				AF90C8781D06CB9100CAC494 /* Assets.xcassets in Resources */,
 				AF6766941D01613B0073A329 /* price_nav_backbtn.png in Resources */,
 				AF6766921D0160EA0073A329 /* price_line_night.png in Resources */,
