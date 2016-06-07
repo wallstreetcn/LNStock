@@ -9,12 +9,11 @@
 #import "PriceVC.h"
 #import "PriceNavView.h"
 #import "PriceAStockHeaderView.h"
-#import "PriceAStockHeaderDataModel.h"
 #import "PriceBStockHeaderView.h"
 #import "PriceDefine.h"
 #import "PriceDataSource.h"
 #import "PriceNetwork.h"
-#import <LNStock/LNStockView.h>
+#import <LNStock/LNStock.h>
 
 #define kFStockViewH 300
 #define kFQuoteViewH 173
@@ -62,6 +61,7 @@
 }
 
 - (UIView *)tableHeadView {
+    __weak typeof (self)wself = self;
     if (!_tableHeadView) {
          _tableHeadView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kFBaseWidth, kFQuoteViewH + kFStockViewH)];
         if (self.isAstock) {
@@ -74,6 +74,9 @@
         //添加K线图
         CGRect stockFrame = CGRectMake(0, kFQuoteViewH, kFBaseWidth, kFStockViewH);
         self.stockView = [LNStockView createViewWithFrame:stockFrame code:self.code isAstock:self.isAstock isNight:self.isNightMode];
+        self.stockView.quotesViewDataBlock = ^(LNPriceModel *model) {
+            [wself.aStockHeaderView setPriceHeaderLabelsWithData:model];
+        };
         [_tableHeadView addSubview:self.stockView];
     }
     return  _tableHeadView;
@@ -157,15 +160,15 @@
 - (void)getStockData {
     __weak typeof (self)weakSelf = self;
     [weakSelf.priceDataSource refreshDataSource];
-    [PriceAStockHeaderDataModel getPriceHeaderWithSymbol:weakSelf.code
-                                           PriceResponse:^(BOOL isSucceed, PriceAStockHeaderDataModel *data) {
-                                               if (isSucceed) {
-                                                   [weakSelf.aStockHeaderView setPriceHeaderLabelsWithData:data];
-                                               }else {
-                                                   NSLog(@"行情头部失败");
-                                               }
-                                               [weakSelf.navView stopRefreshButtonAnimation];
-                                           }];
+    
+    [LNStockNetwork getStockRealDataWithCode:self.code block:^(BOOL isSuccess, LNPriceModel *data) {
+        if (isSuccess) {
+            [weakSelf.aStockHeaderView setPriceHeaderLabelsWithData:data];
+        }else {
+            NSLog(@"行情头部失败");
+        }
+        [weakSelf.navView stopRefreshButtonAnimation];
+    }];
 }
 
 @end

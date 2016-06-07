@@ -37,37 +37,26 @@
     return instance;
 }
 
-- (instancetype)init {
-    SDImageCache *cache = [SDImageCache sharedImageCache];
-    SDWebImageDownloader *downloader = [SDWebImageDownloader sharedDownloader];
-    return [self initWithCache:cache downloader:downloader];
-}
-
-- (instancetype)initWithCache:(SDImageCache *)cache downloader:(SDWebImageDownloader *)downloader {
+- (id)init {
     if ((self = [super init])) {
-        _imageCache = cache;
-        _imageDownloader = downloader;
+        _imageCache = [self createCache];
+        _imageDownloader = [SDWebImageDownloader sharedDownloader];
         _failedURLs = [NSMutableSet new];
         _runningOperations = [NSMutableArray new];
     }
     return self;
 }
 
+- (SDImageCache *)createCache {
+    return [SDImageCache sharedImageCache];
+}
+
 - (NSString *)cacheKeyForURL:(NSURL *)url {
-    if (!url) {
-        return @"";
-    }
-    
     if (self.cacheKeyFilter) {
         return self.cacheKeyFilter(url);
-    } else {
-        if (NSClassFromString(@"NSURLComponents") && [NSURLComponents instancesRespondToSelector:@selector(string)]) {
-            NSURLComponents *urlComponents = [[NSURLComponents alloc] initWithURL:url resolvingAgainstBaseURL:NO];
-            urlComponents.query = nil; // Strip out query parameters.
-            return [urlComponents.URL absoluteString];
-        } else {
-            return [url absoluteString];
-        }
+    }
+    else {
+        return [url absoluteString];
     }
 }
 

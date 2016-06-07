@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#include "PriceAStockHeaderDataModel.h"
+#import <LNStock/LNStock.h>
 @interface PriceAStockHeaderView : UIView
 
 //行情数据的命名与恒生接口的Key相匹配，px即为price
@@ -45,6 +45,6 @@
 
 - (void)addThemeChangedWithMode:(BOOL)isNightMode;
 
-- (void)setPriceHeaderLabelsWithData:(PriceAStockHeaderDataModel *)priceData;
+- (void)setPriceHeaderLabelsWithData:(LNPriceModel *)priceData;
 
 @end

@@ -71,58 +71,96 @@
     }
 }
 
-- (void)setPriceHeaderLabelsWithData:(PriceAStockHeaderDataModel *)priceData {
-    self.pxChange.text = [self setPriceUpColorOrDownColor:priceData.pxChange].text;
-    self.pxChange.textColor = [self setPriceUpColorOrDownColor:priceData.pxChange].textColor;
-    self.pxChangeRate.text = [self setPriceUpColorOrDownColor:priceData.pxChangeRate].text;
-    self.pxChangeRate.textColor = [self setPriceUpColorOrDownColor:priceData.pxChangeRate].textColor;
-    self.lastPx.text = priceData.lastPx;
-    self.lastPx.textColor = [self setPriceUpColorOrDownColor:priceData.pxChange].textColor;
+- (void)setPriceHeaderLabelsWithData:(LNPriceModel *)priceData {
     
-    self.openPx.text = priceData.openPx;
-    self.closePx.text = priceData.preClosePx;
-    self.businessAmount.text = [self translateWithString:priceData.businessAmount];
-    self.turnoverRatio.text = priceData.turnoverRatio;
-    
-    self.highPx.text = priceData.highPx;
-    self.lowPx.text = priceData.lowPx;
-    self.peRate.text = priceData.peRate;
-    self.amplitude.text = priceData.amplitude;
-    
-    self.businessAmountIn.text = [self translateWithString:priceData.businessAmountIn];
-    self.businessAmountOut.text = [self translateWithString:priceData.businessAmountOut];
-    self.marketValue.text = [self translateWithString:priceData.marketValue];
-    self.circulationValue.text = [self translateWithString:priceData.circulationValue];
-}
-
-- (NSString *)translateWithString:(NSString *)string {
-    NSString * numStr = nil;
-    double num = [string doubleValue];
-    if (num >= (10000 * 10000000.0)) {
-        numStr = [NSString stringWithFormat:@"%.0lf亿", num / (10000 * 10000)];
-    } else if (num > 10000 * 1000000.0) {
-        numStr = [NSString stringWithFormat:@"%.1lf亿", num / (10000 * 10000)];
-    } else if (num > 10000 * 10000) {
-        numStr = [NSString stringWithFormat:@"%.2lf亿", num / (10000 * 10000)];
-    } else if (num > 10000) {
-        numStr = [NSString stringWithFormat:@"%.2lf万", num / 10000];
+    self.lastPx.text = [self setPriceText:priceData.last_px.floatValue];
+    if (priceData.px_change_rate.floatValue < 0) {
+        self.lastPx.textColor = [UIColor greenColor];
     } else {
-        numStr = [NSString stringWithFormat:@"%.2lf", num];
-    }
-    return numStr;
-}
-
-- (UILabel *)setPriceUpColorOrDownColor: (NSString *)string {
-    UILabel *labelWithColor = [[UILabel alloc] init];
-    if ([string hasPrefix:@"-"]) {
-        labelWithColor.textColor = kSCDown;
-        labelWithColor.text = string;
-    }else {
-        labelWithColor.text = [NSString stringWithFormat:@"+%@",string];
-        labelWithColor.textColor = kSCUp;
+        self.lastPx.textColor = [UIColor redColor];
     }
     
-    return labelWithColor;
+    self.pxChange.text = [self setFormatterPriceText:priceData.px_change.floatValue];
+    self.pxChange.textColor = [self setPriceColor:priceData.px_change.floatValue];
+    self.pxChangeRate.text = [NSString stringWithFormat:@"%@%%",[self setFormatterPriceText:priceData.px_change_rate.floatValue]];
+    self.pxChangeRate.textColor = [self setPriceColor:priceData.px_change_rate.floatValue];
+
+    
+    self.openPx.text = [self setPriceText:priceData.open_px.floatValue];;
+    self.closePx.text = [self setPriceText:priceData.preclose_px.floatValue];;
+    self.businessAmount.text = [self volumeFormatterWithNum:priceData.business_amount.floatValue];
+    self.turnoverRatio.text = [NSString stringWithFormat:@"%@%%",[self setPriceText:priceData.turnover_ratio.floatValue]];
+    
+    self.highPx.text = [self setPriceText:priceData.high_px.floatValue];;
+    self.lowPx.text = [self setPriceText:priceData.low_px.floatValue];;
+    self.peRate.text = [self setPriceText:priceData.pe_rate.floatValue];;
+    self.amplitude.text = [NSString stringWithFormat:@"%@%%",[self setPriceText:priceData.amplitude.floatValue]];
+    
+    self.businessAmountIn.text = [self businessAmountFormatterWithNum:priceData.business_amount_in.doubleValue/100];
+    self.businessAmountOut.text = [self businessAmountFormatterWithNum:priceData.business_amount_out.doubleValue/100];
+    self.marketValue.text = [self businessAmountFormatterWithNum:priceData.market_value.doubleValue];
+    self.circulationValue.text = [self businessAmountFormatterWithNum:priceData.circulation_value.doubleValue];
+    
+    //涨跌额为0 的话颜色设置为白色
+    if (priceData.px_change.floatValue == 0) {
+        self.lastPx.textColor = [UIColor whiteColor];
+        self.pxChange.textColor = [UIColor whiteColor];
+        self.pxChangeRate.textColor = [UIColor whiteColor];
+    }
+    
+    //判断如果停牌颜色设置
+    if ([priceData.trade_status isEqualToString:@"HALT"]) {
+        self.lastPx.textColor = [UIColor whiteColor];
+        self.pxChange.textColor = [UIColor whiteColor];
+        self.pxChangeRate.textColor = [UIColor whiteColor];
+    }
+}
+
+- (NSString *)setPriceText:(CGFloat)num {
+    return [NSString stringWithFormat:@"%.2lf",num];
+}
+
+- (NSString *)setFormatterPriceText:(CGFloat)num {
+    if (num >= 0) {
+        return [NSString stringWithFormat:@"+%.2lf",num];
+    } else {
+        return [NSString stringWithFormat:@"%.2lf",num];
+    }
+}
+
+- (UIColor *)setPriceColor:(CGFloat)num {
+    if (num > 0 ) {
+        return kSCUp;
+    } else if (num == 0) {
+        return [UIColor whiteColor];
+    } else {
+        return kSCDown;
+    }
+}
+
+- (NSString *)volumeFormatterWithNum:(CGFloat)num {
+    num = num/100.0;
+    if (num < 10000.0) {
+        return [NSString stringWithFormat:@"%.0f手",num];
+    }
+    else if (num > 10000.0 && num < 100000000.0){
+        return [NSString stringWithFormat:@"%.2f万手",num/10000.0];
+    }
+    else {
+        return [NSString stringWithFormat:@"%.2f亿手",num/100000000.0];
+    }
+}
+
+- (NSString *)businessAmountFormatterWithNum:(CGFloat)num {
+    if (num < 10000.0) {
+        return [NSString stringWithFormat:@"%.0f",num];
+    }
+    else if (num > 10000.0 && num < 100000000.0){
+        return [NSString stringWithFormat:@"%.2f万",num/10000.0];
+    }
+    else {
+        return [NSString stringWithFormat:@"%.2f亿",num/100000000.0];
+    }
 }
 
 @end

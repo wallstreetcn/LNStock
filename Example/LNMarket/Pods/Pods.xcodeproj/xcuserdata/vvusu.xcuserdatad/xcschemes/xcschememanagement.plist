@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>LNStock.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>MJExtension.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,12 +27,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>02C82BD3FFB2B00C6CCBDF590F8A8D40</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>03E07987DDF6CB43867436B30B85432D</key>
+		<key>3F9A4BB52C3D3E41F950C9C51BBB218A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -47,12 +37,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9EAB3E42EF957541E6C3C76D35FD008E</key>
+		<key>9D0FAABFB00BAEC7BC985439F465A288</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A1D4E15E9FACCA32E1AB83E1C12C174A</key>
+		<key>9EAB3E42EF957541E6C3C76D35FD008E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
