@@ -11,6 +11,11 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+##安装前准备
+在Podfile 中添加已下两条
+source 'https://wedxz@bitbucket.org/vvusu/lnspecs.git' 
+source 'https://github.com/CocoaPods/Specs.git' 
+
 ## Installation
 
 LNStock is available through [CocoaPods](http://cocoapods.org). To install
@@ -27,3 +32,5 @@ vvusu, wedxzl@gmail.com
 ## License
 
 LNStock is available under the MIT license. See the LICENSE file for more info.
+
+
