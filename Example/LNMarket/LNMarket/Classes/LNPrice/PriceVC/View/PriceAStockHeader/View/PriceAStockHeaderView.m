@@ -14,6 +14,11 @@
 #define kSCNLabel kColorHex(0xcdcdcd)
 #define kSCDLabel kColorHex(0x323232)
 
+@interface PriceAStockHeaderView ()
+@property (nonatomic, assign) CGFloat newPrice;
+@property (nonatomic, assign) CGFloat lastPrice;
+@property (weak, nonatomic) IBOutlet UIView *priceBgVew;
+@end
 @implementation PriceAStockHeaderView
 
 - (void)awakeFromNib {
@@ -72,7 +77,8 @@
 }
 
 - (void)setPriceHeaderLabelsWithData:(LNPriceModel *)priceData {
-    
+    self.lastPrice = self.lastPx.text.floatValue;
+    self.newPrice = priceData.last_px.floatValue;
     self.lastPx.text = [self setPriceText:priceData.last_px.floatValue];
     if (priceData.px_change_rate.floatValue < 0) {
         self.lastPx.textColor = [UIColor greenColor];
@@ -114,6 +120,8 @@
         self.pxChange.textColor = [UIColor whiteColor];
         self.pxChangeRate.textColor = [UIColor whiteColor];
     }
+    
+    [self startAnimation];
 }
 
 - (NSString *)setPriceText:(CGFloat)num {
@@ -160,6 +168,25 @@
     }
     else {
         return [NSString stringWithFormat:@"%.2f亿",num/100000000.0];
+    }
+}
+
+- (void)startAnimation {
+    if (self.newPrice == self.lastPrice) {
+        return;
+    } else {
+        UIColor *color = [UIColor colorWithRed:0.91 green:0.28 blue:0.25 alpha:1];
+        if (self.newPrice < self.lastPrice) {
+            color = [UIColor colorWithRed:0.35 green:0.94 blue:0.35 alpha:1];
+        }
+        
+        [UIView animateWithDuration:0.5f animations:^{
+            self.priceBgVew.backgroundColor = color;
+        } completion:^(BOOL finished) {
+            [UIView animateWithDuration:0.5f animations:^{
+                self.priceBgVew.backgroundColor = [UIColor clearColor];
+            }];
+        }];
     }
 }
 

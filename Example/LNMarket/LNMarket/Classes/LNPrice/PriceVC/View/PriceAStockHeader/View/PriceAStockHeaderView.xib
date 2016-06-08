@@ -17,8 +17,14 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lqS-1H-bI6" userLabel="TopLeftView">
                             <rect key="frame" x="0.0" y="0.0" width="188" height="83"/>
                             <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eph-H6-jcw">
+                                    <rect key="frame" x="15" y="10" width="158" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="xZY-iU-I6Z"/>
+                                    </constraints>
+                                </view>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--.--" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="979-fQ-RwI">
-                                    <rect key="frame" x="0.0" y="11" width="188" height="40"/>
+                                    <rect key="frame" x="15" y="10" width="158" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="T9a-I6-3pB"/>
                                     </constraints>
@@ -55,15 +61,18 @@
                                 </label>
                             </subviews>
                             <constraints>
-                                <constraint firstAttribute="trailing" secondItem="979-fQ-RwI" secondAttribute="trailing" id="HEL-wp-LdW"/>
+                                <constraint firstAttribute="trailing" secondItem="Eph-H6-jcw" secondAttribute="trailing" constant="15" id="H0b-eh-oTT"/>
+                                <constraint firstAttribute="trailing" secondItem="979-fQ-RwI" secondAttribute="trailing" constant="15" id="HEL-wp-LdW"/>
+                                <constraint firstItem="Eph-H6-jcw" firstAttribute="top" secondItem="lqS-1H-bI6" secondAttribute="top" constant="10" id="KNO-gV-sjh"/>
+                                <constraint firstItem="Eph-H6-jcw" firstAttribute="leading" secondItem="lqS-1H-bI6" secondAttribute="leading" constant="15" id="QYS-ff-Mzg"/>
                                 <constraint firstAttribute="bottom" secondItem="0u6-Ae-jfx" secondAttribute="bottom" constant="9" id="g7Z-h8-1rS"/>
                                 <constraint firstAttribute="bottom" secondItem="e2v-8T-1e4" secondAttribute="bottom" constant="9" id="hfi-nE-9Hz"/>
                                 <constraint firstItem="0u6-Ae-jfx" firstAttribute="leading" secondItem="e2v-8T-1e4" secondAttribute="trailing" id="iPF-ow-f62"/>
                                 <constraint firstAttribute="height" constant="83" id="lks-4e-cds"/>
-                                <constraint firstItem="979-fQ-RwI" firstAttribute="leading" secondItem="lqS-1H-bI6" secondAttribute="leading" id="p8K-7S-n8S"/>
+                                <constraint firstItem="979-fQ-RwI" firstAttribute="leading" secondItem="lqS-1H-bI6" secondAttribute="leading" constant="15" id="p8K-7S-n8S"/>
                                 <constraint firstItem="Obl-OF-s8H" firstAttribute="leading" secondItem="0u6-Ae-jfx" secondAttribute="trailing" id="sD8-pw-Vm3"/>
                                 <constraint firstAttribute="bottom" secondItem="Obl-OF-s8H" secondAttribute="bottom" constant="9" id="uq8-QR-To9"/>
-                                <constraint firstItem="979-fQ-RwI" firstAttribute="top" secondItem="lqS-1H-bI6" secondAttribute="top" constant="11" id="wUT-Z2-mT5"/>
+                                <constraint firstItem="979-fQ-RwI" firstAttribute="top" secondItem="lqS-1H-bI6" secondAttribute="top" constant="10" id="wUT-Z2-mT5"/>
                                 <constraint firstItem="0u6-Ae-jfx" firstAttribute="centerX" secondItem="lqS-1H-bI6" secondAttribute="centerX" id="zBg-Z5-nHy"/>
                             </constraints>
                         </view>
@@ -450,6 +459,7 @@
                 <outlet property="marketValue" destination="gv2-Wp-Qd6" id="Sgh-hj-nbn"/>
                 <outlet property="openPx" destination="RJh-AJ-Mcj" id="kgo-vU-9Xw"/>
                 <outlet property="peRate" destination="mjc-9W-IXu" id="bfn-EB-B2t"/>
+                <outlet property="priceBgVew" destination="Eph-H6-jcw" id="4VY-XX-3Ba"/>
                 <outlet property="pxChange" destination="e2v-8T-1e4" id="owm-zw-67c"/>
                 <outlet property="pxChangeRate" destination="Obl-OF-s8H" id="hxP-9l-mMa"/>
                 <outlet property="turnoverRatio" destination="HWz-v0-t2w" id="1h6-Pe-gf0"/>
