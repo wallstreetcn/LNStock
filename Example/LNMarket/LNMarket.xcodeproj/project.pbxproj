@@ -620,14 +620,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF67669A1D0163F10073A329 /* price_nav_refreshbtn@3x.png in Resources */,
-				AF67669C1D01656E0073A329 /* price_line_day.png in Resources */,
-				AFCCC0711CFFF59300D07BA6 /* Main.storyboard in Resources */,
 				AF90C8781D06CB9100CAC494 /* Assets.xcassets in Resources */,
 				AF6766941D01613B0073A329 /* price_nav_backbtn.png in Resources */,
 				AF6766921D0160EA0073A329 /* price_line_night.png in Resources */,
-				AFCCC0C21CFFF89D00D07BA6 /* PriceCell.xib in Resources */,
+				AF67669A1D0163F10073A329 /* price_nav_refreshbtn@3x.png in Resources */,
+				AF67669C1D01656E0073A329 /* price_line_day.png in Resources */,
 				AF6766991D0163F10073A329 /* price_nav_refreshbtn@2x.png in Resources */,
+				AFCCC0711CFFF59300D07BA6 /* Main.storyboard in Resources */,
+				AFCCC0C21CFFF89D00D07BA6 /* PriceCell.xib in Resources */,
 				AFCCC0701CFFF59300D07BA6 /* LaunchScreen.storyboard in Resources */,
 				AFCCC0871CFFF83200D07BA6 /* DebugCell.xib in Resources */,
 				AFCCC0BE1CFFF89D00D07BA6 /* PriceAStockHeaderView.xib in Resources */,

@@ -32,6 +32,7 @@
 }
 
 - (void)addThemeChangedWithMode:(BOOL)isNightMode {
+    self.isNightMode = isNightMode;
     if (!isNightMode) {
         self.backgroundColor = kSCDBG;
         self.borderView.backgroundColor = kSCDBorder;
@@ -109,18 +110,29 @@
     
     //涨跌额为0 的话颜色设置为白色
     if (priceData.px_change.floatValue == 0) {
-        self.lastPx.textColor = [UIColor whiteColor];
-        self.pxChange.textColor = [UIColor whiteColor];
-        self.pxChangeRate.textColor = [UIColor whiteColor];
+        if (self.isNightMode) {
+            self.lastPx.textColor = [UIColor whiteColor];
+            self.pxChange.textColor = [UIColor whiteColor];
+            self.pxChangeRate.textColor = [UIColor whiteColor];
+        } else {
+            self.lastPx.textColor = [UIColor blackColor];
+            self.pxChange.textColor = [UIColor blackColor];
+            self.pxChangeRate.textColor = [UIColor blackColor];
+        }
     }
     
     //判断如果停牌颜色设置
     if ([priceData.trade_status isEqualToString:@"HALT"]) {
-        self.lastPx.textColor = [UIColor whiteColor];
-        self.pxChange.textColor = [UIColor whiteColor];
-        self.pxChangeRate.textColor = [UIColor whiteColor];
+        if (self.isNightMode) {
+            self.lastPx.textColor = [UIColor whiteColor];
+            self.pxChange.textColor = [UIColor whiteColor];
+            self.pxChangeRate.textColor = [UIColor whiteColor];
+        } else {
+            self.lastPx.textColor = [UIColor blackColor];
+            self.pxChange.textColor = [UIColor blackColor];
+            self.pxChangeRate.textColor = [UIColor blackColor];
+        }
     }
-    
     [self startAnimation];
 }
 
@@ -138,11 +150,11 @@
 
 - (UIColor *)setPriceColor:(CGFloat)num {
     if (num > 0 ) {
-        return kSCUp;
+        return [UIColor redColor];
     } else if (num == 0) {
         return [UIColor whiteColor];
     } else {
-        return kSCDown;
+        return [UIColor greenColor];
     }
 }
 
