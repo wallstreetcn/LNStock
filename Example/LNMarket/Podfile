@@ -11,7 +11,7 @@ target 'LNMarket' do
 pod 'MJExtension'
 pod 'SDWebImage'
 pod 'MJRefresh'
-pod 'LNStock'
+#pod 'LNStock'
 end
 
 target 'LNMarketTests' do
