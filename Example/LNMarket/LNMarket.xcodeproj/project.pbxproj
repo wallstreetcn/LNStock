@@ -18,7 +18,6 @@
 		AF9214691D005A4600F3E172 /* LNNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9214631D005A4600F3E172 /* LNNetWorking.m */; };
 		AF92146A1D005A4600F3E172 /* LNRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9214651D005A4600F3E172 /* LNRequest.m */; };
 		AF92146B1D005A4600F3E172 /* LNResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9214671D005A4600F3E172 /* LNResponse.m */; };
-		AFC6C02C1D10FD700064134F /* libLNStock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFC6C02B1D10FD700064134F /* libLNStock.a */; };
 		AFCCC0171CFFF4F400D07BA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0161CFFF4F400D07BA6 /* main.m */; };
 		AFCCC01A1CFFF4F400D07BA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0191CFFF4F400D07BA6 /* AppDelegate.m */; };
 		AFCCC0301CFFF4F400D07BA6 /* LNMarketTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC02F1CFFF4F400D07BA6 /* LNMarketTests.m */; };
@@ -79,7 +78,6 @@
 		AF9214651D005A4600F3E172 /* LNRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNRequest.m; sourceTree = "<group>"; };
 		AF9214661D005A4600F3E172 /* LNResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNResponse.h; sourceTree = "<group>"; };
 		AF9214671D005A4600F3E172 /* LNResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNResponse.m; sourceTree = "<group>"; };
-		AFC6C02B1D10FD700064134F /* libLNStock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLNStock.a; path = "../../../../Library/Developer/Xcode/DerivedData/LNMarket-dyxbkruoomnirwcavcrjpywagqvp/Build/Products/Release-iphonesimulator/libLNStock.a"; sourceTree = "<group>"; };
 		AFCCC0121CFFF4F400D07BA6 /* LNMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LNMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFCCC0161CFFF4F400D07BA6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AFCCC0181CFFF4F400D07BA6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -140,7 +138,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFC6C02C1D10FD700064134F /* libLNStock.a in Frameworks */,
 				AC580A1C41ED88975B7BFC5F /* libPods-LNMarket.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,7 +171,6 @@
 		9F7B2034C5BDB4248D90682F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AFC6C02B1D10FD700064134F /* libLNStock.a */,
 				C51E011C9EB1752923C223BD /* libPods-LNMarket.a */,
 			);
 			name = Frameworks;
