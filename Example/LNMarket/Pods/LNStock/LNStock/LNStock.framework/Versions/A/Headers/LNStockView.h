@@ -30,7 +30,7 @@ typedef void (^LNStockViewBlock)(LNStockViewActionType type);
  */
 + (instancetype)createViewWithFrame:(CGRect)frame code:(NSString *)code isAstock:(BOOL)isAstock isNight:(BOOL)isNight;
 /*
- View的初始化方法
+    View的初始化方法
  */
 + (instancetype)createViewWithCode:(NSString *)code isAstock:(BOOL)isAstock isNight:(BOOL)isNight;
 
