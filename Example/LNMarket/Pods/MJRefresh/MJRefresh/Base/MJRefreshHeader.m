@@ -120,18 +120,24 @@
             self.pullingPercent = 0.0;
         }];
     } else if (state == MJRefreshStateRefreshing) {
-         dispatch_async(dispatch_get_main_queue(), ^{
-            [UIView animateWithDuration:MJRefreshFastAnimationDuration animations:^{
-                CGFloat top = self.scrollViewOriginalInset.top + self.mj_h;
-                // 增加滚动区域top
-                self.scrollView.mj_insetT = top;
-                // 设置滚动位置
-                [self.scrollView setContentOffset:CGPointMake(0, -top) animated:NO];
-            } completion:^(BOOL finished) {
-                [self executeRefreshingCallback];
-            }];
-         });
+        [UIView animateWithDuration:MJRefreshFastAnimationDuration animations:^{
+            // 增加滚动区域
+            CGFloat top = self.scrollViewOriginalInset.top + self.mj_h;
+            self.scrollView.mj_insetT = top;
+            
+            // 设置滚动位置
+            self.scrollView.mj_offsetY = - top;
+        } completion:^(BOOL finished) {
+            [self executeRefreshingCallback];
+        }];
     }
+}
+
+- (void)drawRect:(CGRect)rect
+{
+    [super drawRect:rect];
+    
+    
 }
 
 #pragma mark - 公共方法

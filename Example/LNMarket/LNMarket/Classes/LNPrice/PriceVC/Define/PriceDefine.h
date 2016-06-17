@@ -53,9 +53,9 @@
 #define kSCNBorder kColorHex(0x000000)
 #define kSCDBorder kColorHex(0xeaeaea)
 
-////行情Label字体颜色（夜晚N，白天D）
-//#define kSCNLabel kColorHex(0xcdcdcd)
-//#define kSCDLabel kColorHex(0x323232)
+//行情Label字体颜色（夜晚N，白天D）
+#define kSCNLabel kColorHex(0xcdcdcd)
+#define kSCDLabel kColorHex(0x323232)
 
 //行情背景色
 #define kSCNBG kColorHex(0x1a1a1a)

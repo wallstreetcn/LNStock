@@ -10,10 +10,10 @@
 
 @interface PriceVC : UIViewController
 
-+ (instancetype)initWithTitle:(NSString *)navTitle
-                     subtitle:(NSString *)subtitle
-                       symbol:(NSString *)symbol
-                  isNightMode:(BOOL)isNightMode
-                     isAStock:(BOOL)isAStock;
++ (instancetype)createWithTitle:(NSString *)navTitle
+                       subtitle:(NSString *)subtitle
+                         symbol:(NSString *)symbol
+                    isNightMode:(BOOL)isNightMode
+                       isAStock:(BOOL)isAStock;
 
 @end

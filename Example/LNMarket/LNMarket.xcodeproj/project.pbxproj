@@ -10,16 +10,16 @@
 		AC580A1C41ED88975B7BFC5F /* libPods-LNMarket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C51E011C9EB1752923C223BD /* libPods-LNMarket.a */; };
 		AF504F0D1D054F4B006C7B3B /* UIColor+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = AF504F011D054F4B006C7B3B /* UIColor+Tool.m */; };
 		AF504F111D054F4B006C7B3B /* UIView+LoadNib.m in Sources */ = {isa = PBXBuildFile; fileRef = AF504F0B1D054F4B006C7B3B /* UIView+LoadNib.m */; };
-		AF6766921D0160EA0073A329 /* price_line_night.png in Resources */ = {isa = PBXBuildFile; fileRef = AF6766911D0160EA0073A329 /* price_line_night.png */; };
 		AF6766941D01613B0073A329 /* price_nav_backbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = AF6766931D01613B0073A329 /* price_nav_backbtn.png */; };
 		AF6766991D0163F10073A329 /* price_nav_refreshbtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF6766971D0163F10073A329 /* price_nav_refreshbtn@2x.png */; };
 		AF67669A1D0163F10073A329 /* price_nav_refreshbtn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF6766981D0163F10073A329 /* price_nav_refreshbtn@3x.png */; };
-		AF67669C1D01656E0073A329 /* price_line_day.png in Resources */ = {isa = PBXBuildFile; fileRef = AF67669B1D01656E0073A329 /* price_line_day.png */; };
 		AF90C8781D06CB9100CAC494 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF90C8771D06CB9100CAC494 /* Assets.xcassets */; };
 		AF9214681D005A4600F3E172 /* LNNetworkAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9214611D005A4600F3E172 /* LNNetworkAPI.m */; };
 		AF9214691D005A4600F3E172 /* LNNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9214631D005A4600F3E172 /* LNNetWorking.m */; };
 		AF92146A1D005A4600F3E172 /* LNRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9214651D005A4600F3E172 /* LNRequest.m */; };
 		AF92146B1D005A4600F3E172 /* LNResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9214671D005A4600F3E172 /* LNResponse.m */; };
+		AFB40F951D13CF6E006382D7 /* LNStock.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AFB40F941D13CF6E006382D7 /* LNStock.bundle */; };
+		AFC6C02C1D10FD700064134F /* libLNStock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AFC6C02B1D10FD700064134F /* libLNStock.a */; };
 		AFCCC0171CFFF4F400D07BA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0161CFFF4F400D07BA6 /* main.m */; };
 		AFCCC01A1CFFF4F400D07BA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0191CFFF4F400D07BA6 /* AppDelegate.m */; };
 		AFCCC0301CFFF4F400D07BA6 /* LNMarketTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC02F1CFFF4F400D07BA6 /* LNMarketTests.m */; };
@@ -35,10 +35,6 @@
 		AFCCC0B91CFFF89D00D07BA6 /* PriceCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0991CFFF89D00D07BA6 /* PriceCellModel.m */; };
 		AFCCC0BA1CFFF89D00D07BA6 /* PriceDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC09B1CFFF89D00D07BA6 /* PriceDataSource.m */; };
 		AFCCC0BB1CFFF89D00D07BA6 /* PriceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC09D1CFFF89D00D07BA6 /* PriceVC.m */; };
-		AFCCC0BD1CFFF89D00D07BA6 /* PriceAStockHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0A51CFFF89D00D07BA6 /* PriceAStockHeaderView.m */; };
-		AFCCC0BE1CFFF89D00D07BA6 /* PriceAStockHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFCCC0A61CFFF89D00D07BA6 /* PriceAStockHeaderView.xib */; };
-		AFCCC0BF1CFFF89D00D07BA6 /* PriceBStockHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0A91CFFF89D00D07BA6 /* PriceBStockHeaderView.m */; };
-		AFCCC0C01CFFF89D00D07BA6 /* PriceBStockHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFCCC0AA1CFFF89D00D07BA6 /* PriceBStockHeaderView.xib */; };
 		AFCCC0C11CFFF89D00D07BA6 /* PriceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0AD1CFFF89D00D07BA6 /* PriceCell.m */; };
 		AFCCC0C21CFFF89D00D07BA6 /* PriceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFCCC0AE1CFFF89D00D07BA6 /* PriceCell.xib */; };
 		AFCCC0C31CFFF89D00D07BA6 /* PriceNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0B11CFFF89D00D07BA6 /* PriceNavView.m */; };
@@ -72,11 +68,9 @@
 		AF504F011D054F4B006C7B3B /* UIColor+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Tool.m"; sourceTree = "<group>"; };
 		AF504F0A1D054F4B006C7B3B /* UIView+LoadNib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LoadNib.h"; sourceTree = "<group>"; };
 		AF504F0B1D054F4B006C7B3B /* UIView+LoadNib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LoadNib.m"; sourceTree = "<group>"; };
-		AF6766911D0160EA0073A329 /* price_line_night.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = price_line_night.png; sourceTree = "<group>"; };
 		AF6766931D01613B0073A329 /* price_nav_backbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = price_nav_backbtn.png; sourceTree = "<group>"; };
 		AF6766971D0163F10073A329 /* price_nav_refreshbtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "price_nav_refreshbtn@2x.png"; sourceTree = "<group>"; };
 		AF6766981D0163F10073A329 /* price_nav_refreshbtn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "price_nav_refreshbtn@3x.png"; sourceTree = "<group>"; };
-		AF67669B1D01656E0073A329 /* price_line_day.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = price_line_day.png; sourceTree = "<group>"; };
 		AF90C8771D06CB9100CAC494 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF9214601D005A4600F3E172 /* LNNetworkAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNNetworkAPI.h; sourceTree = "<group>"; };
 		AF9214611D005A4600F3E172 /* LNNetworkAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNNetworkAPI.m; sourceTree = "<group>"; };
@@ -86,6 +80,8 @@
 		AF9214651D005A4600F3E172 /* LNRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNRequest.m; sourceTree = "<group>"; };
 		AF9214661D005A4600F3E172 /* LNResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNResponse.h; sourceTree = "<group>"; };
 		AF9214671D005A4600F3E172 /* LNResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNResponse.m; sourceTree = "<group>"; };
+		AFB40F941D13CF6E006382D7 /* LNStock.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LNStock.bundle; sourceTree = "<group>"; };
+		AFC6C02B1D10FD700064134F /* libLNStock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libLNStock.a; path = "../../../../Library/Developer/Xcode/DerivedData/LNMarket-dyxbkruoomnirwcavcrjpywagqvp/Build/Products/Release-iphonesimulator/libLNStock.a"; sourceTree = "<group>"; };
 		AFCCC0121CFFF4F400D07BA6 /* LNMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LNMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFCCC0161CFFF4F400D07BA6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AFCCC0181CFFF4F400D07BA6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -117,12 +113,6 @@
 		AFCCC09B1CFFF89D00D07BA6 /* PriceDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceDataSource.m; sourceTree = "<group>"; };
 		AFCCC09C1CFFF89D00D07BA6 /* PriceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceVC.h; sourceTree = "<group>"; };
 		AFCCC09D1CFFF89D00D07BA6 /* PriceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceVC.m; sourceTree = "<group>"; };
-		AFCCC0A41CFFF89D00D07BA6 /* PriceAStockHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceAStockHeaderView.h; sourceTree = "<group>"; };
-		AFCCC0A51CFFF89D00D07BA6 /* PriceAStockHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceAStockHeaderView.m; sourceTree = "<group>"; };
-		AFCCC0A61CFFF89D00D07BA6 /* PriceAStockHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriceAStockHeaderView.xib; sourceTree = "<group>"; };
-		AFCCC0A81CFFF89D00D07BA6 /* PriceBStockHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceBStockHeaderView.h; sourceTree = "<group>"; };
-		AFCCC0A91CFFF89D00D07BA6 /* PriceBStockHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceBStockHeaderView.m; sourceTree = "<group>"; };
-		AFCCC0AA1CFFF89D00D07BA6 /* PriceBStockHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriceBStockHeaderView.xib; sourceTree = "<group>"; };
 		AFCCC0AC1CFFF89D00D07BA6 /* PriceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceCell.h; sourceTree = "<group>"; };
 		AFCCC0AD1CFFF89D00D07BA6 /* PriceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceCell.m; sourceTree = "<group>"; };
 		AFCCC0AE1CFFF89D00D07BA6 /* PriceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriceCell.xib; sourceTree = "<group>"; };
@@ -152,6 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFC6C02C1D10FD700064134F /* libLNStock.a in Frameworks */,
 				AC580A1C41ED88975B7BFC5F /* libPods-LNMarket.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,6 +176,8 @@
 		9F7B2034C5BDB4248D90682F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AFB40F941D13CF6E006382D7 /* LNStock.bundle */,
+				AFC6C02B1D10FD700064134F /* libLNStock.a */,
 				C51E011C9EB1752923C223BD /* libPods-LNMarket.a */,
 			);
 			name = Frameworks;
@@ -194,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				AF504EFD1D054F4B006C7B3B /* UIColor */,
-				AF504F021D054F4B006C7B3B /* UIControl */,
 				AF504F071D054F4B006C7B3B /* UIView */,
 			);
 			path = LNCategory;
@@ -209,13 +201,6 @@
 			path = UIColor;
 			sourceTree = "<group>";
 		};
-		AF504F021D054F4B006C7B3B /* UIControl */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UIControl;
-			sourceTree = "<group>";
-		};
 		AF504F071D054F4B006C7B3B /* UIView */ = {
 			isa = PBXGroup;
 			children = (
@@ -228,11 +213,9 @@
 		AF67668E1D015FAC0073A329 /* PriceResources */ = {
 			isa = PBXGroup;
 			children = (
-				AF67669B1D01656E0073A329 /* price_line_day.png */,
 				AF6766971D0163F10073A329 /* price_nav_refreshbtn@2x.png */,
 				AF6766981D0163F10073A329 /* price_nav_refreshbtn@3x.png */,
 				AF6766931D01613B0073A329 /* price_nav_backbtn.png */,
-				AF6766911D0160EA0073A329 /* price_line_night.png */,
 			);
 			path = PriceResources;
 			sourceTree = "<group>";
@@ -421,41 +404,11 @@
 		AFCCC09E1CFFF89D00D07BA6 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AFCCC09F1CFFF89D00D07BA6 /* PriceAStockHeader */,
-				AFCCC0A71CFFF89D00D07BA6 /* PriceBStockHeader */,
 				AFCCC0AB1CFFF89D00D07BA6 /* PriceCell */,
 				AFCCC0AF1CFFF89D00D07BA6 /* PriceNavView */,
 				AFCCC0B31CFFF89D00D07BA6 /* PriceSelectView */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		AFCCC09F1CFFF89D00D07BA6 /* PriceAStockHeader */ = {
-			isa = PBXGroup;
-			children = (
-				AFCCC0A31CFFF89D00D07BA6 /* View */,
-			);
-			path = PriceAStockHeader;
-			sourceTree = "<group>";
-		};
-		AFCCC0A31CFFF89D00D07BA6 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				AFCCC0A41CFFF89D00D07BA6 /* PriceAStockHeaderView.h */,
-				AFCCC0A51CFFF89D00D07BA6 /* PriceAStockHeaderView.m */,
-				AFCCC0A61CFFF89D00D07BA6 /* PriceAStockHeaderView.xib */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		AFCCC0A71CFFF89D00D07BA6 /* PriceBStockHeader */ = {
-			isa = PBXGroup;
-			children = (
-				AFCCC0A81CFFF89D00D07BA6 /* PriceBStockHeaderView.h */,
-				AFCCC0A91CFFF89D00D07BA6 /* PriceBStockHeaderView.m */,
-				AFCCC0AA1CFFF89D00D07BA6 /* PriceBStockHeaderView.xib */,
-			);
-			path = PriceBStockHeader;
 			sourceTree = "<group>";
 		};
 		AFCCC0AB1CFFF89D00D07BA6 /* PriceCell */ = {
@@ -622,17 +575,14 @@
 			files = (
 				AF90C8781D06CB9100CAC494 /* Assets.xcassets in Resources */,
 				AF6766941D01613B0073A329 /* price_nav_backbtn.png in Resources */,
-				AF6766921D0160EA0073A329 /* price_line_night.png in Resources */,
 				AF67669A1D0163F10073A329 /* price_nav_refreshbtn@3x.png in Resources */,
-				AF67669C1D01656E0073A329 /* price_line_day.png in Resources */,
 				AF6766991D0163F10073A329 /* price_nav_refreshbtn@2x.png in Resources */,
 				AFCCC0711CFFF59300D07BA6 /* Main.storyboard in Resources */,
 				AFCCC0C21CFFF89D00D07BA6 /* PriceCell.xib in Resources */,
+				AFB40F951D13CF6E006382D7 /* LNStock.bundle in Resources */,
 				AFCCC0701CFFF59300D07BA6 /* LaunchScreen.storyboard in Resources */,
 				AFCCC0871CFFF83200D07BA6 /* DebugCell.xib in Resources */,
-				AFCCC0BE1CFFF89D00D07BA6 /* PriceAStockHeaderView.xib in Resources */,
 				AFCCC0C41CFFF89D00D07BA6 /* PriceNavView.xib in Resources */,
-				AFCCC0C01CFFF89D00D07BA6 /* PriceBStockHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -717,14 +667,12 @@
 				AF9214691D005A4600F3E172 /* LNNetWorking.m in Sources */,
 				AFCCC0BB1CFFF89D00D07BA6 /* PriceVC.m in Sources */,
 				AF9214681D005A4600F3E172 /* LNNetworkAPI.m in Sources */,
-				AFCCC0BF1CFFF89D00D07BA6 /* PriceBStockHeaderView.m in Sources */,
 				AFCCC0681CFFF59300D07BA6 /* ViewController.m in Sources */,
 				AFCCC0C11CFFF89D00D07BA6 /* PriceCell.m in Sources */,
 				AF92146B1D005A4600F3E172 /* LNResponse.m in Sources */,
 				AFCCC01A1CFFF4F400D07BA6 /* AppDelegate.m in Sources */,
 				AFCCC0BA1CFFF89D00D07BA6 /* PriceDataSource.m in Sources */,
 				AFCCC0171CFFF4F400D07BA6 /* main.m in Sources */,
-				AFCCC0BD1CFFF89D00D07BA6 /* PriceAStockHeaderView.m in Sources */,
 				AFCCC0DC1CFFFA6600D07BA6 /* PListUtils.m in Sources */,
 				AFCCC0881CFFF83200D07BA6 /* DebugUtils.m in Sources */,
 				AF504F0D1D054F4B006C7B3B /* UIColor+Tool.m in Sources */,
@@ -800,7 +748,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -839,7 +787,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

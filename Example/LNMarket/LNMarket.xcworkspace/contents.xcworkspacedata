@@ -5,6 +5,12 @@
       location = "group:LNMarket.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:../LNStock/LNStock.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:../LNChart/LNChart.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

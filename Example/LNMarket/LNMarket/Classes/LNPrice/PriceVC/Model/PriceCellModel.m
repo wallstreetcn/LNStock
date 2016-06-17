@@ -11,7 +11,6 @@
 NSString *const KNews_Cid= @"cid";
 NSString *const KNews_Title= @"title";
 NSString *const KNews_CreatedAt = @"createdAt";
-//NSString *const KNews_SourceUrl= @"sourceUrl";
 
 @implementation PriceCellModel
 
@@ -26,8 +25,7 @@ NSString *const KNews_CreatedAt = @"createdAt";
 
 //序列化
 - (id)initWithCoder:(NSCoder *)aDecoder {
-    if (self = [super init])
-    {
+    if (self = [super init]) {
         if (aDecoder == nil) {
             return self;
         }

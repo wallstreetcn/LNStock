@@ -38,7 +38,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = NO;
@@ -51,7 +50,7 @@
         self.stockTF.text = @"300264.SZ";
     }
     BOOL isNightMode = [[PListUtils valueForKey:@"IsNigthMode"] intValue];
-    PriceVC *bStockVC = [PriceVC initWithTitle:@"西部黄金(601069)" subtitle:@"已收盘 03-01 15:04:49" symbol:self.stockTF.text isNightMode:isNightMode isAStock:YES];
+    PriceVC *bStockVC = [PriceVC createWithTitle:@"西部黄金(601069)" subtitle:@"已收盘 03-01 15:04:49" symbol:self.stockTF.text isNightMode:isNightMode isAStock:YES];
     [self.navigationController pushViewController:bStockVC animated:YES];
 }
 
@@ -61,7 +60,7 @@
         self.stockTF.text = @"JPN225";
     }
     BOOL isNightMode = [[PListUtils valueForKey:@"IsNigthMode"] intValue];
-    PriceVC *bStockVC = [PriceVC initWithTitle:@"日经225指数期货" subtitle:@"JPN225" symbol:self.stockTF.text isNightMode:isNightMode isAStock:NO];
+    PriceVC *bStockVC = [PriceVC createWithTitle:@"日经225指数期货" subtitle:@"JPN225" symbol:self.stockTF.text isNightMode:isNightMode isAStock:NO];
     [self.navigationController pushViewController:bStockVC animated:YES];
 }
 

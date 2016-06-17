@@ -8,15 +8,11 @@
 
 #import "PriceVC.h"
 #import "PriceNavView.h"
-#import "PriceAStockHeaderView.h"
-#import "PriceBStockHeaderView.h"
 #import "PriceDefine.h"
 #import "PriceDataSource.h"
 #import "PriceNetwork.h"
 #import <LNStock/LNStock.h>
 
-#define kFStockViewH 300
-#define kFQuoteViewH 173
 #define kFBaseWidth [[UIScreen mainScreen]bounds].size.width
 #define kFBaseHeight [[UIScreen mainScreen]bounds].size.height
 
@@ -24,13 +20,10 @@
 @property (nonatomic, copy) NSString *code;
 @property (nonatomic, assign) BOOL isAstock;
 @property (nonatomic, assign) BOOL isNightMode;
-@property (nonatomic, strong) UIView *tableHeadView;
 @property (nonatomic, strong) UITableView *priceTableView;
 @property (nonatomic, strong) LNStockView *stockView;
 @property (nonatomic, strong) PriceNavView *navView;
 @property (nonatomic, strong) PriceDataSource *priceDataSource;
-@property (nonatomic, strong) PriceAStockHeaderView *aStockHeaderView;
-@property (nonatomic, strong) PriceBStockHeaderView *bStockHeaderView;
 @end
 
 @implementation PriceVC
@@ -60,58 +53,33 @@
     return _priceDataSource;
 }
 
-- (UIView *)tableHeadView {
-    __weak typeof (self)wself = self;
-    if (!_tableHeadView) {
-         _tableHeadView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kFBaseWidth, kFQuoteViewH + kFStockViewH)];
-        if (self.isAstock) {
-            [self.aStockHeaderView addThemeChangedWithMode:self.isNightMode];
-            [_tableHeadView addSubview:self.aStockHeaderView];
-        }else {
-            [self.bStockHeaderView addThemeChangedWithMode:self.isNightMode];
-            [_tableHeadView addSubview:self.bStockHeaderView];
-        }
+- (LNStockView *)stockView {
+    if (!_stockView) {
         //添加K线图
-        CGRect stockFrame = CGRectMake(0, kFQuoteViewH, kFBaseWidth, kFStockViewH);
-        self.stockView = [LNStockView createViewWithFrame:stockFrame code:self.code isAstock:self.isAstock isNight:self.isNightMode];
-        self.stockView.quotesViewDataBlock = ^(LNPriceModel *model) {
-            [wself.aStockHeaderView setPriceHeaderLabelsWithData:model];
+        _stockView = [LNStockView createViewWithCode:self.code isAstock:self.isAstock isNight:self.isNightMode];
+        _stockView.quotesViewDataBlock = ^(LNPriceModel *model) {
+            //实时刷新行情数据
         };
-        [_tableHeadView addSubview:self.stockView];
     }
-    return  _tableHeadView;
+    return _stockView;
 }
 
 - (UITableView *)priceTableView {
     if (!_priceTableView) {
         _priceTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 44, kFBaseWidth, kFBaseHeight - 64)];
-        _priceTableView.tableHeaderView = self.tableHeadView;
+        _priceTableView.tableHeaderView = self.stockView;
         _priceTableView.tableFooterView = [[UIView alloc] init];
         [self.view addSubview:_priceTableView];
     }
     return _priceTableView;
 }
 
-- (PriceAStockHeaderView *)aStockHeaderView {
-    if (!_aStockHeaderView) {
-        _aStockHeaderView = [PriceAStockHeaderView createWithXib];
-    }
-    return _aStockHeaderView;
-}
-
-- (PriceBStockHeaderView *)bStockHeaderView {
-    if (!_bStockHeaderView) {
-        _bStockHeaderView = [PriceBStockHeaderView createWithXib];
-    }
-    return _bStockHeaderView;
-}
-
 #pragma mark - InIt
-+ (instancetype)initWithTitle:(NSString *)navTitle
-                     subtitle:(NSString *)subtitle
-                       symbol:(NSString *)symbol
-                  isNightMode:(BOOL)isNightMode
-                     isAStock:(BOOL)isAStock {
++ (instancetype)createWithTitle:(NSString *)navTitle
+                       subtitle:(NSString *)subtitle
+                         symbol:(NSString *)symbol
+                    isNightMode:(BOOL)isNightMode
+                       isAStock:(BOOL)isAStock {
     
     PriceVC *vc = [[PriceVC alloc]init];
     vc.code = symbol;
@@ -163,7 +131,7 @@
     
     [LNStockNetwork getStockRealDataWithCode:self.code block:^(BOOL isSuccess, LNPriceModel *data) {
         if (isSuccess) {
-            [weakSelf.aStockHeaderView setPriceHeaderLabelsWithData:data];
+            //刷新数据
         }else {
             NSLog(@"行情头部失败");
         }
