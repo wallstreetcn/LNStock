@@ -26,7 +26,7 @@ typedef void(^PriceNetworkBlock)(BOOL isSuccess, id response);
 
 #pragma mark - 外汇
 //请求外汇K线图数据
-+ (void)getBStockDataWithParamter:(NSDictionary *)paramter block:(PriceNetworkBlock)block;
++ (void)getBstockDataWithStockCode:(NSString *)code type:(NSString *)type block:(PriceNetworkBlock)block;
 
 #pragma mark - RealAPI 行情API
 + (void)getStockRealDataWithCode:(NSString *)code block:(PriceNetworkBlock)block;

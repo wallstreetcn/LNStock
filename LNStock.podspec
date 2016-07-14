@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'LNStock'
-  s.version          = '1.0.6'
+  s.version          = '1.0.7'
   s.summary          = '行情图'
 
 # This description is used to generate tags and improve search results.
@@ -30,7 +30,7 @@ TODO: Add long description of the pod here.
   s.platform = :ios
   s.ios.deployment_target = '8.0'
 # s.source_files = 'LNStock/Classes/**/*'
-  s.vendored_frameworks = 'LNStock/LNStock.framework'
+  s.vendored_frameworks = 'LNStock/LNStock.framework','LNStock/LNChart.framework'
   s.frameworks = 'UIKit', 'QuartzCore'
   s.resources = 'LNStock/LNStock.bundle'
 

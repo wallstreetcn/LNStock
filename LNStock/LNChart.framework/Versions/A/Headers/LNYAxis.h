@@ -26,7 +26,6 @@ typedef NS_ENUM(NSUInteger, AxisDependency) {
 @property (nonatomic, assign) YAxisLabelPosition labelPosition;  //Label的方位
 
 + (instancetype)initWithType:(AxisDependency)position;
-
 - (void)setupValues:(LNChartData *)data;
 - (void)setupKLineValues:(LNChartData *)data;
 - (void)setupVolumeValues:(LNChartData *)data;

@@ -8,21 +8,15 @@
 
 #import "LNChartBase.h"
 #import "LNYAxis.h"
-#import "LNDataRender.h"
-#import "LNYAxisRender.h"
-#import "LNXAxisRender.h"
-#import "LNLegendRender.h"
+#import "LNLimitLine.h"
 #import "LNChartLegend.h"
 #import "LNChartAnimator.h"
 
 typedef NS_ENUM(NSUInteger, ChartViewType) {
-    ChartViewType_Normal = 0,
-    ChartViewType_Line,
-    ChartViewType_FiveDayLine,
-    ChartViewType_KLine,
+    ChartViewType_Line = 0,
     ChartViewType_Columnar,
-    ChartViewType_FiveDayColumnar,
-    ChartViewType_KColumnar
+    ChartViewType_Candle,
+    ChartViewType_Bars
 };
 
 typedef void (^LNChartViewPinchRecognizerBlock)(LNChartData *data);
@@ -32,16 +26,10 @@ typedef void (^LNChartViewHighlightBlock)(LNChartHighlight *highlight, UILongPre
 @interface LNChartView : LNChartBase
 @property (nonatomic, strong) LNYAxis *leftAxis;                                  //左轴
 @property (nonatomic, strong) LNYAxis *rightAxis;                                 //右轴
+@property (nonatomic, strong) LNLimitLine *limitLine;                             //虚线
 @property (nonatomic, strong) LNChartLegend *chartLegend;                         //图标
-@property (nonatomic, assign) ChartViewType chartViewType;                        //chart类型
-@property (nonatomic, strong) LNChartAnimator *animator;                          //动画管理
-
-@property (nonatomic, strong) LNDataRender *dataRender;
-@property (nonatomic, strong) LNYAxisRender *leftRender;
-@property (nonatomic, strong) LNYAxisRender *rightRender;
-@property (nonatomic, strong) LNXAxisRender *xAxisRender;
-@property (nonatomic, strong) LNLegendRender *legendRender;
-
+@property (nonatomic, strong) LNChartAnimator *animator;                          //动画
+@property (nonatomic, assign) ChartViewType chartViewType;                        //Chart类型
 @property (nonatomic, assign, getter=isDragEnabled) BOOL dragEnabled;             //是否可以拖拽
 @property (nonatomic, assign, getter=isZoomEnabled) BOOL zoomEnabled;             //是否可以缩放
 @property (nonatomic, assign, getter=isLongPressEnabled) BOOL longPressEnabled;   //是否可以长按

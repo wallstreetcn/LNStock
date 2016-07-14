@@ -28,8 +28,8 @@
 
 @property (nonatomic, assign) CGFloat transOffsetX;
 @property (nonatomic, assign) CGFloat transOffsetY;
-
 @property (nonatomic, assign) CGRect contentRect;
+@property (nonatomic, assign) CGFloat emptyHeight;
 
 - (CGFloat)offsetTop;
 - (CGFloat)offsetLeft;

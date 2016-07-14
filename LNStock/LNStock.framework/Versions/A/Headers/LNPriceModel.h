@@ -39,6 +39,14 @@
 @property (nonatomic, strong) NSNumber *business_amount_in;     //内盘
 @property (nonatomic, strong) NSNumber *business_amount_out;    //外盘
 
+@property (nonatomic, strong) NSNumber *buy_px;                 //外汇买入价格
+@property (nonatomic, strong) NSNumber *sell_px;                //外汇卖出价格
+@property (nonatomic, strong) NSNumber *update_time;            //外汇时间撮
+@property (nonatomic, strong) NSNumber *real_status;            //外汇实时数据
+@property (nonatomic, strong) NSNumber *week_52_low;             //外汇52周最低
+@property (nonatomic, strong) NSNumber *week_52_high;            //外汇52周最高
+
+
 - (void)setupWithCode:(NSString *)code dataDic:(NSDictionary *)dataDic;
 
 @end
@@ -66,5 +74,10 @@
  business_amount_out	外盘
  circulation_value	流通市值
  securities_type	证券类型
-
+ 
+ buy  外汇买入价格
+ sell 外汇卖出价格
+ update_time  跟新时间
+ real_status  实时数据
+ 
  */

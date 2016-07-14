@@ -15,15 +15,13 @@
 
 //绘制点线
 - (void)drawLineData:(CGContextRef)context data:(LNChartData *)data;
-- (void)drawCandle:(CGContextRef)context data:(LNChartData *)data;
 - (void)drawFiveDayLineData:(CGContextRef)context data:(LNChartData *)data;
+- (void)drawCandle:(CGContextRef)context data:(LNChartData *)data;
+- (void)drawBars:(CGContextRef)context data:(LNChartData *)data;
 
 //绘制交易量
 - (void)drawVolume:(CGContextRef)context data:(LNChartData *)data;
-- (void)drawKVolume:(CGContextRef)context data:(LNChartData *)data;
-
 //绘制十线
 - (void)drawCrossLine:(CGContextRef)context data:(LNChartData *)data;
-- (void)drawKCrossLine:(CGContextRef)context data:(LNChartData *)data;
 
 @end

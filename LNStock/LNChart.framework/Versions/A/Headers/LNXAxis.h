@@ -24,13 +24,12 @@ typedef NS_ENUM(NSUInteger, XAxisLabelSite) {
 
 @class LNChartData;
 @interface LNXAxis : LNAxisBase
-
+@property (nonatomic, copy) NSString *dateFormatter;     //X轴时间格式
 @property (nonatomic, assign) NSInteger labelCount;
 @property (nonatomic, strong) NSMutableArray *values;
 @property (nonatomic, assign) XAxisLabelSite labelSite;
 @property (nonatomic, assign) XAxisLabelPosition labelPosition;
 
-- (void)setupValues:(LNChartData *)data;
 - (void)setupLineValues:(LNChartData *)data;
 - (void)setupKLineValues:(LNChartData *)data;
 - (void)setupVolumeValues:(LNChartData *)data;

@@ -10,6 +10,13 @@
 #import <CoreGraphics/CoreGraphics.h>
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, HighlightPosition) {
+    HighlightPositionLeftOut = 0,
+    HighlightPositionLeftInside,
+    HighlightPositionRightOut,
+    HighlightPositionRightInside
+};
+
 @interface LNChartHighlight : NSObject
 
 @property (nonatomic, assign) NSInteger index;                  //高亮点的下标
@@ -24,19 +31,20 @@
 
 @property (nonatomic, strong) UIColor *levelLineColor;          //横线的颜色
 @property (nonatomic, assign) CGFloat levelLineWidth;           //横线的的宽度
-
 @property (nonatomic, strong) UIColor *verticalLineColor;       //竖线的颜色
 @property (nonatomic, assign) CGFloat verticalLineWidth;        //竖线的的宽度
 
 @property (nonatomic, strong) UIFont *labelFont;                //高亮提示框的字体
 @property (nonatomic, strong) UIColor *labelColor;              //高亮提示框的颜色
 @property (nonatomic, strong) UIColor *labelBGColor;            //高亮提示框背景颜色
+@property (nonatomic, assign) HighlightPosition positionType;   //标示样式
 
 @property (nonatomic, assign,getter=isHighlight) BOOL highlight;                    //是否显示高亮
+@property (nonatomic, assign,getter=isDrawTimeLabel) BOOL drawTimeLabel;            //是否画时间
 @property (nonatomic, assign,getter=isDrawLevelLine) BOOL drawLevelLine;            //是否画水平线
+@property (nonatomic, assign,getter=isDrawPriceRatio) BOOL drawPriceRatio;          //是否画涨跌幅
 @property (nonatomic, assign,getter=isVolumeChartType) BOOL volumeChartType;        //是否是交易量图
 @property (nonatomic, assign,getter=isDrawVerticalLine) BOOL drawVerticalLine;      //是否画竖线
 @property (nonatomic, assign,getter=isDrawHighlightPoint) BOOL drawHighlightPoint;  //是否画高亮的点
-@property (nonatomic, assign,getter=isDrawLabelWithinAxis) BOOL drawLabelWithinAxis;//是否画在轴里面
 
 @end
