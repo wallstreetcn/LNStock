@@ -24,6 +24,11 @@ typedef void (^LNStockViewBlock)(LNStockViewActionType type);
 @property (nonatomic, assign) BOOL isGreenUp;
 
 /*
+    是否是夜晚模式
+ */
+@property (nonatomic, assign) BOOL isNightMode;
+
+/*
     Stock的点击或双击手势回调
  */
 @property (nonatomic, copy) LNStockViewBlock quotesViewBlock;

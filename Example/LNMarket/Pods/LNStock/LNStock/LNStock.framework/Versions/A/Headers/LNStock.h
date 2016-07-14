@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import <LNStock/LNStockView.h>
 #import <LNStock/LNPriceModel.h>
+#import <LNStock/LNStockModel.h>
 #import <LNStock/LNStockNetwork.h>
+#import <LNStock/LNStockHandler.h>
 
 @interface LNStock : NSObject
 @end

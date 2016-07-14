@@ -1,5 +1,5 @@
 PODS:
-  - LNStock (1.0.7)
+  - LNStock (1.0.8)
   - MJExtension (3.0.11)
   - MJRefresh (3.1.10)
   - SDWebImage (3.8.1):
@@ -13,7 +13,7 @@ DEPENDENCIES:
   - SDWebImage
 
 SPEC CHECKSUMS:
-  LNStock: 493b1053c18d5b8fe3b9a07ade25aa0ebbc0d3c0
+  LNStock: a109983e19b0378221f6f47157d16a1e39d7675e
   MJExtension: f9ae6ddc0f1c482c3c9af750280ccebd14381958
   MJRefresh: bb72948c985914b0b5cecac573a2c69a8915fb02
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
