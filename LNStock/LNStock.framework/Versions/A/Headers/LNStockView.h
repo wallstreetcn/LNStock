@@ -41,11 +41,21 @@ typedef void (^LNStockViewBlock)(LNStockViewActionType type);
 /*
     View的初始化方法(默认大小)
  */
-+ (instancetype)createViewWithCode:(NSString *)code isAstock:(BOOL)isAstock isNight:(BOOL)isNight;
++ (instancetype)createViewWithCode:(NSString *)code
+                          isAstock:(BOOL)isAstock
+                           isNight:(BOOL)isNight;
 
 /*
     View的初始化方法 自定义大小 - 只有图的部分
  */
-+ (instancetype)createViewWithFrame:(CGRect)frame code:(NSString *)code isAstock:(BOOL)isAstock isNight:(BOOL)isNight;
++ (instancetype)createViewWithFrame:(CGRect)frame
+                               code:(NSString *)code
+                           isAstock:(BOOL)isAstock
+                            isNight:(BOOL)isNight;
+// 停止轮询
+- (void)stopPollRequest;
+
+//开始轮询
+- (void)startPollRequest;
 
 @end

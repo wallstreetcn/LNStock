@@ -21,5 +21,4 @@ typedef void (^LNChartAnimatorBlock)(BOOL isStop);
 - (void)stopAnimation;
 - (void)setupDefaultValue;
 - (void)animationWithPanGestureRecognizer:(UIPanGestureRecognizer *)pan view:(UIView *)view;
-
 @end
