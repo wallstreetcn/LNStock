@@ -52,10 +52,15 @@ typedef void (^LNStockViewBlock)(LNStockViewActionType type);
                                code:(NSString *)code
                            isAstock:(BOOL)isAstock
                             isNight:(BOOL)isNight;
+
+// 刷新行情数据
+- (void)refreshStockData;
+
 // 停止轮询
 - (void)stopPollRequest;
 
-//开始轮询
+// 开始轮询
 - (void)startPollRequest;
+
 
 @end
