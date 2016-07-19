@@ -43,8 +43,8 @@
 @property (nonatomic, strong) NSNumber *sell_px;                //外汇卖出价格
 @property (nonatomic, strong) NSNumber *update_time;            //外汇时间撮
 @property (nonatomic, strong) NSNumber *real_status;            //外汇实时数据
-@property (nonatomic, strong) NSNumber *week_52_low;             //外汇52周最低
-@property (nonatomic, strong) NSNumber *week_52_high;            //外汇52周最高
+@property (nonatomic, strong) NSNumber *week_52_low;            //外汇52周最低
+@property (nonatomic, strong) NSNumber *week_52_high;           //外汇52周最高
 
 
 - (void)setupWithCode:(NSString *)code dataDic:(NSDictionary *)dataDic;

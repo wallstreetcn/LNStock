@@ -62,5 +62,4 @@ typedef void (^LNStockViewBlock)(LNStockViewActionType type);
 // 开始轮询
 - (void)startPollRequest;
 
-
 @end

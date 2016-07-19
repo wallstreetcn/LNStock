@@ -27,6 +27,7 @@ typedef NS_ENUM(NSInteger, LNStockChartType) {
 
 @interface LNStockHandler : NSObject
 @property (nonatomic, copy) NSString *code;                                 //股票Code
+@property (nonatomic, copy) NSString *stocktype;                            //股票类型
 @property (nonatomic, copy) NSString *tradeStatus;                          //交易状态
 @property (nonatomic, strong) NSDate *currentlyDate;                        //股票最后交易时间
 @property (nonatomic, assign) LNStockTitleType titleType;                   //titelle
@@ -60,7 +61,7 @@ typedef NS_ENUM(NSInteger, LNStockChartType) {
 + (BOOL)isVerticalScreen;
 //是否是绿涨红跌
 + (BOOL)isGreenUp;
-//通过是否在交易判断是否轮询
-+ (BOOL)isRollRequest;
+//是否是A股指数
++ (BOOL)isIndexStock;
 
 @end
