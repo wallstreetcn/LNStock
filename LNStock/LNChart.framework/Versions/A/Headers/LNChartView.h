@@ -12,13 +12,7 @@
 #import "LNChartLegend.h"
 #import "LNChartAnimator.h"
 
-typedef NS_ENUM(NSUInteger, ChartViewType) {
-    ChartViewType_Line = 0,
-    ChartViewType_Columnar,
-    ChartViewType_Candle,
-    ChartViewType_Bars
-};
-
+typedef void (^LNChartViewActionBlock)();
 typedef void (^LNChartViewPinchRecognizerBlock)(LNChartData *data);
 typedef void (^LNChartViewPanRecognizerBlock)(BOOL isEnded, LNChartData *data);
 typedef void (^LNChartViewHighlightBlock)(LNChartHighlight *highlight, UILongPressGestureRecognizer *longPress);
@@ -38,19 +32,18 @@ typedef void (^LNChartViewHighlightBlock)(LNChartHighlight *highlight, UILongPre
 @property (nonatomic, strong) UIPinchGestureRecognizer *pinchGestureRecognizer;
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPressGestureRecognizer;
 
+@property (nonatomic, copy) LNChartViewActionBlock anctionBlock;
 @property (nonatomic, copy) LNChartViewHighlightBlock highlightBlock;
 @property (nonatomic, copy) LNChartViewPanRecognizerBlock panRecognizerBlock;
 @property (nonatomic, copy) LNChartViewPinchRecognizerBlock pinchRecognizerBlock;
 
 //设置数据
 - (void)setupWithData:(NSMutableArray *)data;
-
+- (void)updataChartData:(NSMutableArray *)data;
 //缩放手势回调
 - (void)zoomPage:(LNChartData *)data;
-
 //滑动手势回调
 - (void)slidingPage:(BOOL)isEnded data:(LNChartData *)data;
-
 //长按手势回调
 - (void)addCrossLine:(LNChartHighlight *)highlight longPress:(UILongPressGestureRecognizer *)longPress;
 @end

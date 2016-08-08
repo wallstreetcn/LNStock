@@ -46,4 +46,5 @@ typedef NS_ENUM(NSUInteger, ChartLegendForm) {
 - (void)setupLineLegend:(LNChartData *)data;
 - (void)setupVolumeLegend:(LNChartData *)data;
 - (void)setupCandleLegend:(LNChartData *)data;
+- (void)setupMACDLegend:(LNChartData *)data;
 @end

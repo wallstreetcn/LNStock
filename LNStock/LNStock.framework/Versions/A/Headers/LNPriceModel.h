@@ -10,9 +10,11 @@
 
 @interface LNPriceModel : NSObject
 @property (nonatomic, copy) NSString *prod_name;                //股票名称
+@property (nonatomic, copy) NSString *prod_code;                //股票代码
 @property (nonatomic, copy) NSString *trade_status;             //交易状态
 @property (nonatomic, copy) NSString *hq_type_code;             //证券分类信息
 @property (nonatomic, copy) NSString *securities_type;          //证券类型
+@property (nonatomic, copy) NSNumber *price_precision;          //价格保留几位小数
 
 @property (nonatomic, strong) NSNumber *last_px;                //最新价
 @property (nonatomic, strong) NSNumber *px_change;              //涨跌额
@@ -46,13 +48,13 @@
 @property (nonatomic, strong) NSNumber *week_52_low;            //外汇52周最低
 @property (nonatomic, strong) NSNumber *week_52_high;           //外汇52周最高
 
-
 - (void)setupWithCode:(NSString *)code dataDic:(NSDictionary *)dataDic;
-
++ (NSMutableArray *)parseDataWithDataDic:(NSDictionary *)dataDic;
 @end
 
 /*
  prod_name	股票名称
+ prod_code  股票代码
  last_px	最新价
  px_change	涨跌额
  px_change_rate	涨跌幅
