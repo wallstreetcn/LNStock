@@ -11,9 +11,8 @@
 
 @interface LNChartFormatter : NSObject
 //保留两位小数
-+ (NSString *)twoDigitFormatter:(CGFloat)num;
-+ (NSString *)fourDigitFormatter:(CGFloat)num;
-+ (NSString *)LengendMAFormatter:(CGFloat)num;
++ (NSString *)formatterWithPosition:(NSString *)position num:(CGFloat)num;
++ (NSString *)MAFormatterWithPosition:(NSString *)position num:(CGFloat)num;
 
 //交易量格式转换
 + (NSString *)volumeCutWithNum:(CGFloat)num;

@@ -29,5 +29,5 @@ typedef NS_ENUM(NSUInteger, AxisDependency) {
 - (void)setupValues:(LNChartData *)data;
 - (void)setupKLineValues:(LNChartData *)data;
 - (void)setupVolumeValues:(LNChartData *)data;
-
+- (void)setupMACDValues:(LNChartData *)data;
 @end

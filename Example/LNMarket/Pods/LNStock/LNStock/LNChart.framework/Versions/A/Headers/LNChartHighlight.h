@@ -43,7 +43,6 @@ typedef NS_ENUM(NSUInteger, HighlightPosition) {
 @property (nonatomic, assign,getter=isDrawTimeLabel) BOOL drawTimeLabel;            //是否画时间
 @property (nonatomic, assign,getter=isDrawLevelLine) BOOL drawLevelLine;            //是否画水平线
 @property (nonatomic, assign,getter=isDrawPriceRatio) BOOL drawPriceRatio;          //是否画涨跌幅
-@property (nonatomic, assign,getter=isVolumeChartType) BOOL volumeChartType;        //是否是交易量图
 @property (nonatomic, assign,getter=isDrawVerticalLine) BOOL drawVerticalLine;      //是否画竖线
 @property (nonatomic, assign,getter=isDrawHighlightPoint) BOOL drawHighlightPoint;  //是否画高亮的点
 

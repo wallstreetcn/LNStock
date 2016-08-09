@@ -45,9 +45,23 @@ blue:((float)(a & 0xFF))/255.0 alpha:1.0]
 #define kSCHeaderLabel_D kColorHex(0x323232)
 #define kSCHeaderLabel_N kColorHex(0xcdcdcd)
 
-//Chart Color
+//Chart -------COLOR----------
 #define kSChartBG_D kColorHex(0xffffff)
-#define kSChartBG_N kColorHex(0xeaeaea)
+#define kSChartBG_N kColorHex(0x191919)
+
+//Chart BorderColor
+#define kSChartBorder_D kColorHex(0xeaeaea)
+#define kSChartBorder_N kColorHex(0x0A0A0A)
+
+//Hightlight
+#define kSChart_HL_LBG_D kColorHex(0xDBE6F0)
+#define kSChart_HL_LBG_N kColorHex(0xEDEDED)
+
+#define kSChart_HL_LLBG_D kColorHex(0xDBE6F0)
+#define kSChart_HL_LLBG_N kColorHex(0xEDEDED)
+
+#define kSChart_HL_VLBG_D kColorHex(0xDBE6F0)
+#define kSChart_HL_VLBG_N kColorHex(0xEDEDED)
 
 //UI Frame ----------------------------
 //默认StockView 高度
@@ -76,6 +90,33 @@ typedef NS_ENUM(NSInteger, LNStockTitleType) {
     LNChartTitleType_1W,        //1周(A股/外汇)
     LNChartTitleType_1M,        //1月(A股/外汇)
     LNChartTitleType_NULL       //A股为分钟Button，外汇为K线类型
+};
+
+//复权
+typedef NS_ENUM(NSInteger, LNStockAdjustType) {
+    LNStockAdjustType_Normal = 0,
+    LNStockAdjustType_Befor,
+    LNStockAdjustType_After
+};
+
+//因子
+typedef NS_ENUM(NSInteger, LNStockFactorType) {
+    LNStockFactorType_Volume = 0,
+    LNStockFactorType_MACD,
+    LNStockFactorType_BOLL,
+    LNStockFactorType_KDJ,
+    LNStockFactorType_RSI,
+    LNStockFactorType_OBV,
+    LNStockFactorType_DMI,
+    LNStockFactorType_WR,
+    LNStockFactorType_SAR
+};
+
+//请求类型
+typedef NS_ENUM(NSInteger, LNStockRequestType) {
+    LNStockRequestType_Normal = 0,
+    LNStockRequestType_Refresh,
+    LNStockRequestType_LoadMore
 };
 
 #endif /* LNStockDefine_h */
