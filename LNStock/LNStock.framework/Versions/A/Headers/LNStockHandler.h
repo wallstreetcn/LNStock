@@ -31,9 +31,9 @@ typedef NS_ENUM(NSInteger, LNStockChartType) {
 @property (nonatomic, copy) NSString *tradeStatus;                          //交易状态
 @property (nonatomic, strong) NSNumber *price_precision;                    //价格保留位数
 @property (nonatomic, strong) NSDate *currentlyDate;                        //股票最后交易时间
-@property (nonatomic, assign) LNStockTitleType titleType;                   //titelle
 @property (nonatomic, assign) LNStockPriceType priceType;                   //A B 股
 @property (nonatomic, assign) LNStockChartType chartType;                   //Chart类型
+@property (nonatomic, assign) LNStockTitleType titleType;                   //titelle
 @property (nonatomic, assign) LNStockAdjustType adjustType;                 //复权类型
 @property (nonatomic, assign) LNStockFactorType factorType;                 //股指类型
 @property (nonatomic, assign, getter=isGreenUp) BOOL greenUp;               //是否是绿涨红跌
