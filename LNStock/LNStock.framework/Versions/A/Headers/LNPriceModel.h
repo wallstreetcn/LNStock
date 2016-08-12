@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LNPriceModel : NSObject
+@interface LNPriceModel : NSObject <NSCoding>
 @property (nonatomic, copy) NSString *prod_name;                //股票名称
 @property (nonatomic, copy) NSString *prod_code;                //股票代码
 @property (nonatomic, copy) NSString *trade_status;             //交易状态
@@ -81,5 +81,4 @@
  sell 外汇卖出价格
  update_time  跟新时间
  real_status  实时数据
- 
  */

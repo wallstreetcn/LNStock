@@ -1,0 +1,1020 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		09556C3D68FABC28959CABC0 /* libPods-LNMarketTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4CF6ABCD20C55ACA13E18E9 /* libPods-LNMarketTests.a */; };
+		1E6813AD21141C1F5AC94C4D /* libPods-LNMarket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99A24EB5685C5BDDAFAD5E6C /* libPods-LNMarket.a */; };
+		32CD07D624A8613C23DE925E /* libPods-LNMarketUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8FB4043013B1EE4B56191D7 /* libPods-LNMarketUITests.a */; };
+		AF504F0D1D054F4B006C7B3B /* UIColor+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = AF504F011D054F4B006C7B3B /* UIColor+Tool.m */; };
+		AF504F111D054F4B006C7B3B /* UIView+LoadNib.m in Sources */ = {isa = PBXBuildFile; fileRef = AF504F0B1D054F4B006C7B3B /* UIView+LoadNib.m */; };
+		AF6766941D01613B0073A329 /* price_nav_backbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = AF6766931D01613B0073A329 /* price_nav_backbtn.png */; };
+		AF6766991D0163F10073A329 /* price_nav_refreshbtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF6766971D0163F10073A329 /* price_nav_refreshbtn@2x.png */; };
+		AF67669A1D0163F10073A329 /* price_nav_refreshbtn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF6766981D0163F10073A329 /* price_nav_refreshbtn@3x.png */; };
+		AF90C8781D06CB9100CAC494 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF90C8771D06CB9100CAC494 /* Assets.xcassets */; };
+		AF9214681D005A4600F3E172 /* LNNetworkAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9214611D005A4600F3E172 /* LNNetworkAPI.m */; };
+		AF9214691D005A4600F3E172 /* LNNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9214631D005A4600F3E172 /* LNNetWorking.m */; };
+		AF92146A1D005A4600F3E172 /* LNRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9214651D005A4600F3E172 /* LNRequest.m */; };
+		AF92146B1D005A4600F3E172 /* LNResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9214671D005A4600F3E172 /* LNResponse.m */; };
+		AFCCC0171CFFF4F400D07BA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0161CFFF4F400D07BA6 /* main.m */; };
+		AFCCC01A1CFFF4F400D07BA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0191CFFF4F400D07BA6 /* AppDelegate.m */; };
+		AFCCC0301CFFF4F400D07BA6 /* LNMarketTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC02F1CFFF4F400D07BA6 /* LNMarketTests.m */; };
+		AFCCC03B1CFFF4F400D07BA6 /* LNMarketUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC03A1CFFF4F400D07BA6 /* LNMarketUITests.m */; };
+		AFCCC0681CFFF59300D07BA6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0531CFFF59300D07BA6 /* ViewController.m */; };
+		AFCCC0701CFFF59300D07BA6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFCCC0661CFFF59300D07BA6 /* LaunchScreen.storyboard */; };
+		AFCCC0711CFFF59300D07BA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFCCC0671CFFF59300D07BA6 /* Main.storyboard */; };
+		AFCCC0861CFFF83200D07BA6 /* DebugCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0801CFFF83200D07BA6 /* DebugCell.m */; };
+		AFCCC0871CFFF83200D07BA6 /* DebugCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFCCC0811CFFF83200D07BA6 /* DebugCell.xib */; };
+		AFCCC0881CFFF83200D07BA6 /* DebugUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0831CFFF83200D07BA6 /* DebugUtils.m */; };
+		AFCCC0891CFFF83200D07BA6 /* DebugVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0851CFFF83200D07BA6 /* DebugVC.m */; };
+		AFCCC0B81CFFF89D00D07BA6 /* PriceNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0931CFFF89D00D07BA6 /* PriceNetwork.m */; };
+		AFCCC0B91CFFF89D00D07BA6 /* PriceCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0991CFFF89D00D07BA6 /* PriceCellModel.m */; };
+		AFCCC0BA1CFFF89D00D07BA6 /* PriceDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC09B1CFFF89D00D07BA6 /* PriceDataSource.m */; };
+		AFCCC0BB1CFFF89D00D07BA6 /* PriceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC09D1CFFF89D00D07BA6 /* PriceVC.m */; };
+		AFCCC0C11CFFF89D00D07BA6 /* PriceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0AD1CFFF89D00D07BA6 /* PriceCell.m */; };
+		AFCCC0C21CFFF89D00D07BA6 /* PriceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFCCC0AE1CFFF89D00D07BA6 /* PriceCell.xib */; };
+		AFCCC0C31CFFF89D00D07BA6 /* PriceNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0B11CFFF89D00D07BA6 /* PriceNavView.m */; };
+		AFCCC0C41CFFF89D00D07BA6 /* PriceNavView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFCCC0B21CFFF89D00D07BA6 /* PriceNavView.xib */; };
+		AFCCC0C51CFFF89D00D07BA6 /* SelectViewNew.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0B51CFFF89D00D07BA6 /* SelectViewNew.m */; };
+		AFCCC0C61CFFF89D00D07BA6 /* TriangleMarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0B71CFFF89D00D07BA6 /* TriangleMarkView.m */; };
+		AFCCC0DC1CFFFA6600D07BA6 /* PListUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0DB1CFFFA6600D07BA6 /* PListUtils.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AFCCC02C1CFFF4F400D07BA6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AFCCC00A1CFFF4F400D07BA6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AFCCC0111CFFF4F400D07BA6;
+			remoteInfo = LNMarket;
+		};
+		AFCCC0371CFFF4F400D07BA6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AFCCC00A1CFFF4F400D07BA6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AFCCC0111CFFF4F400D07BA6;
+			remoteInfo = LNMarket;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		467967F502DFD68278235AF8 /* Pods-LNMarketUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LNMarketUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LNMarketUITests/Pods-LNMarketUITests.release.xcconfig"; sourceTree = "<group>"; };
+		4886051E362114B8970AB5C3 /* Pods-LNMarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LNMarket.release.xcconfig"; path = "Pods/Target Support Files/Pods-LNMarket/Pods-LNMarket.release.xcconfig"; sourceTree = "<group>"; };
+		4B16E85232F1D3CE5DF13B09 /* Pods-LNMarketTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LNMarketTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LNMarketTests/Pods-LNMarketTests.debug.xcconfig"; sourceTree = "<group>"; };
+		806D59412376EA1DB67FA731 /* Pods-LNMarketUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LNMarketUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LNMarketUITests/Pods-LNMarketUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		99A24EB5685C5BDDAFAD5E6C /* libPods-LNMarket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LNMarket.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF3FBFD2A4C5F6043F7951F1 /* Pods-LNMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LNMarket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LNMarket/Pods-LNMarket.debug.xcconfig"; sourceTree = "<group>"; };
+		AF504F001D054F4B006C7B3B /* UIColor+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Tool.h"; sourceTree = "<group>"; };
+		AF504F011D054F4B006C7B3B /* UIColor+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Tool.m"; sourceTree = "<group>"; };
+		AF504F0A1D054F4B006C7B3B /* UIView+LoadNib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LoadNib.h"; sourceTree = "<group>"; };
+		AF504F0B1D054F4B006C7B3B /* UIView+LoadNib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LoadNib.m"; sourceTree = "<group>"; };
+		AF6766931D01613B0073A329 /* price_nav_backbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = price_nav_backbtn.png; sourceTree = "<group>"; };
+		AF6766971D0163F10073A329 /* price_nav_refreshbtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "price_nav_refreshbtn@2x.png"; sourceTree = "<group>"; };
+		AF6766981D0163F10073A329 /* price_nav_refreshbtn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "price_nav_refreshbtn@3x.png"; sourceTree = "<group>"; };
+		AF90C8771D06CB9100CAC494 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AF9214601D005A4600F3E172 /* LNNetworkAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNNetworkAPI.h; sourceTree = "<group>"; };
+		AF9214611D005A4600F3E172 /* LNNetworkAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNNetworkAPI.m; sourceTree = "<group>"; };
+		AF9214621D005A4600F3E172 /* LNNetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNNetWorking.h; sourceTree = "<group>"; };
+		AF9214631D005A4600F3E172 /* LNNetWorking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNNetWorking.m; sourceTree = "<group>"; };
+		AF9214641D005A4600F3E172 /* LNRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNRequest.h; sourceTree = "<group>"; };
+		AF9214651D005A4600F3E172 /* LNRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNRequest.m; sourceTree = "<group>"; };
+		AF9214661D005A4600F3E172 /* LNResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNResponse.h; sourceTree = "<group>"; };
+		AF9214671D005A4600F3E172 /* LNResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNResponse.m; sourceTree = "<group>"; };
+		AFCCC0121CFFF4F400D07BA6 /* LNMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LNMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFCCC0161CFFF4F400D07BA6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		AFCCC0181CFFF4F400D07BA6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		AFCCC0191CFFF4F400D07BA6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		AFCCC0261CFFF4F400D07BA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFCCC02B1CFFF4F400D07BA6 /* LNMarketTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LNMarketTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFCCC02F1CFFF4F400D07BA6 /* LNMarketTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNMarketTests.m; sourceTree = "<group>"; };
+		AFCCC0311CFFF4F400D07BA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFCCC0361CFFF4F400D07BA6 /* LNMarketUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LNMarketUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AFCCC03A1CFFF4F400D07BA6 /* LNMarketUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LNMarketUITests.m; sourceTree = "<group>"; };
+		AFCCC03C1CFFF4F400D07BA6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFCCC0521CFFF59300D07BA6 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		AFCCC0531CFFF59300D07BA6 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		AFCCC0661CFFF59300D07BA6 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AFCCC0671CFFF59300D07BA6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		AFCCC07F1CFFF83200D07BA6 /* DebugCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugCell.h; sourceTree = "<group>"; };
+		AFCCC0801CFFF83200D07BA6 /* DebugCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugCell.m; sourceTree = "<group>"; };
+		AFCCC0811CFFF83200D07BA6 /* DebugCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DebugCell.xib; sourceTree = "<group>"; };
+		AFCCC0821CFFF83200D07BA6 /* DebugUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugUtils.h; sourceTree = "<group>"; };
+		AFCCC0831CFFF83200D07BA6 /* DebugUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugUtils.m; sourceTree = "<group>"; };
+		AFCCC0841CFFF83200D07BA6 /* DebugVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugVC.h; sourceTree = "<group>"; };
+		AFCCC0851CFFF83200D07BA6 /* DebugVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugVC.m; sourceTree = "<group>"; };
+		AFCCC0921CFFF89D00D07BA6 /* PriceNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceNetwork.h; sourceTree = "<group>"; };
+		AFCCC0931CFFF89D00D07BA6 /* PriceNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceNetwork.m; sourceTree = "<group>"; };
+		AFCCC0961CFFF89D00D07BA6 /* PriceDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceDefine.h; sourceTree = "<group>"; };
+		AFCCC0981CFFF89D00D07BA6 /* PriceCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceCellModel.h; sourceTree = "<group>"; };
+		AFCCC0991CFFF89D00D07BA6 /* PriceCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceCellModel.m; sourceTree = "<group>"; };
+		AFCCC09A1CFFF89D00D07BA6 /* PriceDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceDataSource.h; sourceTree = "<group>"; };
+		AFCCC09B1CFFF89D00D07BA6 /* PriceDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceDataSource.m; sourceTree = "<group>"; };
+		AFCCC09C1CFFF89D00D07BA6 /* PriceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceVC.h; sourceTree = "<group>"; };
+		AFCCC09D1CFFF89D00D07BA6 /* PriceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceVC.m; sourceTree = "<group>"; };
+		AFCCC0AC1CFFF89D00D07BA6 /* PriceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceCell.h; sourceTree = "<group>"; };
+		AFCCC0AD1CFFF89D00D07BA6 /* PriceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceCell.m; sourceTree = "<group>"; };
+		AFCCC0AE1CFFF89D00D07BA6 /* PriceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriceCell.xib; sourceTree = "<group>"; };
+		AFCCC0B01CFFF89D00D07BA6 /* PriceNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceNavView.h; sourceTree = "<group>"; };
+		AFCCC0B11CFFF89D00D07BA6 /* PriceNavView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceNavView.m; sourceTree = "<group>"; };
+		AFCCC0B21CFFF89D00D07BA6 /* PriceNavView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriceNavView.xib; sourceTree = "<group>"; };
+		AFCCC0B41CFFF89D00D07BA6 /* SelectViewNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectViewNew.h; sourceTree = "<group>"; };
+		AFCCC0B51CFFF89D00D07BA6 /* SelectViewNew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectViewNew.m; sourceTree = "<group>"; };
+		AFCCC0B61CFFF89D00D07BA6 /* TriangleMarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleMarkView.h; sourceTree = "<group>"; };
+		AFCCC0B71CFFF89D00D07BA6 /* TriangleMarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriangleMarkView.m; sourceTree = "<group>"; };
+		AFCCC0DA1CFFFA6600D07BA6 /* PListUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PListUtils.h; sourceTree = "<group>"; };
+		AFCCC0DB1CFFFA6600D07BA6 /* PListUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PListUtils.m; sourceTree = "<group>"; };
+		AFCCC0EB1CFFFE3700D07BA6 /* AllDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllDefine.h; sourceTree = "<group>"; };
+		AFCCC0EC1CFFFE3700D07BA6 /* BlockDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockDefine.h; sourceTree = "<group>"; };
+		AFCCC0ED1CFFFE3700D07BA6 /* ColorDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorDefine.h; sourceTree = "<group>"; };
+		AFCCC0EE1CFFFE3700D07BA6 /* CommentDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentDefine.h; sourceTree = "<group>"; };
+		AFCCC0EF1CFFFE3700D07BA6 /* FontDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontDefine.h; sourceTree = "<group>"; };
+		AFCCC0F01CFFFE3700D07BA6 /* FunctionDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunctionDefine.h; sourceTree = "<group>"; };
+		AFCCC0F11CFFFE3700D07BA6 /* KeyDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyDefine.h; sourceTree = "<group>"; };
+		AFCCC0F21CFFFE3700D07BA6 /* NotificationDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationDefine.h; sourceTree = "<group>"; };
+		AFCCC0F31CFFFE3700D07BA6 /* UIDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDefine.h; sourceTree = "<group>"; };
+		B96DFA58860A7D179175AD64 /* Pods-LNMarketTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LNMarketTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LNMarketTests/Pods-LNMarketTests.release.xcconfig"; sourceTree = "<group>"; };
+		C8FB4043013B1EE4B56191D7 /* libPods-LNMarketUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LNMarketUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4CF6ABCD20C55ACA13E18E9 /* libPods-LNMarketTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LNMarketTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AFCCC00F1CFFF4F400D07BA6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1E6813AD21141C1F5AC94C4D /* libPods-LNMarket.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFCCC0281CFFF4F400D07BA6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				09556C3D68FABC28959CABC0 /* libPods-LNMarketTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFCCC0331CFFF4F400D07BA6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32CD07D624A8613C23DE925E /* libPods-LNMarketUITests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		65E19DCA93DAB372128DD196 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AF3FBFD2A4C5F6043F7951F1 /* Pods-LNMarket.debug.xcconfig */,
+				4886051E362114B8970AB5C3 /* Pods-LNMarket.release.xcconfig */,
+				4B16E85232F1D3CE5DF13B09 /* Pods-LNMarketTests.debug.xcconfig */,
+				B96DFA58860A7D179175AD64 /* Pods-LNMarketTests.release.xcconfig */,
+				806D59412376EA1DB67FA731 /* Pods-LNMarketUITests.debug.xcconfig */,
+				467967F502DFD68278235AF8 /* Pods-LNMarketUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		949302396CAE1F216CB7A25B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				99A24EB5685C5BDDAFAD5E6C /* libPods-LNMarket.a */,
+				E4CF6ABCD20C55ACA13E18E9 /* libPods-LNMarketTests.a */,
+				C8FB4043013B1EE4B56191D7 /* libPods-LNMarketUITests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AF504EFC1D054F4B006C7B3B /* LNCategory */ = {
+			isa = PBXGroup;
+			children = (
+				AF504EFD1D054F4B006C7B3B /* UIColor */,
+				AF504F071D054F4B006C7B3B /* UIView */,
+			);
+			path = LNCategory;
+			sourceTree = "<group>";
+		};
+		AF504EFD1D054F4B006C7B3B /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				AF504F001D054F4B006C7B3B /* UIColor+Tool.h */,
+				AF504F011D054F4B006C7B3B /* UIColor+Tool.m */,
+			);
+			path = UIColor;
+			sourceTree = "<group>";
+		};
+		AF504F071D054F4B006C7B3B /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				AF504F0A1D054F4B006C7B3B /* UIView+LoadNib.h */,
+				AF504F0B1D054F4B006C7B3B /* UIView+LoadNib.m */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		AF67668E1D015FAC0073A329 /* PriceResources */ = {
+			isa = PBXGroup;
+			children = (
+				AF6766971D0163F10073A329 /* price_nav_refreshbtn@2x.png */,
+				AF6766981D0163F10073A329 /* price_nav_refreshbtn@3x.png */,
+				AF6766931D01613B0073A329 /* price_nav_backbtn.png */,
+			);
+			path = PriceResources;
+			sourceTree = "<group>";
+		};
+		AF92145F1D005A4600F3E172 /* LNNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				AF9214601D005A4600F3E172 /* LNNetworkAPI.h */,
+				AF9214611D005A4600F3E172 /* LNNetworkAPI.m */,
+				AF9214621D005A4600F3E172 /* LNNetWorking.h */,
+				AF9214631D005A4600F3E172 /* LNNetWorking.m */,
+				AF9214641D005A4600F3E172 /* LNRequest.h */,
+				AF9214651D005A4600F3E172 /* LNRequest.m */,
+				AF9214661D005A4600F3E172 /* LNResponse.h */,
+				AF9214671D005A4600F3E172 /* LNResponse.m */,
+			);
+			path = LNNetwork;
+			sourceTree = "<group>";
+		};
+		AFCCC0091CFFF4F400D07BA6 = {
+			isa = PBXGroup;
+			children = (
+				AFCCC0141CFFF4F400D07BA6 /* LNMarket */,
+				AFCCC02E1CFFF4F400D07BA6 /* LNMarketTests */,
+				AFCCC0391CFFF4F400D07BA6 /* LNMarketUITests */,
+				AFCCC0131CFFF4F400D07BA6 /* Products */,
+				65E19DCA93DAB372128DD196 /* Pods */,
+				949302396CAE1F216CB7A25B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AFCCC0131CFFF4F400D07BA6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AFCCC0121CFFF4F400D07BA6 /* LNMarket.app */,
+				AFCCC02B1CFFF4F400D07BA6 /* LNMarketTests.xctest */,
+				AFCCC0361CFFF4F400D07BA6 /* LNMarketUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AFCCC0141CFFF4F400D07BA6 /* LNMarket */ = {
+			isa = PBXGroup;
+			children = (
+				AFCCC0751CFFF60B00D07BA6 /* Libraries */,
+				AFCCC0501CFFF59300D07BA6 /* Classes */,
+				AFCCC0651CFFF59300D07BA6 /* StoryBoard */,
+				AFCCC0181CFFF4F400D07BA6 /* AppDelegate.h */,
+				AFCCC0191CFFF4F400D07BA6 /* AppDelegate.m */,
+				AFCCC0261CFFF4F400D07BA6 /* Info.plist */,
+				AF90C8771D06CB9100CAC494 /* Assets.xcassets */,
+				AFCCC0151CFFF4F400D07BA6 /* Supporting Files */,
+			);
+			path = LNMarket;
+			sourceTree = "<group>";
+		};
+		AFCCC0151CFFF4F400D07BA6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AFCCC0161CFFF4F400D07BA6 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AFCCC02E1CFFF4F400D07BA6 /* LNMarketTests */ = {
+			isa = PBXGroup;
+			children = (
+				AFCCC02F1CFFF4F400D07BA6 /* LNMarketTests.m */,
+				AFCCC0311CFFF4F400D07BA6 /* Info.plist */,
+			);
+			path = LNMarketTests;
+			sourceTree = "<group>";
+		};
+		AFCCC0391CFFF4F400D07BA6 /* LNMarketUITests */ = {
+			isa = PBXGroup;
+			children = (
+				AFCCC03A1CFFF4F400D07BA6 /* LNMarketUITests.m */,
+				AFCCC03C1CFFF4F400D07BA6 /* Info.plist */,
+			);
+			path = LNMarketUITests;
+			sourceTree = "<group>";
+		};
+		AFCCC0501CFFF59300D07BA6 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				AFCCC0901CFFF89D00D07BA6 /* LNPrice */,
+				AFCCC0511CFFF59300D07BA6 /* MainVC */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		AFCCC0511CFFF59300D07BA6 /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				AFCCC0521CFFF59300D07BA6 /* ViewController.h */,
+				AFCCC0531CFFF59300D07BA6 /* ViewController.m */,
+			);
+			path = MainVC;
+			sourceTree = "<group>";
+		};
+		AFCCC0651CFFF59300D07BA6 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				AFCCC0661CFFF59300D07BA6 /* LaunchScreen.storyboard */,
+				AFCCC0671CFFF59300D07BA6 /* Main.storyboard */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		AFCCC0751CFFF60B00D07BA6 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				AF504EFC1D054F4B006C7B3B /* LNCategory */,
+				AF92145F1D005A4600F3E172 /* LNNetwork */,
+				AFCCC0EA1CFFFE3700D07BA6 /* LNDefine */,
+				AFCCC0D91CFFFA6600D07BA6 /* PListUtils */,
+				AFCCC07E1CFFF83200D07BA6 /* DebugUtils */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		AFCCC07E1CFFF83200D07BA6 /* DebugUtils */ = {
+			isa = PBXGroup;
+			children = (
+				AFCCC07F1CFFF83200D07BA6 /* DebugCell.h */,
+				AFCCC0801CFFF83200D07BA6 /* DebugCell.m */,
+				AFCCC0811CFFF83200D07BA6 /* DebugCell.xib */,
+				AFCCC0821CFFF83200D07BA6 /* DebugUtils.h */,
+				AFCCC0831CFFF83200D07BA6 /* DebugUtils.m */,
+				AFCCC0841CFFF83200D07BA6 /* DebugVC.h */,
+				AFCCC0851CFFF83200D07BA6 /* DebugVC.m */,
+			);
+			path = DebugUtils;
+			sourceTree = "<group>";
+		};
+		AFCCC0901CFFF89D00D07BA6 /* LNPrice */ = {
+			isa = PBXGroup;
+			children = (
+				AF67668E1D015FAC0073A329 /* PriceResources */,
+				AFCCC0911CFFF89D00D07BA6 /* PriceNetwork */,
+				AFCCC0941CFFF89D00D07BA6 /* PriceVC */,
+			);
+			path = LNPrice;
+			sourceTree = "<group>";
+		};
+		AFCCC0911CFFF89D00D07BA6 /* PriceNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				AFCCC0921CFFF89D00D07BA6 /* PriceNetwork.h */,
+				AFCCC0931CFFF89D00D07BA6 /* PriceNetwork.m */,
+			);
+			path = PriceNetwork;
+			sourceTree = "<group>";
+		};
+		AFCCC0941CFFF89D00D07BA6 /* PriceVC */ = {
+			isa = PBXGroup;
+			children = (
+				AFCCC0951CFFF89D00D07BA6 /* Define */,
+				AFCCC0971CFFF89D00D07BA6 /* Model */,
+				AFCCC09A1CFFF89D00D07BA6 /* PriceDataSource.h */,
+				AFCCC09B1CFFF89D00D07BA6 /* PriceDataSource.m */,
+				AFCCC09C1CFFF89D00D07BA6 /* PriceVC.h */,
+				AFCCC09D1CFFF89D00D07BA6 /* PriceVC.m */,
+				AFCCC09E1CFFF89D00D07BA6 /* View */,
+			);
+			path = PriceVC;
+			sourceTree = "<group>";
+		};
+		AFCCC0951CFFF89D00D07BA6 /* Define */ = {
+			isa = PBXGroup;
+			children = (
+				AFCCC0961CFFF89D00D07BA6 /* PriceDefine.h */,
+			);
+			path = Define;
+			sourceTree = "<group>";
+		};
+		AFCCC0971CFFF89D00D07BA6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				AFCCC0981CFFF89D00D07BA6 /* PriceCellModel.h */,
+				AFCCC0991CFFF89D00D07BA6 /* PriceCellModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AFCCC09E1CFFF89D00D07BA6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AFCCC0AB1CFFF89D00D07BA6 /* PriceCell */,
+				AFCCC0AF1CFFF89D00D07BA6 /* PriceNavView */,
+				AFCCC0B31CFFF89D00D07BA6 /* PriceSelectView */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		AFCCC0AB1CFFF89D00D07BA6 /* PriceCell */ = {
+			isa = PBXGroup;
+			children = (
+				AFCCC0AC1CFFF89D00D07BA6 /* PriceCell.h */,
+				AFCCC0AD1CFFF89D00D07BA6 /* PriceCell.m */,
+				AFCCC0AE1CFFF89D00D07BA6 /* PriceCell.xib */,
+			);
+			path = PriceCell;
+			sourceTree = "<group>";
+		};
+		AFCCC0AF1CFFF89D00D07BA6 /* PriceNavView */ = {
+			isa = PBXGroup;
+			children = (
+				AFCCC0B01CFFF89D00D07BA6 /* PriceNavView.h */,
+				AFCCC0B11CFFF89D00D07BA6 /* PriceNavView.m */,
+				AFCCC0B21CFFF89D00D07BA6 /* PriceNavView.xib */,
+			);
+			path = PriceNavView;
+			sourceTree = "<group>";
+		};
+		AFCCC0B31CFFF89D00D07BA6 /* PriceSelectView */ = {
+			isa = PBXGroup;
+			children = (
+				AFCCC0B41CFFF89D00D07BA6 /* SelectViewNew.h */,
+				AFCCC0B51CFFF89D00D07BA6 /* SelectViewNew.m */,
+				AFCCC0B61CFFF89D00D07BA6 /* TriangleMarkView.h */,
+				AFCCC0B71CFFF89D00D07BA6 /* TriangleMarkView.m */,
+			);
+			path = PriceSelectView;
+			sourceTree = "<group>";
+		};
+		AFCCC0D91CFFFA6600D07BA6 /* PListUtils */ = {
+			isa = PBXGroup;
+			children = (
+				AFCCC0DA1CFFFA6600D07BA6 /* PListUtils.h */,
+				AFCCC0DB1CFFFA6600D07BA6 /* PListUtils.m */,
+			);
+			path = PListUtils;
+			sourceTree = "<group>";
+		};
+		AFCCC0EA1CFFFE3700D07BA6 /* LNDefine */ = {
+			isa = PBXGroup;
+			children = (
+				AFCCC0EB1CFFFE3700D07BA6 /* AllDefine.h */,
+				AFCCC0EC1CFFFE3700D07BA6 /* BlockDefine.h */,
+				AFCCC0ED1CFFFE3700D07BA6 /* ColorDefine.h */,
+				AFCCC0EE1CFFFE3700D07BA6 /* CommentDefine.h */,
+				AFCCC0EF1CFFFE3700D07BA6 /* FontDefine.h */,
+				AFCCC0F01CFFFE3700D07BA6 /* FunctionDefine.h */,
+				AFCCC0F11CFFFE3700D07BA6 /* KeyDefine.h */,
+				AFCCC0F21CFFFE3700D07BA6 /* NotificationDefine.h */,
+				AFCCC0F31CFFFE3700D07BA6 /* UIDefine.h */,
+			);
+			path = LNDefine;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AFCCC0111CFFF4F400D07BA6 /* LNMarket */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFCCC03F1CFFF4F400D07BA6 /* Build configuration list for PBXNativeTarget "LNMarket" */;
+			buildPhases = (
+				7A246624E8278FCBF1412D23 /* [CP] Check Pods Manifest.lock */,
+				AFCCC00E1CFFF4F400D07BA6 /* Sources */,
+				AFCCC00F1CFFF4F400D07BA6 /* Frameworks */,
+				AFCCC0101CFFF4F400D07BA6 /* Resources */,
+				BE1FF6C1D67612AACF637D4B /* [CP] Embed Pods Frameworks */,
+				16BE965C9688D589F58D1145 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LNMarket;
+			productName = LNMarket;
+			productReference = AFCCC0121CFFF4F400D07BA6 /* LNMarket.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AFCCC02A1CFFF4F400D07BA6 /* LNMarketTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFCCC0421CFFF4F400D07BA6 /* Build configuration list for PBXNativeTarget "LNMarketTests" */;
+			buildPhases = (
+				20E5A08EABCCF54A7393212D /* [CP] Check Pods Manifest.lock */,
+				AFCCC0271CFFF4F400D07BA6 /* Sources */,
+				AFCCC0281CFFF4F400D07BA6 /* Frameworks */,
+				AFCCC0291CFFF4F400D07BA6 /* Resources */,
+				EE28012AE8EAC2D57BE33EB1 /* [CP] Embed Pods Frameworks */,
+				F02C471CF72CBEE667A193C4 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AFCCC02D1CFFF4F400D07BA6 /* PBXTargetDependency */,
+			);
+			name = LNMarketTests;
+			productName = LNMarketTests;
+			productReference = AFCCC02B1CFFF4F400D07BA6 /* LNMarketTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		AFCCC0351CFFF4F400D07BA6 /* LNMarketUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AFCCC0451CFFF4F400D07BA6 /* Build configuration list for PBXNativeTarget "LNMarketUITests" */;
+			buildPhases = (
+				637AA826CF608CA3701A2A15 /* [CP] Check Pods Manifest.lock */,
+				AFCCC0321CFFF4F400D07BA6 /* Sources */,
+				AFCCC0331CFFF4F400D07BA6 /* Frameworks */,
+				AFCCC0341CFFF4F400D07BA6 /* Resources */,
+				F894AA5872FE777A7A9CE5AA /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AFCCC0381CFFF4F400D07BA6 /* PBXTargetDependency */,
+			);
+			name = LNMarketUITests;
+			productName = LNMarketUITests;
+			productReference = AFCCC0361CFFF4F400D07BA6 /* LNMarketUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AFCCC00A1CFFF4F400D07BA6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = vvusu;
+				TargetAttributes = {
+					AFCCC0111CFFF4F400D07BA6 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					AFCCC02A1CFFF4F400D07BA6 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = AFCCC0111CFFF4F400D07BA6;
+					};
+					AFCCC0351CFFF4F400D07BA6 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = AFCCC0111CFFF4F400D07BA6;
+					};
+				};
+			};
+			buildConfigurationList = AFCCC00D1CFFF4F400D07BA6 /* Build configuration list for PBXProject "LNMarket" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AFCCC0091CFFF4F400D07BA6;
+			productRefGroup = AFCCC0131CFFF4F400D07BA6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AFCCC0111CFFF4F400D07BA6 /* LNMarket */,
+				AFCCC02A1CFFF4F400D07BA6 /* LNMarketTests */,
+				AFCCC0351CFFF4F400D07BA6 /* LNMarketUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AFCCC0101CFFF4F400D07BA6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF90C8781D06CB9100CAC494 /* Assets.xcassets in Resources */,
+				AF6766941D01613B0073A329 /* price_nav_backbtn.png in Resources */,
+				AF67669A1D0163F10073A329 /* price_nav_refreshbtn@3x.png in Resources */,
+				AF6766991D0163F10073A329 /* price_nav_refreshbtn@2x.png in Resources */,
+				AFCCC0711CFFF59300D07BA6 /* Main.storyboard in Resources */,
+				AFCCC0C21CFFF89D00D07BA6 /* PriceCell.xib in Resources */,
+				AFCCC0701CFFF59300D07BA6 /* LaunchScreen.storyboard in Resources */,
+				AFCCC0871CFFF83200D07BA6 /* DebugCell.xib in Resources */,
+				AFCCC0C41CFFF89D00D07BA6 /* PriceNavView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFCCC0291CFFF4F400D07BA6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFCCC0341CFFF4F400D07BA6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		16BE965C9688D589F58D1145 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LNMarket/Pods-LNMarket-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		20E5A08EABCCF54A7393212D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		637AA826CF608CA3701A2A15 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7A246624E8278FCBF1412D23 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BE1FF6C1D67612AACF637D4B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LNMarket/Pods-LNMarket-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE28012AE8EAC2D57BE33EB1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LNMarketTests/Pods-LNMarketTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F02C471CF72CBEE667A193C4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LNMarketTests/Pods-LNMarketTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F894AA5872FE777A7A9CE5AA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LNMarketUITests/Pods-LNMarketUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AFCCC00E1CFFF4F400D07BA6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFCCC0C61CFFF89D00D07BA6 /* TriangleMarkView.m in Sources */,
+				AFCCC0891CFFF83200D07BA6 /* DebugVC.m in Sources */,
+				AFCCC0B81CFFF89D00D07BA6 /* PriceNetwork.m in Sources */,
+				AF92146A1D005A4600F3E172 /* LNRequest.m in Sources */,
+				AF504F111D054F4B006C7B3B /* UIView+LoadNib.m in Sources */,
+				AFCCC0B91CFFF89D00D07BA6 /* PriceCellModel.m in Sources */,
+				AFCCC0861CFFF83200D07BA6 /* DebugCell.m in Sources */,
+				AFCCC0C51CFFF89D00D07BA6 /* SelectViewNew.m in Sources */,
+				AFCCC0C31CFFF89D00D07BA6 /* PriceNavView.m in Sources */,
+				AF9214691D005A4600F3E172 /* LNNetWorking.m in Sources */,
+				AFCCC0BB1CFFF89D00D07BA6 /* PriceVC.m in Sources */,
+				AF9214681D005A4600F3E172 /* LNNetworkAPI.m in Sources */,
+				AFCCC0681CFFF59300D07BA6 /* ViewController.m in Sources */,
+				AFCCC0C11CFFF89D00D07BA6 /* PriceCell.m in Sources */,
+				AF92146B1D005A4600F3E172 /* LNResponse.m in Sources */,
+				AFCCC01A1CFFF4F400D07BA6 /* AppDelegate.m in Sources */,
+				AFCCC0BA1CFFF89D00D07BA6 /* PriceDataSource.m in Sources */,
+				AFCCC0171CFFF4F400D07BA6 /* main.m in Sources */,
+				AFCCC0DC1CFFFA6600D07BA6 /* PListUtils.m in Sources */,
+				AFCCC0881CFFF83200D07BA6 /* DebugUtils.m in Sources */,
+				AF504F0D1D054F4B006C7B3B /* UIColor+Tool.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFCCC0271CFFF4F400D07BA6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFCCC0301CFFF4F400D07BA6 /* LNMarketTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AFCCC0321CFFF4F400D07BA6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFCCC03B1CFFF4F400D07BA6 /* LNMarketUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AFCCC02D1CFFF4F400D07BA6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AFCCC0111CFFF4F400D07BA6 /* LNMarket */;
+			targetProxy = AFCCC02C1CFFF4F400D07BA6 /* PBXContainerItemProxy */;
+		};
+		AFCCC0381CFFF4F400D07BA6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AFCCC0111CFFF4F400D07BA6 /* LNMarket */;
+			targetProxy = AFCCC0371CFFF4F400D07BA6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		AFCCC03D1CFFF4F400D07BA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AFCCC03E1CFFF4F400D07BA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AFCCC0401CFFF4F400D07BA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF3FBFD2A4C5F6043F7951F1 /* Pods-LNMarket.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ZhiYao Pan (MA37T43NNR)";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LNMarket/Libraries",
+				);
+				INFOPLIST_FILE = LNMarket/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wscn.market;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		AFCCC0411CFFF4F400D07BA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4886051E362114B8970AB5C3 /* Pods-LNMarket.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Aniu Information Technology Co., Ltd.";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/LNMarket/Libraries",
+				);
+				INFOPLIST_FILE = LNMarket/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.wscn.market;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		AFCCC0431CFFF4F400D07BA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4B16E85232F1D3CE5DF13B09 /* Pods-LNMarketTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = LNMarketTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = vvusu.LNMarketTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LNMarket.app/LNMarket";
+			};
+			name = Debug;
+		};
+		AFCCC0441CFFF4F400D07BA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B96DFA58860A7D179175AD64 /* Pods-LNMarketTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = LNMarketTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = vvusu.LNMarketTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LNMarket.app/LNMarket";
+			};
+			name = Release;
+		};
+		AFCCC0461CFFF4F400D07BA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 806D59412376EA1DB67FA731 /* Pods-LNMarketUITests.debug.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = LNMarketUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = vvusu.LNMarketUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = LNMarket;
+			};
+			name = Debug;
+		};
+		AFCCC0471CFFF4F400D07BA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 467967F502DFD68278235AF8 /* Pods-LNMarketUITests.release.xcconfig */;
+			buildSettings = {
+				INFOPLIST_FILE = LNMarketUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = vvusu.LNMarketUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = LNMarket;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AFCCC00D1CFFF4F400D07BA6 /* Build configuration list for PBXProject "LNMarket" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFCCC03D1CFFF4F400D07BA6 /* Debug */,
+				AFCCC03E1CFFF4F400D07BA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AFCCC03F1CFFF4F400D07BA6 /* Build configuration list for PBXNativeTarget "LNMarket" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFCCC0401CFFF4F400D07BA6 /* Debug */,
+				AFCCC0411CFFF4F400D07BA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AFCCC0421CFFF4F400D07BA6 /* Build configuration list for PBXNativeTarget "LNMarketTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFCCC0431CFFF4F400D07BA6 /* Debug */,
+				AFCCC0441CFFF4F400D07BA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AFCCC0451CFFF4F400D07BA6 /* Build configuration list for PBXNativeTarget "LNMarketUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AFCCC0461CFFF4F400D07BA6 /* Debug */,
+				AFCCC0471CFFF4F400D07BA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AFCCC00A1CFFF4F400D07BA6 /* Project object */;
+}

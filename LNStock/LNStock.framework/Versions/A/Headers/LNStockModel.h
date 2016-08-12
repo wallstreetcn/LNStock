@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LNStockModel : NSObject
+@interface LNStockModel : NSObject <NSCoding>
 //KLine
 @property (nonatomic, strong) NSNumber *open;           //开盘价
 @property (nonatomic, strong) NSNumber *close;          //收盘价

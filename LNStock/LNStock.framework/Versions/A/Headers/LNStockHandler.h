@@ -32,12 +32,13 @@ typedef NS_ENUM(NSInteger, LNStockChartType) {
 @property (nonatomic, strong) NSNumber *price_precision;                    //价格保留位数
 @property (nonatomic, strong) NSDate *currentlyDate;                        //股票最后交易时间
 @property (nonatomic, assign) LNStockPriceType priceType;                   //A B 股
-@property (nonatomic, assign) LNStockChartType chartType;                   //Chart类型
 @property (nonatomic, assign) LNStockTitleType titleType;                   //titelle
+@property (nonatomic, assign) LNStockChartType chartType;                   //Chart类型
 @property (nonatomic, assign) LNStockAdjustType adjustType;                 //复权类型
 @property (nonatomic, assign) LNStockFactorType factorType;                 //股指类型
 @property (nonatomic, assign, getter=isGreenUp) BOOL greenUp;               //是否是绿涨红跌
 @property (nonatomic, assign, getter=isNightMode) BOOL nightMode;           //是否是夜晚模式
+@property (nonatomic, assign, getter=isLongPress) BOOL longPress;           //是否是长按高亮
 @property (nonatomic, assign, getter=isVerticalScreen) BOOL verticalScreen; //是否是竖屏
 
 +(LNStockHandler *)sharedManager;
@@ -51,6 +52,8 @@ typedef NS_ENUM(NSInteger, LNStockChartType) {
 + (BOOL)isIndexStock;
 //是否是竖屏
 + (BOOL)isVerticalScreen;
+//是否是长按高亮
++ (BOOL)isLongPress;
 //股票代码
 + (NSString *)code;
 //最后的交易时间
@@ -71,4 +74,5 @@ typedef NS_ENUM(NSInteger, LNStockChartType) {
 + (LNStockAdjustType)adjustType;
 //因子类型
 + (LNStockFactorType)factorType;
+
 @end
