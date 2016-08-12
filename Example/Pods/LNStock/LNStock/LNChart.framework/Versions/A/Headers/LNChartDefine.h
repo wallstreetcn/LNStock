@@ -28,15 +28,33 @@ blue:((float)(a & 0xFF))/255.0 alpha:1.0]
 #define kC_MACD_MACD kCHex(0x8873A2)
 
 //BOLL
+#define kC_BOLL_MID kCHex(0xD16A7C)
+#define kC_BOLL_UPPER kCHex(0xF9AD79)
+#define kC_BOLL_LOWER kCHex(0x8873A2)
 
+//KDJ
+#define kC_KDJ_K kCHex(0xD16A7C)
+#define kC_KDJ_D kCHex(0xF9AD79)
+#define kC_KDJ_J kCHex(0x8873A2)
+
+//RSI
+#define kC_RSI_6 kCHex(0xD16A7C)
+#define kC_RSI_12 kCHex(0xF9AD79)
+#define kC_RSI_24 kCHex(0x8873A2)
+
+//OBV
+#define kC_OBV kCHex(0xD16A7C)
+
+//---------------------------
+//图表类型
 typedef NS_ENUM(NSUInteger, ChartViewType) {
     ChartViewType_Line = 0,
     ChartViewType_Columnar,
     ChartViewType_Candle,
+    ChartViewType_HollowCandle,
     ChartViewType_Bars,
     ChartViewType_MACD
 };
-//hollow Candles
 
 //左拉加载更多状态
 typedef NS_ENUM(NSUInteger, ChartLoadMoreType) {
