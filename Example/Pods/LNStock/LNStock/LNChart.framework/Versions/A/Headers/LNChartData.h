@@ -34,7 +34,7 @@
 @property (nonatomic, assign) NSInteger emptyStartNum;        //开始的空蜡烛个数
 @property (nonatomic, strong) NSMutableArray *xVals;          //x轴的数据
 @property (nonatomic, strong) NSMutableArray *dataSets;       //点的数据
-@property (nonatomic, copy) NSString *precision;              //保留几位小数
+@property (nonatomic, copy) NSString *precision;              //保留几位小数 格式 @"%.2f"
 
 @property (nonatomic, strong) LNLineSet *lineSet;
 @property (nonatomic, strong) LNCandleSet *candleSet;

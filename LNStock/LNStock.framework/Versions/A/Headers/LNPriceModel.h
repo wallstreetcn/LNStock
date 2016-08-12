@@ -50,6 +50,14 @@
 
 - (void)setupWithCode:(NSString *)code dataDic:(NSDictionary *)dataDic;
 + (NSMutableArray *)parseDataWithDataDic:(NSDictionary *)dataDic;
+/**
+ *  解析外汇数据
+ *
+ *  @param dataDic 外汇数据，是服务器返回数据中的snapshot字典
+ *
+ *  @return 返回数据
+ */
++ (NSMutableArray *)parseForexDataWithDataDic:(NSDictionary *)dataDic;
 @end
 
 /*

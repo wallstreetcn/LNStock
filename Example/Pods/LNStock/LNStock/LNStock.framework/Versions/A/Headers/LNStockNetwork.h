@@ -78,4 +78,15 @@ typedef void(^PriceNetworkBlock)(BOOL isSuccess, id response);
  */
 + (void)getStockListDataWithProdCodeArr:(NSArray *)prodCodeArr block:(PriceNetworkBlock)block;
 
+/**
+ *  搜索列表
+ *
+ *  @param content 搜索的内容，NSString型
+ *  @param num     返回结果的数量，NSInteger型
+ *  @param block   Block返回数据
+ */
++ (void)getStockSearchListWithContent:(NSString *)content
+                                  num:(NSString *)num
+                                block:(PriceNetworkBlock)block;
+
 @end

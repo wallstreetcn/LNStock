@@ -12,6 +12,5 @@
 #import <LNStock/LNStockModel.h>
 #import <LNStock/LNStockNetwork.h>
 #import <LNStock/LNStockHandler.h>
-
 @interface LNStock : NSObject
 @end
