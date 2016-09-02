@@ -22,6 +22,7 @@ typedef NS_ENUM(NSUInteger, LNStockPriceType) {
 typedef NS_ENUM(NSInteger, LNStockChartType) {
     LNStockChartType_Line = 0,
     LNStockChartType_Candles,
+    LNStockChartType_HollowCandle,
     LNStockChartType_Bars
 };
 

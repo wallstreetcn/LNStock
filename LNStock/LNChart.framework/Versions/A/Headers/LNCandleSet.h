@@ -14,15 +14,11 @@
 @property (nonatomic, assign) CGFloat candleW;                  //candle宽度
 @property (nonatomic, assign) CGFloat candleMaxW;               //candle最大宽度
 @property (nonatomic, assign) CGFloat candleMinW;               //candle最小宽度
-@property (nonatomic, strong) NSMutableArray *points;           //点的坐标
 @property (nonatomic, strong) NSMutableArray *pointColors;      //点的颜色
-@property (nonatomic, strong) NSMutableArray *candleRacts;
-@property (nonatomic, strong) NSMutableArray *candleLinePoints;
 
 @property (nonatomic, strong) NSArray *MAType;                  //MAType 标示 (MA5 MA10 MA20 ...)
 @property (nonatomic, strong) NSArray *MAColors;                //MA颜色
 @property (nonatomic, assign) CGFloat MALineWidth;              //MA线宽度
-@property (nonatomic, strong) NSMutableArray *MAPoints;         //MA点的坐标
 
 @property (nonatomic, strong) UIColor *candleRiseColor;         //上涨颜色
 @property (nonatomic, strong) UIColor *candleFallColor;         //下跌颜色

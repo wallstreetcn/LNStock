@@ -13,8 +13,9 @@
 @property (nonatomic, copy) NSString *prod_code;                //股票代码
 @property (nonatomic, copy) NSString *trade_status;             //交易状态
 @property (nonatomic, copy) NSString *hq_type_code;             //证券分类信息
-@property (nonatomic, copy) NSString *securities_type;          //证券类型
 @property (nonatomic, copy) NSNumber *price_precision;          //价格保留几位小数
+@property (nonatomic, copy) NSString *market_type;              //股票面板选择（mdc A股,forexdata 外汇)
+@property (nonatomic, copy) NSString *securities_type;          //证券类型 (A股4种，外汇5种)
 
 @property (nonatomic, strong) NSNumber *last_px;                //最新价
 @property (nonatomic, strong) NSNumber *px_change;              //涨跌额
@@ -58,35 +59,14 @@
  *  @return 返回数据
  */
 + (NSMutableArray *)parseForexDataWithDataDic:(NSDictionary *)dataDic;
-@end
 
-/*
- prod_name	股票名称
- prod_code  股票代码
- last_px	最新价
- px_change	涨跌额
- px_change_rate	涨跌幅
- high_px	最高价
- low_px	最低价
- open_px	开盘价
- preclose_px	昨收价
- business_amount	成交量
- business_balance	成交额
- market_value	总市值
- turnover_ratio	换手率
- dyn_pb_rate	市净率
- amplitude	振幅
- pe_rate	市盈率
- bps	每股净资产
- hq_type_code	证券分类信息
- trade_status	交易状态
- business_amount_in	内盘
- business_amount_out	外盘
- circulation_value	流通市值
- securities_type	证券类型
- 
- buy  外汇买入价格
- sell 外汇卖出价格
- update_time  跟新时间
- real_status  实时数据
+/**
+ *  解析自选返回数据
+ *
+ *  @param dataDic     服务器返回数据
+ *  @param prodCodeArr 用户自选列表（主要是取该列表的顺序）
+ *
+ *  @return 以数组的形式返回数据，数组中元素的顺序和prodCodeArr的顺序一致
  */
++ (NSMutableArray *)parseForexDataWithDataDic:(NSDictionary *)dataDic prodCodeArr:(NSArray *)prodCodeArr;
+@end

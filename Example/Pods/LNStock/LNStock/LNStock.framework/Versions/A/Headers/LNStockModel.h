@@ -29,7 +29,7 @@
 @property (nonatomic, strong) NSNumber *volume;
 //MACD
 @property (nonatomic, strong) NSNumber *macd;
-@property (nonatomic, strong) NSNumber *dif;
+@property (nonatomic, strong) NSNumber *diff;
 @property (nonatomic, strong) NSNumber *dea;
 //BOLL
 @property (nonatomic, strong) NSNumber *mid;

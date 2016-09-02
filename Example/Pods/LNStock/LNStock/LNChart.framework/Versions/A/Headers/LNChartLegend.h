@@ -28,12 +28,12 @@ typedef NS_ENUM(NSUInteger, ChartLegendForm) {
 
 @property (nonatomic, assign) CGFloat width;                          //宽
 @property (nonatomic, assign) CGFloat heigth;                         //高
-@property (nonatomic, strong) NSArray *colors;                        //标示的颜色值
 @property (nonatomic, strong) NSArray *contents;                      //标示的文字
+@property (nonatomic, strong) NSArray *colors;                        //标示的颜色值
 @property (nonatomic, strong) NSArray *labels;                        //显示的文字值
+@property (nonatomic, strong) NSArray *labelColors;                   //文字的颜色
 
 @property (nonatomic, strong) UIFont *textFont;                       //文字的字体
-@property (nonatomic, strong) NSArray *textColors;                    //文字的颜色
 @property (nonatomic, strong) UIColor *textDefaultColor;              //文字的颜色
 @property (nonatomic, assign) CGFloat formSize;                       //标示符的大小
 @property (nonatomic, assign) CGFloat formLineWidth;                  //线的宽度
@@ -46,5 +46,7 @@ typedef NS_ENUM(NSUInteger, ChartLegendForm) {
 - (void)setupLineLegend:(LNChartData *)data;
 - (void)setupVolumeLegend:(LNChartData *)data;
 - (void)setupCandleLegend:(LNChartData *)data;
+- (void)setupBarsLegend:(LNChartData *)data;
 - (void)setupMACDLegend:(LNChartData *)data;
+- (void)setupBOLLLegend:(LNChartData *)data;
 @end

@@ -46,7 +46,7 @@ typedef void (^LNStockViewBlock)(LNStockViewActionType type);
                            isNight:(BOOL)isNight;
 
 /*
-    View的初始化方法 自定义大小 - 只有图的部分
+    View的初始化方法 自定义大小 - 头部的高度不变
  */
 + (instancetype)createViewWithFrame:(CGRect)frame
                                code:(NSString *)code

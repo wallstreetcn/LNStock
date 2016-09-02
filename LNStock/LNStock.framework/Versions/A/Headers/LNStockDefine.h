@@ -8,75 +8,33 @@
 
 #ifndef LNStockDefine_h
 #define LNStockDefine_h
-
 #import "LNStockHandler.h"
 
-//Color
 #define kColorHex(a) [UIColor \
 colorWithRed:((float)((a & 0xFF0000) >> 16))/255.0 \
 green:((float)((a & 0xFF00) >> 8))/255.0 \
 blue:((float)(a & 0xFF))/255.0 alpha:1.0]
 
-//行情涨跌颜色
-#define kSCPrice_U [LNStockHandler isGreenUp] ? kColorHex(0x03DC4E) : kColorHex(0xFA132D)
-#define kSCPrice_D [LNStockHandler isGreenUp] ? kColorHex(0xFA132D) : kColorHex(0x03DC4E)
+/*
+    LNStock 控制面板 视图Frame 设置
+ */
+#define kFBaseWidth [[UIScreen mainScreen]bounds].size.width
+#define kFBaseHeight [[UIScreen mainScreen]bounds].size.height
 
-//行情头部价格背景——涨跌颜色
-#define kSCLast_Price_U [LNStockHandler isGreenUp] ? kColorHex(0x59f05a) : kColorHex(0xe84740)
-#define kSCLast_Price_D [LNStockHandler isGreenUp] ? kColorHex(0xe84740) : kColorHex(0x59f05a)
-
-//行情背景颜色
-#define kSCViewBG_D kColorHex(0xffffff)
-#define kSCViewBG_N kColorHex(0x1a1a1a)
-
-//行情分割线背景色
-#define kSCBorder_D kColorHex(0xeaeaea)
-#define kSCBorder_N kColorHex(0x000000)
-
-//行情titleView info 背景颜色
-#define kSCInfoBG_D kColorHex(0xf5f5f5)
-#define kSCInfoBG_N kColorHex(0x222222)
-
-//行情titleView label 颜色
-#define kSCTitleLabelBG_D kColorHex(0x323232)
-#define kSCTitleLabelBG_N kColorHex(0xe2e1e3)
-
-//行情HeaderLabel字体颜色（夜晚N，白天D）
-#define kSCHeaderLabel_D kColorHex(0x323232)
-#define kSCHeaderLabel_N kColorHex(0xcdcdcd)
-
-//Chart -------COLOR----------
-#define kSChartBG_D kColorHex(0xffffff)
-#define kSChartBG_N kColorHex(0x191919)
-
-//Chart BorderColor
-#define kSChartBorder_D kColorHex(0xeaeaea)
-#define kSChartBorder_N kColorHex(0x0A0A0A)
-
-//Hightlight
-#define kSChart_HL_LBG_D kColorHex(0xDBE6F0)
-#define kSChart_HL_LBG_N kColorHex(0xEDEDED)
-
-#define kSChart_HL_LLBG_D kColorHex(0xDBE6F0)
-#define kSChart_HL_LLBG_N kColorHex(0xEDEDED)
-
-#define kSChart_HL_VLBG_D kColorHex(0xDBE6F0)
-#define kSChart_HL_VLBG_N kColorHex(0xEDEDED)
-
-//UI Frame ----------------------------
 //默认StockView 高度
 #define kFStockBGH 473.0
 #define kFStockAHeaderH 173.0   //AStock 头部视图高度
 #define kFStockBHeaderH 185.0   //BStock 头部视图高度
-#define kFStockTitleViewH 50.0  //Stock 头部视图高度
+#define kFStockTitleViewH 50.0  //Stock  头部视图高度
 
-#define kFBaseWidth [[UIScreen mainScreen]bounds].size.width
-#define kFBaseHeight [[UIScreen mainScreen]bounds].size.height
-
-//Notification ------------------------
+/*
+    LNStock 控制面板 Notification
+ */
 #define LNQuoteTitleViewNotification @"LNQuoteTitleViewNotification"
 
-//ENUM --------------------------------
+/*
+    LNStock 控制面板 ENUM 枚举
+ */
 typedef NS_ENUM(NSInteger, LNStockTitleType) {
     LNChartTitleType_1m = 0,    //分时(A股/外汇)
     LNChartTitleType_5m,        //5分(A股/外汇)
@@ -94,12 +52,12 @@ typedef NS_ENUM(NSInteger, LNStockTitleType) {
 
 //复权
 typedef NS_ENUM(NSInteger, LNStockAdjustType) {
-    LNStockAdjustType_Normal = 0,
-    LNStockAdjustType_Befor,
-    LNStockAdjustType_After
+    LNStockAdjustType_Normal = 0,  //不复权
+    LNStockAdjustType_Befor,       //前复权
+    LNStockAdjustType_After        //后复权
 };
 
-//因子
+//股票指标
 typedef NS_ENUM(NSInteger, LNStockFactorType) {
     LNStockFactorType_Volume = 0,
     LNStockFactorType_MACD,
@@ -112,7 +70,7 @@ typedef NS_ENUM(NSInteger, LNStockFactorType) {
     LNStockFactorType_SAR
 };
 
-//请求类型
+//请求类型 加载 K线 数据的不同方式
 typedef NS_ENUM(NSInteger, LNStockRequestType) {
     LNStockRequestType_Normal = 0,
     LNStockRequestType_Refresh,

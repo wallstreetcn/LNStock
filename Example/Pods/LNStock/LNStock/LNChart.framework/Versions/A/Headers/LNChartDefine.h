@@ -16,19 +16,22 @@ green:((float)((a & 0xFF00) >> 8))/255.0 \
 blue:((float)(a & 0xFF))/255.0 alpha:1.0]
 
 //Chart MA均线
-#define kC_MA1 kCHex(0xF47958)
-#define kC_MA2 kCHex(0xA65084)
-#define kC_MA3 kCHex(0x0063B1)
+#define kC_MA1 kCHex(0xF51F7D)
+#define kC_MA2 kCHex(0xF0AB0A)
+#define kC_MA3 kCHex(0x756BF7)
 #define kC_MA4 kCHex(0x000000)
 #define kC_MA5 kCHex(0xeaeaea)
 
+//Bars Line Color
+#define kC_Bars kCHex(0x4A90E2)
+
 //MACD
-#define kC_MACD_DEA kCHex(0xD16A7C)
-#define kC_MACD_DIFF kCHex(0xF9AD79)
-#define kC_MACD_MACD kCHex(0x8873A2)
+#define kC_MACD_DEA kCHex(0xF0AB0A)
+#define kC_MACD_DIFF kCHex(0x756BF7)
+#define kC_MACD_MACD kCHex(0xF51F7D)
 
 //BOLL
-#define kC_BOLL_MID kCHex(0xD16A7C)
+#define kC_BOLL_MID kCHex(0xF0AB0A)
 #define kC_BOLL_UPPER kCHex(0xF9AD79)
 #define kC_BOLL_LOWER kCHex(0x8873A2)
 
@@ -53,7 +56,9 @@ typedef NS_ENUM(NSUInteger, ChartViewType) {
     ChartViewType_Candle,
     ChartViewType_HollowCandle,
     ChartViewType_Bars,
-    ChartViewType_MACD
+    ChartViewType_MACD,
+    ChartViewType_BOLL,
+    ChartViewType_OBV
 };
 
 //左拉加载更多状态

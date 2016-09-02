@@ -15,9 +15,14 @@
 + (NSString *)MAFormatterWithPosition:(NSString *)position num:(CGFloat)num;
 
 //交易量格式转换
-+ (NSString *)volumeCutWithNum:(CGFloat)num;
+//+ (NSString *)volumeCutWithNum:(CGFloat)num;
++ (NSString *)volumeCutWithNum:(CGFloat)num maxNum:(CGFloat)maxNum;
 + (NSString *)volumeTypeWithNum:(CGFloat)num;
 + (NSString *)volumeFormatterWithNum:(CGFloat)num;
+
+//普通格式转换
++ (NSString *)longFormatterWithPosition:(CGFloat)num maxNum:(CGFloat)maxNum;
++ (NSString *)longFormatterType:(CGFloat)num;
 
 //保留几位小数
 + (NSString *)notRounding:(float)price afterPoint:(int)position;
