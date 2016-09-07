@@ -24,4 +24,9 @@
 //是否夜间模式
 + (BOOL)isNightMode;
 + (void)switchNightMode;
+
+//是否绿涨红跌
++ (BOOL)isGreenUp;
++ (void)switchGreenUp;
+
 @end

@@ -20,7 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"测试页面";
-    self.dataArr = @[@"Debug环境",@"测试服务器",@"测试web服务器",@"夜间模式"];
+    self.dataArr = @[@"Debug环境",@"测试服务器",@"测试web服务器",@"夜间模式",@"绿涨红跌"];
     [self.tableView reloadData];
 }
 

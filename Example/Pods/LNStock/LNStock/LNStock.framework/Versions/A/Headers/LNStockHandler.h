@@ -51,6 +51,8 @@ typedef NS_ENUM(NSInteger, LNStockChartType) {
 + (BOOL)isNightMode;
 //是否是A股指数
 + (BOOL)isIndexStock;
+//判断是否是基金
++ (BOOL)isFundStock;
 //是否是竖屏
 + (BOOL)isVerticalScreen;
 //是否是长按高亮

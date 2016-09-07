@@ -23,21 +23,20 @@
 
 - (void)switchAction:(UISwitch *)sender {
     switch (self.debugType) {
-        case DebugTypeDebug: {
+        case DebugTypeDebug: 
             [DebugUtils switchDebug];
-        }
             break;
-        case DebugTypeAPI: {
+        case DebugTypeAPI:
             [DebugUtils switchTestAPI];
-        }
             break;
-        case DebugTypeWebAPI: {
+        case DebugTypeWebAPI:
             [DebugUtils switchWebTestAPI];
-        }
             break;
         case DebugTypeNightMode:
             [DebugUtils switchNightMode];
-        default:
+            break;
+        case DebugTypeGreenUp:
+            [DebugUtils switchGreenUp];
             break;
     }
 }
@@ -64,7 +63,11 @@
             self.debugType = DebugTypeNightMode;
             [self changeSwitchType:[DebugUtils isNightMode]];
         }
-        default:
+            break;
+        case 4: {
+            self.debugType = DebugTypeGreenUp;
+            [self changeSwitchType:[DebugUtils isGreenUp]];
+        }
             break;
     }
 }

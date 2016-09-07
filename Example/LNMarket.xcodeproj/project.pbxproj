@@ -7,19 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09556C3D68FABC28959CABC0 /* libPods-LNMarketTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E4CF6ABCD20C55ACA13E18E9 /* libPods-LNMarketTests.a */; };
-		1E6813AD21141C1F5AC94C4D /* libPods-LNMarket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 99A24EB5685C5BDDAFAD5E6C /* libPods-LNMarket.a */; };
-		32CD07D624A8613C23DE925E /* libPods-LNMarketUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C8FB4043013B1EE4B56191D7 /* libPods-LNMarketUITests.a */; };
+		62934FED948A454796DDDD64 /* libPods-LNMarket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 92D3CA2D45992F5328582FB8 /* libPods-LNMarket.a */; };
 		AF504F0D1D054F4B006C7B3B /* UIColor+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = AF504F011D054F4B006C7B3B /* UIColor+Tool.m */; };
 		AF504F111D054F4B006C7B3B /* UIView+LoadNib.m in Sources */ = {isa = PBXBuildFile; fileRef = AF504F0B1D054F4B006C7B3B /* UIView+LoadNib.m */; };
-		AF6766941D01613B0073A329 /* price_nav_backbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = AF6766931D01613B0073A329 /* price_nav_backbtn.png */; };
-		AF6766991D0163F10073A329 /* price_nav_refreshbtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF6766971D0163F10073A329 /* price_nav_refreshbtn@2x.png */; };
-		AF67669A1D0163F10073A329 /* price_nav_refreshbtn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF6766981D0163F10073A329 /* price_nav_refreshbtn@3x.png */; };
+		AF65FF3D1D5B270500CE5B9C /* SearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF65FF3C1D5B270500CE5B9C /* SearchCell.m */; };
+		AF65FF5E1D5C582800CE5B9C /* PriceNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = AF65FF421D5C582800CE5B9C /* PriceNetwork.m */; };
+		AF65FF5F1D5C582800CE5B9C /* price_nav_backbtn.png in Resources */ = {isa = PBXBuildFile; fileRef = AF65FF441D5C582800CE5B9C /* price_nav_backbtn.png */; };
+		AF65FF601D5C582800CE5B9C /* price_nav_refreshbtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF65FF451D5C582800CE5B9C /* price_nav_refreshbtn@2x.png */; };
+		AF65FF611D5C582800CE5B9C /* price_nav_refreshbtn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF65FF461D5C582800CE5B9C /* price_nav_refreshbtn@3x.png */; };
+		AF65FF621D5C582800CE5B9C /* stock_line_d.png in Resources */ = {isa = PBXBuildFile; fileRef = AF65FF471D5C582800CE5B9C /* stock_line_d.png */; };
+		AF65FF631D5C582800CE5B9C /* stock_line_n.png in Resources */ = {isa = PBXBuildFile; fileRef = AF65FF481D5C582800CE5B9C /* stock_line_n.png */; };
+		AF65FF641D5C582800CE5B9C /* PriceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF65FF4C1D5C582800CE5B9C /* PriceCell.m */; };
+		AF65FF651D5C582800CE5B9C /* PriceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF65FF4D1D5C582800CE5B9C /* PriceCell.xib */; };
+		AF65FF661D5C582800CE5B9C /* PriceCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AF65FF501D5C582800CE5B9C /* PriceCellModel.m */; };
+		AF65FF671D5C582800CE5B9C /* PriceDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AF65FF521D5C582800CE5B9C /* PriceDataSource.m */; };
+		AF65FF681D5C582800CE5B9C /* PriceNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF65FF551D5C582800CE5B9C /* PriceNavView.m */; };
+		AF65FF691D5C582800CE5B9C /* PriceNavView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF65FF561D5C582800CE5B9C /* PriceNavView.xib */; };
+		AF65FF6A1D5C582800CE5B9C /* SelectViewNew.m in Sources */ = {isa = PBXBuildFile; fileRef = AF65FF591D5C582800CE5B9C /* SelectViewNew.m */; };
+		AF65FF6B1D5C582800CE5B9C /* TriangleMarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF65FF5B1D5C582800CE5B9C /* TriangleMarkView.m */; };
+		AF65FF6C1D5C582800CE5B9C /* PriceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AF65FF5D1D5C582800CE5B9C /* PriceVC.m */; };
 		AF90C8781D06CB9100CAC494 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF90C8771D06CB9100CAC494 /* Assets.xcassets */; };
 		AF9214681D005A4600F3E172 /* LNNetworkAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9214611D005A4600F3E172 /* LNNetworkAPI.m */; };
 		AF9214691D005A4600F3E172 /* LNNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9214631D005A4600F3E172 /* LNNetWorking.m */; };
 		AF92146A1D005A4600F3E172 /* LNRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9214651D005A4600F3E172 /* LNRequest.m */; };
 		AF92146B1D005A4600F3E172 /* LNResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9214671D005A4600F3E172 /* LNResponse.m */; };
+		AF9288711D7992CC00D41F9E /* LNStock.bundle in Resources */ = {isa = PBXBuildFile; fileRef = AF9288701D7992CC00D41F9E /* LNStock.bundle */; };
 		AFCCC0171CFFF4F400D07BA6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0161CFFF4F400D07BA6 /* main.m */; };
 		AFCCC01A1CFFF4F400D07BA6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0191CFFF4F400D07BA6 /* AppDelegate.m */; };
 		AFCCC0301CFFF4F400D07BA6 /* LNMarketTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC02F1CFFF4F400D07BA6 /* LNMarketTests.m */; };
@@ -31,17 +43,9 @@
 		AFCCC0871CFFF83200D07BA6 /* DebugCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFCCC0811CFFF83200D07BA6 /* DebugCell.xib */; };
 		AFCCC0881CFFF83200D07BA6 /* DebugUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0831CFFF83200D07BA6 /* DebugUtils.m */; };
 		AFCCC0891CFFF83200D07BA6 /* DebugVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0851CFFF83200D07BA6 /* DebugVC.m */; };
-		AFCCC0B81CFFF89D00D07BA6 /* PriceNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0931CFFF89D00D07BA6 /* PriceNetwork.m */; };
-		AFCCC0B91CFFF89D00D07BA6 /* PriceCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0991CFFF89D00D07BA6 /* PriceCellModel.m */; };
-		AFCCC0BA1CFFF89D00D07BA6 /* PriceDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC09B1CFFF89D00D07BA6 /* PriceDataSource.m */; };
-		AFCCC0BB1CFFF89D00D07BA6 /* PriceVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC09D1CFFF89D00D07BA6 /* PriceVC.m */; };
-		AFCCC0C11CFFF89D00D07BA6 /* PriceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0AD1CFFF89D00D07BA6 /* PriceCell.m */; };
-		AFCCC0C21CFFF89D00D07BA6 /* PriceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFCCC0AE1CFFF89D00D07BA6 /* PriceCell.xib */; };
-		AFCCC0C31CFFF89D00D07BA6 /* PriceNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0B11CFFF89D00D07BA6 /* PriceNavView.m */; };
-		AFCCC0C41CFFF89D00D07BA6 /* PriceNavView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFCCC0B21CFFF89D00D07BA6 /* PriceNavView.xib */; };
-		AFCCC0C51CFFF89D00D07BA6 /* SelectViewNew.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0B51CFFF89D00D07BA6 /* SelectViewNew.m */; };
-		AFCCC0C61CFFF89D00D07BA6 /* TriangleMarkView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0B71CFFF89D00D07BA6 /* TriangleMarkView.m */; };
 		AFCCC0DC1CFFFA6600D07BA6 /* PListUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCC0DB1CFFFA6600D07BA6 /* PListUtils.m */; };
+		D8B9F8F53FEEF14B21F1E195 /* libPods-LNMarketUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A7871D69F191DF739BFDEBD /* libPods-LNMarketUITests.a */; };
+		DF021C17B855D378D6FC77E2 /* libPods-LNMarketTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FE4BE55A9B355D427CA9E682 /* libPods-LNMarketTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,19 +66,41 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		467967F502DFD68278235AF8 /* Pods-LNMarketUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LNMarketUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LNMarketUITests/Pods-LNMarketUITests.release.xcconfig"; sourceTree = "<group>"; };
-		4886051E362114B8970AB5C3 /* Pods-LNMarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LNMarket.release.xcconfig"; path = "Pods/Target Support Files/Pods-LNMarket/Pods-LNMarket.release.xcconfig"; sourceTree = "<group>"; };
-		4B16E85232F1D3CE5DF13B09 /* Pods-LNMarketTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LNMarketTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LNMarketTests/Pods-LNMarketTests.debug.xcconfig"; sourceTree = "<group>"; };
-		806D59412376EA1DB67FA731 /* Pods-LNMarketUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LNMarketUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LNMarketUITests/Pods-LNMarketUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		99A24EB5685C5BDDAFAD5E6C /* libPods-LNMarket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LNMarket.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		AF3FBFD2A4C5F6043F7951F1 /* Pods-LNMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LNMarket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LNMarket/Pods-LNMarket.debug.xcconfig"; sourceTree = "<group>"; };
+		7C6B83614B2CA84792B11581 /* Pods-LNMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LNMarket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LNMarket/Pods-LNMarket.debug.xcconfig"; sourceTree = "<group>"; };
+		8A7871D69F191DF739BFDEBD /* libPods-LNMarketUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LNMarketUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		92D3CA2D45992F5328582FB8 /* libPods-LNMarket.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LNMarket.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94A9573CDAA9D88EBD0EEE29 /* Pods-LNMarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LNMarket.release.xcconfig"; path = "Pods/Target Support Files/Pods-LNMarket/Pods-LNMarket.release.xcconfig"; sourceTree = "<group>"; };
+		9A000D1D494D3387E99FBF51 /* Pods-LNMarketUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LNMarketUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LNMarketUITests/Pods-LNMarketUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A37C12F33A6521E57445B60A /* Pods-LNMarketUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LNMarketUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LNMarketUITests/Pods-LNMarketUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AF504F001D054F4B006C7B3B /* UIColor+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Tool.h"; sourceTree = "<group>"; };
 		AF504F011D054F4B006C7B3B /* UIColor+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Tool.m"; sourceTree = "<group>"; };
 		AF504F0A1D054F4B006C7B3B /* UIView+LoadNib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+LoadNib.h"; sourceTree = "<group>"; };
 		AF504F0B1D054F4B006C7B3B /* UIView+LoadNib.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+LoadNib.m"; sourceTree = "<group>"; };
-		AF6766931D01613B0073A329 /* price_nav_backbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = price_nav_backbtn.png; sourceTree = "<group>"; };
-		AF6766971D0163F10073A329 /* price_nav_refreshbtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "price_nav_refreshbtn@2x.png"; sourceTree = "<group>"; };
-		AF6766981D0163F10073A329 /* price_nav_refreshbtn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "price_nav_refreshbtn@3x.png"; sourceTree = "<group>"; };
+		AF65FF3B1D5B270500CE5B9C /* SearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCell.h; sourceTree = "<group>"; };
+		AF65FF3C1D5B270500CE5B9C /* SearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCell.m; sourceTree = "<group>"; };
+		AF65FF411D5C582800CE5B9C /* PriceNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceNetwork.h; sourceTree = "<group>"; };
+		AF65FF421D5C582800CE5B9C /* PriceNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceNetwork.m; sourceTree = "<group>"; };
+		AF65FF441D5C582800CE5B9C /* price_nav_backbtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = price_nav_backbtn.png; sourceTree = "<group>"; };
+		AF65FF451D5C582800CE5B9C /* price_nav_refreshbtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "price_nav_refreshbtn@2x.png"; sourceTree = "<group>"; };
+		AF65FF461D5C582800CE5B9C /* price_nav_refreshbtn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "price_nav_refreshbtn@3x.png"; sourceTree = "<group>"; };
+		AF65FF471D5C582800CE5B9C /* stock_line_d.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stock_line_d.png; sourceTree = "<group>"; };
+		AF65FF481D5C582800CE5B9C /* stock_line_n.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stock_line_n.png; sourceTree = "<group>"; };
+		AF65FF4B1D5C582800CE5B9C /* PriceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceCell.h; sourceTree = "<group>"; };
+		AF65FF4C1D5C582800CE5B9C /* PriceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceCell.m; sourceTree = "<group>"; };
+		AF65FF4D1D5C582800CE5B9C /* PriceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriceCell.xib; sourceTree = "<group>"; };
+		AF65FF4F1D5C582800CE5B9C /* PriceCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceCellModel.h; sourceTree = "<group>"; };
+		AF65FF501D5C582800CE5B9C /* PriceCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceCellModel.m; sourceTree = "<group>"; };
+		AF65FF511D5C582800CE5B9C /* PriceDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceDataSource.h; sourceTree = "<group>"; };
+		AF65FF521D5C582800CE5B9C /* PriceDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceDataSource.m; sourceTree = "<group>"; };
+		AF65FF541D5C582800CE5B9C /* PriceNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceNavView.h; sourceTree = "<group>"; };
+		AF65FF551D5C582800CE5B9C /* PriceNavView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceNavView.m; sourceTree = "<group>"; };
+		AF65FF561D5C582800CE5B9C /* PriceNavView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriceNavView.xib; sourceTree = "<group>"; };
+		AF65FF581D5C582800CE5B9C /* SelectViewNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectViewNew.h; sourceTree = "<group>"; };
+		AF65FF591D5C582800CE5B9C /* SelectViewNew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectViewNew.m; sourceTree = "<group>"; };
+		AF65FF5A1D5C582800CE5B9C /* TriangleMarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleMarkView.h; sourceTree = "<group>"; };
+		AF65FF5B1D5C582800CE5B9C /* TriangleMarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriangleMarkView.m; sourceTree = "<group>"; };
+		AF65FF5C1D5C582800CE5B9C /* PriceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceVC.h; sourceTree = "<group>"; };
+		AF65FF5D1D5C582800CE5B9C /* PriceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceVC.m; sourceTree = "<group>"; };
 		AF90C8771D06CB9100CAC494 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF9214601D005A4600F3E172 /* LNNetworkAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNNetworkAPI.h; sourceTree = "<group>"; };
 		AF9214611D005A4600F3E172 /* LNNetworkAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNNetworkAPI.m; sourceTree = "<group>"; };
@@ -84,6 +110,7 @@
 		AF9214651D005A4600F3E172 /* LNRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNRequest.m; sourceTree = "<group>"; };
 		AF9214661D005A4600F3E172 /* LNResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNResponse.h; sourceTree = "<group>"; };
 		AF9214671D005A4600F3E172 /* LNResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNResponse.m; sourceTree = "<group>"; };
+		AF9288701D7992CC00D41F9E /* LNStock.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LNStock.bundle; sourceTree = "<group>"; };
 		AFCCC0121CFFF4F400D07BA6 /* LNMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LNMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFCCC0161CFFF4F400D07BA6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		AFCCC0181CFFF4F400D07BA6 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -106,25 +133,6 @@
 		AFCCC0831CFFF83200D07BA6 /* DebugUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugUtils.m; sourceTree = "<group>"; };
 		AFCCC0841CFFF83200D07BA6 /* DebugVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugVC.h; sourceTree = "<group>"; };
 		AFCCC0851CFFF83200D07BA6 /* DebugVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugVC.m; sourceTree = "<group>"; };
-		AFCCC0921CFFF89D00D07BA6 /* PriceNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceNetwork.h; sourceTree = "<group>"; };
-		AFCCC0931CFFF89D00D07BA6 /* PriceNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceNetwork.m; sourceTree = "<group>"; };
-		AFCCC0961CFFF89D00D07BA6 /* PriceDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceDefine.h; sourceTree = "<group>"; };
-		AFCCC0981CFFF89D00D07BA6 /* PriceCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceCellModel.h; sourceTree = "<group>"; };
-		AFCCC0991CFFF89D00D07BA6 /* PriceCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceCellModel.m; sourceTree = "<group>"; };
-		AFCCC09A1CFFF89D00D07BA6 /* PriceDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceDataSource.h; sourceTree = "<group>"; };
-		AFCCC09B1CFFF89D00D07BA6 /* PriceDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceDataSource.m; sourceTree = "<group>"; };
-		AFCCC09C1CFFF89D00D07BA6 /* PriceVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceVC.h; sourceTree = "<group>"; };
-		AFCCC09D1CFFF89D00D07BA6 /* PriceVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceVC.m; sourceTree = "<group>"; };
-		AFCCC0AC1CFFF89D00D07BA6 /* PriceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceCell.h; sourceTree = "<group>"; };
-		AFCCC0AD1CFFF89D00D07BA6 /* PriceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceCell.m; sourceTree = "<group>"; };
-		AFCCC0AE1CFFF89D00D07BA6 /* PriceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriceCell.xib; sourceTree = "<group>"; };
-		AFCCC0B01CFFF89D00D07BA6 /* PriceNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PriceNavView.h; sourceTree = "<group>"; };
-		AFCCC0B11CFFF89D00D07BA6 /* PriceNavView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PriceNavView.m; sourceTree = "<group>"; };
-		AFCCC0B21CFFF89D00D07BA6 /* PriceNavView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PriceNavView.xib; sourceTree = "<group>"; };
-		AFCCC0B41CFFF89D00D07BA6 /* SelectViewNew.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectViewNew.h; sourceTree = "<group>"; };
-		AFCCC0B51CFFF89D00D07BA6 /* SelectViewNew.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectViewNew.m; sourceTree = "<group>"; };
-		AFCCC0B61CFFF89D00D07BA6 /* TriangleMarkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TriangleMarkView.h; sourceTree = "<group>"; };
-		AFCCC0B71CFFF89D00D07BA6 /* TriangleMarkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TriangleMarkView.m; sourceTree = "<group>"; };
 		AFCCC0DA1CFFFA6600D07BA6 /* PListUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PListUtils.h; sourceTree = "<group>"; };
 		AFCCC0DB1CFFFA6600D07BA6 /* PListUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PListUtils.m; sourceTree = "<group>"; };
 		AFCCC0EB1CFFFE3700D07BA6 /* AllDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllDefine.h; sourceTree = "<group>"; };
@@ -136,9 +144,9 @@
 		AFCCC0F11CFFFE3700D07BA6 /* KeyDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyDefine.h; sourceTree = "<group>"; };
 		AFCCC0F21CFFFE3700D07BA6 /* NotificationDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationDefine.h; sourceTree = "<group>"; };
 		AFCCC0F31CFFFE3700D07BA6 /* UIDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDefine.h; sourceTree = "<group>"; };
-		B96DFA58860A7D179175AD64 /* Pods-LNMarketTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LNMarketTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LNMarketTests/Pods-LNMarketTests.release.xcconfig"; sourceTree = "<group>"; };
-		C8FB4043013B1EE4B56191D7 /* libPods-LNMarketUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LNMarketUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E4CF6ABCD20C55ACA13E18E9 /* libPods-LNMarketTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LNMarketTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFD659A8DBE37568B884269E /* Pods-LNMarketTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LNMarketTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LNMarketTests/Pods-LNMarketTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C0304876DDC6286B988EC077 /* Pods-LNMarketTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LNMarketTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LNMarketTests/Pods-LNMarketTests.release.xcconfig"; sourceTree = "<group>"; };
+		FE4BE55A9B355D427CA9E682 /* libPods-LNMarketTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LNMarketTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,7 +154,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E6813AD21141C1F5AC94C4D /* libPods-LNMarket.a in Frameworks */,
+				62934FED948A454796DDDD64 /* libPods-LNMarket.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,7 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09556C3D68FABC28959CABC0 /* libPods-LNMarketTests.a in Frameworks */,
+				DF021C17B855D378D6FC77E2 /* libPods-LNMarketTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,32 +170,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32CD07D624A8613C23DE925E /* libPods-LNMarketUITests.a in Frameworks */,
+				D8B9F8F53FEEF14B21F1E195 /* libPods-LNMarketUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		65E19DCA93DAB372128DD196 /* Pods */ = {
+		8F1EBC595A1D5E0957726593 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AF3FBFD2A4C5F6043F7951F1 /* Pods-LNMarket.debug.xcconfig */,
-				4886051E362114B8970AB5C3 /* Pods-LNMarket.release.xcconfig */,
-				4B16E85232F1D3CE5DF13B09 /* Pods-LNMarketTests.debug.xcconfig */,
-				B96DFA58860A7D179175AD64 /* Pods-LNMarketTests.release.xcconfig */,
-				806D59412376EA1DB67FA731 /* Pods-LNMarketUITests.debug.xcconfig */,
-				467967F502DFD68278235AF8 /* Pods-LNMarketUITests.release.xcconfig */,
+				7C6B83614B2CA84792B11581 /* Pods-LNMarket.debug.xcconfig */,
+				94A9573CDAA9D88EBD0EEE29 /* Pods-LNMarket.release.xcconfig */,
+				BFD659A8DBE37568B884269E /* Pods-LNMarketTests.debug.xcconfig */,
+				C0304876DDC6286B988EC077 /* Pods-LNMarketTests.release.xcconfig */,
+				A37C12F33A6521E57445B60A /* Pods-LNMarketUITests.debug.xcconfig */,
+				9A000D1D494D3387E99FBF51 /* Pods-LNMarketUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		949302396CAE1F216CB7A25B /* Frameworks */ = {
+		9F7B2034C5BDB4248D90682F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				99A24EB5685C5BDDAFAD5E6C /* libPods-LNMarket.a */,
-				E4CF6ABCD20C55ACA13E18E9 /* libPods-LNMarketTests.a */,
-				C8FB4043013B1EE4B56191D7 /* libPods-LNMarketUITests.a */,
+				AF9288701D7992CC00D41F9E /* LNStock.bundle */,
+				92D3CA2D45992F5328582FB8 /* libPods-LNMarket.a */,
+				FE4BE55A9B355D427CA9E682 /* libPods-LNMarketTests.a */,
+				8A7871D69F191DF739BFDEBD /* libPods-LNMarketUITests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -219,14 +228,80 @@
 			path = UIView;
 			sourceTree = "<group>";
 		};
-		AF67668E1D015FAC0073A329 /* PriceResources */ = {
+		AF65FF401D5C582800CE5B9C /* PriceNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				AF6766971D0163F10073A329 /* price_nav_refreshbtn@2x.png */,
-				AF6766981D0163F10073A329 /* price_nav_refreshbtn@3x.png */,
-				AF6766931D01613B0073A329 /* price_nav_backbtn.png */,
+				AF65FF411D5C582800CE5B9C /* PriceNetwork.h */,
+				AF65FF421D5C582800CE5B9C /* PriceNetwork.m */,
+			);
+			path = PriceNetwork;
+			sourceTree = "<group>";
+		};
+		AF65FF431D5C582800CE5B9C /* PriceResources */ = {
+			isa = PBXGroup;
+			children = (
+				AF65FF441D5C582800CE5B9C /* price_nav_backbtn.png */,
+				AF65FF451D5C582800CE5B9C /* price_nav_refreshbtn@2x.png */,
+				AF65FF461D5C582800CE5B9C /* price_nav_refreshbtn@3x.png */,
+				AF65FF471D5C582800CE5B9C /* stock_line_d.png */,
+				AF65FF481D5C582800CE5B9C /* stock_line_n.png */,
 			);
 			path = PriceResources;
+			sourceTree = "<group>";
+		};
+		AF65FF491D5C582800CE5B9C /* PriceVC */ = {
+			isa = PBXGroup;
+			children = (
+				AF65FF4A1D5C582800CE5B9C /* PriceCell */,
+				AF65FF4E1D5C582800CE5B9C /* PriceCellModel */,
+				AF65FF511D5C582800CE5B9C /* PriceDataSource.h */,
+				AF65FF521D5C582800CE5B9C /* PriceDataSource.m */,
+				AF65FF531D5C582800CE5B9C /* PriceNavView */,
+				AF65FF571D5C582800CE5B9C /* PriceSelectView */,
+				AF65FF5C1D5C582800CE5B9C /* PriceVC.h */,
+				AF65FF5D1D5C582800CE5B9C /* PriceVC.m */,
+			);
+			path = PriceVC;
+			sourceTree = "<group>";
+		};
+		AF65FF4A1D5C582800CE5B9C /* PriceCell */ = {
+			isa = PBXGroup;
+			children = (
+				AF65FF4B1D5C582800CE5B9C /* PriceCell.h */,
+				AF65FF4C1D5C582800CE5B9C /* PriceCell.m */,
+				AF65FF4D1D5C582800CE5B9C /* PriceCell.xib */,
+			);
+			path = PriceCell;
+			sourceTree = "<group>";
+		};
+		AF65FF4E1D5C582800CE5B9C /* PriceCellModel */ = {
+			isa = PBXGroup;
+			children = (
+				AF65FF4F1D5C582800CE5B9C /* PriceCellModel.h */,
+				AF65FF501D5C582800CE5B9C /* PriceCellModel.m */,
+			);
+			path = PriceCellModel;
+			sourceTree = "<group>";
+		};
+		AF65FF531D5C582800CE5B9C /* PriceNavView */ = {
+			isa = PBXGroup;
+			children = (
+				AF65FF541D5C582800CE5B9C /* PriceNavView.h */,
+				AF65FF551D5C582800CE5B9C /* PriceNavView.m */,
+				AF65FF561D5C582800CE5B9C /* PriceNavView.xib */,
+			);
+			path = PriceNavView;
+			sourceTree = "<group>";
+		};
+		AF65FF571D5C582800CE5B9C /* PriceSelectView */ = {
+			isa = PBXGroup;
+			children = (
+				AF65FF581D5C582800CE5B9C /* SelectViewNew.h */,
+				AF65FF591D5C582800CE5B9C /* SelectViewNew.m */,
+				AF65FF5A1D5C582800CE5B9C /* TriangleMarkView.h */,
+				AF65FF5B1D5C582800CE5B9C /* TriangleMarkView.m */,
+			);
+			path = PriceSelectView;
 			sourceTree = "<group>";
 		};
 		AF92145F1D005A4600F3E172 /* LNNetwork */ = {
@@ -251,8 +326,8 @@
 				AFCCC02E1CFFF4F400D07BA6 /* LNMarketTests */,
 				AFCCC0391CFFF4F400D07BA6 /* LNMarketUITests */,
 				AFCCC0131CFFF4F400D07BA6 /* Products */,
-				65E19DCA93DAB372128DD196 /* Pods */,
-				949302396CAE1F216CB7A25B /* Frameworks */,
+				9F7B2034C5BDB4248D90682F /* Frameworks */,
+				8F1EBC595A1D5E0957726593 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -310,7 +385,9 @@
 		AFCCC0501CFFF59300D07BA6 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				AFCCC0901CFFF89D00D07BA6 /* LNPrice */,
+				AF65FF401D5C582800CE5B9C /* PriceNetwork */,
+				AF65FF431D5C582800CE5B9C /* PriceResources */,
+				AF65FF491D5C582800CE5B9C /* PriceVC */,
 				AFCCC0511CFFF59300D07BA6 /* MainVC */,
 			);
 			path = Classes;
@@ -319,6 +396,8 @@
 		AFCCC0511CFFF59300D07BA6 /* MainVC */ = {
 			isa = PBXGroup;
 			children = (
+				AF65FF3B1D5B270500CE5B9C /* SearchCell.h */,
+				AF65FF3C1D5B270500CE5B9C /* SearchCell.m */,
 				AFCCC0521CFFF59300D07BA6 /* ViewController.h */,
 				AFCCC0531CFFF59300D07BA6 /* ViewController.m */,
 			);
@@ -360,97 +439,6 @@
 			path = DebugUtils;
 			sourceTree = "<group>";
 		};
-		AFCCC0901CFFF89D00D07BA6 /* LNPrice */ = {
-			isa = PBXGroup;
-			children = (
-				AF67668E1D015FAC0073A329 /* PriceResources */,
-				AFCCC0911CFFF89D00D07BA6 /* PriceNetwork */,
-				AFCCC0941CFFF89D00D07BA6 /* PriceVC */,
-			);
-			path = LNPrice;
-			sourceTree = "<group>";
-		};
-		AFCCC0911CFFF89D00D07BA6 /* PriceNetwork */ = {
-			isa = PBXGroup;
-			children = (
-				AFCCC0921CFFF89D00D07BA6 /* PriceNetwork.h */,
-				AFCCC0931CFFF89D00D07BA6 /* PriceNetwork.m */,
-			);
-			path = PriceNetwork;
-			sourceTree = "<group>";
-		};
-		AFCCC0941CFFF89D00D07BA6 /* PriceVC */ = {
-			isa = PBXGroup;
-			children = (
-				AFCCC0951CFFF89D00D07BA6 /* Define */,
-				AFCCC0971CFFF89D00D07BA6 /* Model */,
-				AFCCC09A1CFFF89D00D07BA6 /* PriceDataSource.h */,
-				AFCCC09B1CFFF89D00D07BA6 /* PriceDataSource.m */,
-				AFCCC09C1CFFF89D00D07BA6 /* PriceVC.h */,
-				AFCCC09D1CFFF89D00D07BA6 /* PriceVC.m */,
-				AFCCC09E1CFFF89D00D07BA6 /* View */,
-			);
-			path = PriceVC;
-			sourceTree = "<group>";
-		};
-		AFCCC0951CFFF89D00D07BA6 /* Define */ = {
-			isa = PBXGroup;
-			children = (
-				AFCCC0961CFFF89D00D07BA6 /* PriceDefine.h */,
-			);
-			path = Define;
-			sourceTree = "<group>";
-		};
-		AFCCC0971CFFF89D00D07BA6 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				AFCCC0981CFFF89D00D07BA6 /* PriceCellModel.h */,
-				AFCCC0991CFFF89D00D07BA6 /* PriceCellModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		AFCCC09E1CFFF89D00D07BA6 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				AFCCC0AB1CFFF89D00D07BA6 /* PriceCell */,
-				AFCCC0AF1CFFF89D00D07BA6 /* PriceNavView */,
-				AFCCC0B31CFFF89D00D07BA6 /* PriceSelectView */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		AFCCC0AB1CFFF89D00D07BA6 /* PriceCell */ = {
-			isa = PBXGroup;
-			children = (
-				AFCCC0AC1CFFF89D00D07BA6 /* PriceCell.h */,
-				AFCCC0AD1CFFF89D00D07BA6 /* PriceCell.m */,
-				AFCCC0AE1CFFF89D00D07BA6 /* PriceCell.xib */,
-			);
-			path = PriceCell;
-			sourceTree = "<group>";
-		};
-		AFCCC0AF1CFFF89D00D07BA6 /* PriceNavView */ = {
-			isa = PBXGroup;
-			children = (
-				AFCCC0B01CFFF89D00D07BA6 /* PriceNavView.h */,
-				AFCCC0B11CFFF89D00D07BA6 /* PriceNavView.m */,
-				AFCCC0B21CFFF89D00D07BA6 /* PriceNavView.xib */,
-			);
-			path = PriceNavView;
-			sourceTree = "<group>";
-		};
-		AFCCC0B31CFFF89D00D07BA6 /* PriceSelectView */ = {
-			isa = PBXGroup;
-			children = (
-				AFCCC0B41CFFF89D00D07BA6 /* SelectViewNew.h */,
-				AFCCC0B51CFFF89D00D07BA6 /* SelectViewNew.m */,
-				AFCCC0B61CFFF89D00D07BA6 /* TriangleMarkView.h */,
-				AFCCC0B71CFFF89D00D07BA6 /* TriangleMarkView.m */,
-			);
-			path = PriceSelectView;
-			sourceTree = "<group>";
-		};
 		AFCCC0D91CFFFA6600D07BA6 /* PListUtils */ = {
 			isa = PBXGroup;
 			children = (
@@ -483,12 +471,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AFCCC03F1CFFF4F400D07BA6 /* Build configuration list for PBXNativeTarget "LNMarket" */;
 			buildPhases = (
-				7A246624E8278FCBF1412D23 /* [CP] Check Pods Manifest.lock */,
+				D3D69E298DFCABC0B2AC837B /* [CP] Check Pods Manifest.lock */,
 				AFCCC00E1CFFF4F400D07BA6 /* Sources */,
 				AFCCC00F1CFFF4F400D07BA6 /* Frameworks */,
 				AFCCC0101CFFF4F400D07BA6 /* Resources */,
-				BE1FF6C1D67612AACF637D4B /* [CP] Embed Pods Frameworks */,
-				16BE965C9688D589F58D1145 /* [CP] Copy Pods Resources */,
+				D838B3D60A8EC408B8578569 /* [CP] Embed Pods Frameworks */,
+				40F4CEEF73770ED5CB6D041B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -503,12 +491,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AFCCC0421CFFF4F400D07BA6 /* Build configuration list for PBXNativeTarget "LNMarketTests" */;
 			buildPhases = (
-				20E5A08EABCCF54A7393212D /* [CP] Check Pods Manifest.lock */,
+				920EDB108F9BCAA1612A349A /* [CP] Check Pods Manifest.lock */,
 				AFCCC0271CFFF4F400D07BA6 /* Sources */,
 				AFCCC0281CFFF4F400D07BA6 /* Frameworks */,
 				AFCCC0291CFFF4F400D07BA6 /* Resources */,
-				EE28012AE8EAC2D57BE33EB1 /* [CP] Embed Pods Frameworks */,
-				F02C471CF72CBEE667A193C4 /* [CP] Copy Pods Resources */,
+				E1377D57252549E92452D830 /* [CP] Embed Pods Frameworks */,
+				92E1DB8DFA8155B9828B9BFF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -524,11 +512,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AFCCC0451CFFF4F400D07BA6 /* Build configuration list for PBXNativeTarget "LNMarketUITests" */;
 			buildPhases = (
-				637AA826CF608CA3701A2A15 /* [CP] Check Pods Manifest.lock */,
+				8BFA19EF485A4655E4E24E36 /* [CP] Check Pods Manifest.lock */,
 				AFCCC0321CFFF4F400D07BA6 /* Sources */,
 				AFCCC0331CFFF4F400D07BA6 /* Frameworks */,
 				AFCCC0341CFFF4F400D07BA6 /* Resources */,
-				F894AA5872FE777A7A9CE5AA /* [CP] Copy Pods Resources */,
+				AD2542790D5F24DB39657704 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -551,6 +539,7 @@
 				TargetAttributes = {
 					AFCCC0111CFFF4F400D07BA6 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = FDV8Q23A7X;
 					};
 					AFCCC02A1CFFF4F400D07BA6 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -587,15 +576,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF9288711D7992CC00D41F9E /* LNStock.bundle in Resources */,
 				AF90C8781D06CB9100CAC494 /* Assets.xcassets in Resources */,
-				AF6766941D01613B0073A329 /* price_nav_backbtn.png in Resources */,
-				AF67669A1D0163F10073A329 /* price_nav_refreshbtn@3x.png in Resources */,
-				AF6766991D0163F10073A329 /* price_nav_refreshbtn@2x.png in Resources */,
-				AFCCC0711CFFF59300D07BA6 /* Main.storyboard in Resources */,
-				AFCCC0C21CFFF89D00D07BA6 /* PriceCell.xib in Resources */,
-				AFCCC0701CFFF59300D07BA6 /* LaunchScreen.storyboard in Resources */,
 				AFCCC0871CFFF83200D07BA6 /* DebugCell.xib in Resources */,
-				AFCCC0C41CFFF89D00D07BA6 /* PriceNavView.xib in Resources */,
+				AF65FF611D5C582800CE5B9C /* price_nav_refreshbtn@3x.png in Resources */,
+				AF65FF601D5C582800CE5B9C /* price_nav_refreshbtn@2x.png in Resources */,
+				AF65FF631D5C582800CE5B9C /* stock_line_n.png in Resources */,
+				AF65FF651D5C582800CE5B9C /* PriceCell.xib in Resources */,
+				AFCCC0711CFFF59300D07BA6 /* Main.storyboard in Resources */,
+				AF65FF691D5C582800CE5B9C /* PriceNavView.xib in Resources */,
+				AF65FF621D5C582800CE5B9C /* stock_line_d.png in Resources */,
+				AFCCC0701CFFF59300D07BA6 /* LaunchScreen.storyboard in Resources */,
+				AF65FF5F1D5C582800CE5B9C /* price_nav_backbtn.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,7 +608,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		16BE965C9688D589F58D1145 /* [CP] Copy Pods Resources */ = {
+		40F4CEEF73770ED5CB6D041B /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -631,7 +623,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LNMarket/Pods-LNMarket-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		20E5A08EABCCF54A7393212D /* [CP] Check Pods Manifest.lock */ = {
+		8BFA19EF485A4655E4E24E36 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -646,7 +638,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		637AA826CF608CA3701A2A15 /* [CP] Check Pods Manifest.lock */ = {
+		920EDB108F9BCAA1612A349A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -661,52 +653,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		7A246624E8278FCBF1412D23 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		BE1FF6C1D67612AACF637D4B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LNMarket/Pods-LNMarket-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EE28012AE8EAC2D57BE33EB1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LNMarketTests/Pods-LNMarketTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F02C471CF72CBEE667A193C4 /* [CP] Copy Pods Resources */ = {
+		92E1DB8DFA8155B9828B9BFF /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -721,7 +668,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LNMarketTests/Pods-LNMarketTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F894AA5872FE777A7A9CE5AA /* [CP] Copy Pods Resources */ = {
+		AD2542790D5F24DB39657704 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -736,6 +683,51 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LNMarketUITests/Pods-LNMarketUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D3D69E298DFCABC0B2AC837B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D838B3D60A8EC408B8578569 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LNMarket/Pods-LNMarket-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1377D57252549E92452D830 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LNMarketTests/Pods-LNMarketTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -743,25 +735,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFCCC0C61CFFF89D00D07BA6 /* TriangleMarkView.m in Sources */,
 				AFCCC0891CFFF83200D07BA6 /* DebugVC.m in Sources */,
-				AFCCC0B81CFFF89D00D07BA6 /* PriceNetwork.m in Sources */,
 				AF92146A1D005A4600F3E172 /* LNRequest.m in Sources */,
+				AF65FF671D5C582800CE5B9C /* PriceDataSource.m in Sources */,
 				AF504F111D054F4B006C7B3B /* UIView+LoadNib.m in Sources */,
-				AFCCC0B91CFFF89D00D07BA6 /* PriceCellModel.m in Sources */,
 				AFCCC0861CFFF83200D07BA6 /* DebugCell.m in Sources */,
-				AFCCC0C51CFFF89D00D07BA6 /* SelectViewNew.m in Sources */,
-				AFCCC0C31CFFF89D00D07BA6 /* PriceNavView.m in Sources */,
 				AF9214691D005A4600F3E172 /* LNNetWorking.m in Sources */,
-				AFCCC0BB1CFFF89D00D07BA6 /* PriceVC.m in Sources */,
+				AF65FF3D1D5B270500CE5B9C /* SearchCell.m in Sources */,
 				AF9214681D005A4600F3E172 /* LNNetworkAPI.m in Sources */,
+				AF65FF5E1D5C582800CE5B9C /* PriceNetwork.m in Sources */,
 				AFCCC0681CFFF59300D07BA6 /* ViewController.m in Sources */,
-				AFCCC0C11CFFF89D00D07BA6 /* PriceCell.m in Sources */,
+				AF65FF6C1D5C582800CE5B9C /* PriceVC.m in Sources */,
+				AF65FF641D5C582800CE5B9C /* PriceCell.m in Sources */,
+				AF65FF6A1D5C582800CE5B9C /* SelectViewNew.m in Sources */,
+				AF65FF681D5C582800CE5B9C /* PriceNavView.m in Sources */,
+				AF65FF6B1D5C582800CE5B9C /* TriangleMarkView.m in Sources */,
 				AF92146B1D005A4600F3E172 /* LNResponse.m in Sources */,
 				AFCCC01A1CFFF4F400D07BA6 /* AppDelegate.m in Sources */,
-				AFCCC0BA1CFFF89D00D07BA6 /* PriceDataSource.m in Sources */,
 				AFCCC0171CFFF4F400D07BA6 /* main.m in Sources */,
 				AFCCC0DC1CFFFA6600D07BA6 /* PListUtils.m in Sources */,
+				AF65FF661D5C582800CE5B9C /* PriceCellModel.m in Sources */,
 				AFCCC0881CFFF83200D07BA6 /* DebugUtils.m in Sources */,
 				AF504F0D1D054F4B006C7B3B /* UIColor+Tool.m in Sources */,
 			);
@@ -885,12 +878,11 @@
 		};
 		AFCCC0401CFFF4F400D07BA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AF3FBFD2A4C5F6043F7951F1 /* Pods-LNMarket.debug.xcconfig */;
+			baseConfigurationReference = 7C6B83614B2CA84792B11581 /* Pods-LNMarket.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ZhiYao Pan (MA37T43NNR)";
-				ENABLE_BITCODE = NO;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: wu xiaopeng (6SQGVLS56A)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LNMarket/Libraries",
@@ -901,17 +893,17 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wscn.market;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		AFCCC0411CFFF4F400D07BA6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4886051E362114B8970AB5C3 /* Pods-LNMarket.release.xcconfig */;
+			baseConfigurationReference = 94A9573CDAA9D88EBD0EEE29 /* Pods-LNMarket.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Shanghai Aniu Information Technology Co., Ltd.";
-				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/LNMarket/Libraries",
@@ -922,12 +914,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wscn.market;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 		AFCCC0431CFFF4F400D07BA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4B16E85232F1D3CE5DF13B09 /* Pods-LNMarketTests.debug.xcconfig */;
+			baseConfigurationReference = BFD659A8DBE37568B884269E /* Pods-LNMarketTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = LNMarketTests/Info.plist;
@@ -940,7 +933,7 @@
 		};
 		AFCCC0441CFFF4F400D07BA6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B96DFA58860A7D179175AD64 /* Pods-LNMarketTests.release.xcconfig */;
+			baseConfigurationReference = C0304876DDC6286B988EC077 /* Pods-LNMarketTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = LNMarketTests/Info.plist;
@@ -953,7 +946,7 @@
 		};
 		AFCCC0461CFFF4F400D07BA6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 806D59412376EA1DB67FA731 /* Pods-LNMarketUITests.debug.xcconfig */;
+			baseConfigurationReference = A37C12F33A6521E57445B60A /* Pods-LNMarketUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = LNMarketUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -965,7 +958,7 @@
 		};
 		AFCCC0471CFFF4F400D07BA6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 467967F502DFD68278235AF8 /* Pods-LNMarketUITests.release.xcconfig */;
+			baseConfigurationReference = 9A000D1D494D3387E99FBF51 /* Pods-LNMarketUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = LNMarketUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

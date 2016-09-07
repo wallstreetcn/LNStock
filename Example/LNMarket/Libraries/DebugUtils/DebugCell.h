@@ -12,7 +12,8 @@ typedef NS_ENUM(NSInteger , DebugType) {
     DebugTypeDebug = 0,
     DebugTypeAPI,
     DebugTypeWebAPI,
-    DebugTypeNightMode
+    DebugTypeNightMode,
+    DebugTypeGreenUp
 };
 
 @interface DebugCell : UITableViewCell

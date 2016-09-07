@@ -43,6 +43,14 @@
     [DebugUtils switchItemWithKey:@"IsNigthMode" isOpen:[DebugUtils isNightMode]];
 }
 
++ (BOOL)isGreenUp {
+    return [[PListUtils valueForKey:@"IsGreenUp"] intValue] != 0;
+}
+
++ (void)switchGreenUp {
+    [DebugUtils switchItemWithKey:@"IsGreenUp" isOpen:[DebugUtils isGreenUp]];
+}
+
 #pragma mark - Other
 
 + (void)switchItemWithKey:(NSString *)key isOpen:(BOOL)isOpen {
