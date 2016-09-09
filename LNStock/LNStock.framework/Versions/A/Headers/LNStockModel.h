@@ -14,8 +14,9 @@
 @property (nonatomic, copy) NSString *trade_status;             //交易状态
 @property (nonatomic, copy) NSString *hq_type_code;             //证券分类信息
 @property (nonatomic, copy) NSNumber *price_precision;          //价格保留几位小数
-@property (nonatomic, copy) NSString *market_type;              //股票面板选择（mdc A股,forexdata 外汇)
-@property (nonatomic, copy) NSString *securities_type;          //证券类型 (A股4种，外汇5种)
+@property (nonatomic, copy) NSString *market_type;              //数据来源（mdc A股,forexdata 外汇)
+@property (nonatomic, copy) NSString *finance_type;             //金融类型(6种：forex,commodity,bond,indice,cfdindice,stock)
+@property (nonatomic, copy) NSString *securities_type;          //证券类型 (A股4种,外汇5种)
 
 @property (nonatomic, strong) NSNumber *last_px;                //最新价
 @property (nonatomic, strong) NSNumber *px_change;              //涨跌额
