@@ -53,7 +53,7 @@ typedef void(^PriceNetworkBlock)(BOOL isSuccess, id response);
                              block:(PriceNetworkBlock)block;
 
 #pragma mark - RealAPI 行情API
-+ (void)getStockRealDataWithCode:(NSString *)code block:(PriceNetworkBlock)block;
++ (void)getStockRealDataWithCode:(NSString *)code isAstock:(BOOL)isAstock block:(PriceNetworkBlock)block;
 
 #pragma mark - 行情列表
 /**

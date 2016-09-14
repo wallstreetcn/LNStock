@@ -18,6 +18,9 @@
 @property (nonatomic, copy) NSString *finance_type;             //金融类型(6种：forex,commodity,bond,indice,cfdindice,stock)
 @property (nonatomic, copy) NSString *securities_type;          //证券类型 (A股4种,外汇5种)
 
+@property (nonatomic, copy) NSString *stockUrl;                 //股票url(主站 发表话题搜索股票)
+@property (nonatomic, copy) NSString *htmlTag;                  //htmlTag(主站 发表话题搜索股票)
+
 @property (nonatomic, strong) NSNumber *last_px;                //最新价
 @property (nonatomic, strong) NSNumber *px_change;              //涨跌额
 @property (nonatomic, strong) NSNumber *px_change_rate;         //涨跌幅
@@ -51,7 +54,16 @@
 @property (nonatomic, strong) NSNumber *week_52_high;           //外汇52周最高
 
 - (void)setupWithCode:(NSString *)code dataDic:(NSDictionary *)dataDic;
+
+/**
+ *  解析沪深排行榜数据
+ *
+ *  @param dataDic 沪深数据，服务器返回的数据
+ *
+ *  @return 返回解析后的数据
+ */
 + (NSMutableArray *)parseDataWithDataDic:(NSDictionary *)dataDic;
+
 /**
  *  解析外汇数据
  *

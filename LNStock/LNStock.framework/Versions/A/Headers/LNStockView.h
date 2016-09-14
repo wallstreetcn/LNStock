@@ -16,6 +16,7 @@ typedef NS_ENUM(NSUInteger, LNStockViewActionType) {
 typedef void (^LNStockViewDataBlock)(id model);
 typedef void (^LNStockViewBlock)(LNStockViewActionType type);
 
+@class LNStockHandler;
 @interface LNStockView : UIView
 
 /*
@@ -39,27 +40,33 @@ typedef void (^LNStockViewBlock)(LNStockViewActionType type);
 @property (nonatomic, copy) LNStockViewDataBlock quotesViewDataBlock;
 
 /*
+    刷新行情数据
+ */
+- (void)refreshStockData;
+
+/*
+    停止轮询
+ */
+- (void)stopPollRequest;
+
+/*
+    开始轮询
+ */
+- (void)startPollRequest;
+
+/*
+    View的初始化方法 LNStock专用
+ */
++ (instancetype)createViewWithCode:(NSString *)code isAstock:(BOOL)isAstock frame:(CGRect)frame;
+
+/*
     View的初始化方法(默认大小)
  */
-+ (instancetype)createViewWithCode:(NSString *)code
-                          isAstock:(BOOL)isAstock
-                           isNight:(BOOL)isNight;
++ (instancetype)createViewWithCode:(NSString *)code isAstock:(BOOL)isAstock isNight:(BOOL)isNight;
 
 /*
     View的初始化方法 自定义大小 - 头部的高度不变
  */
-+ (instancetype)createViewWithFrame:(CGRect)frame
-                               code:(NSString *)code
-                           isAstock:(BOOL)isAstock
-                            isNight:(BOOL)isNight;
-
-// 刷新行情数据
-- (void)refreshStockData;
-
-// 停止轮询
-- (void)stopPollRequest;
-
-// 开始轮询
-- (void)startPollRequest;
++ (instancetype)createViewWithFrame:(CGRect)frame code:(NSString *)code isAstock:(BOOL)isAstock isNight:(BOOL)isNight;
 
 @end
