@@ -74,11 +74,51 @@
 + (UIColor *)chartHighlighterLabelBG;
 //Chart 长按高亮显示的Line颜色设置
 + (UIColor *)chartHighlighterLine;
-//Chart K线涨跌颜色
-+ (UIColor *)chartCandleRiseColor;
-+ (UIColor *)chartCandleFallColor;
 //Chart 折线填充颜色
 + (UIColor *)chartLineFillStartColor;
 + (UIColor *)chartLineFillEndColor;
+
+//Chart 蜡烛颜色颜色包括美国线
++ (UIColor *)chartCandleColor;
+//Chart K线涨跌颜色
++ (UIColor *)chartCandleRiseColor;
++ (UIColor *)chartCandleFallColor;
+
+//Chart Line颜色
++ (UIColor *)chartLine;
+//Chart 均线颜色
++ (UIColor *)chartAVGLine;
+//Chart 昨收价格线颜色
++ (UIColor *)chartLimitLine;
+
+//Chart MA颜色
++ (UIColor *)chartMA1;
++ (UIColor *)chartMA2;
++ (UIColor *)chartMA3;
++ (UIColor *)chartMA4;
++ (UIColor *)chartMA5;
+
+//Chart MACD颜色
++ (UIColor *)chartDIFF;
++ (UIColor *)chartDEA;
++ (UIColor *)chartMACD;
+
+//Chart BOLL颜色
++ (UIColor *)chartUPPER;
++ (UIColor *)chartMID;
++ (UIColor *)chartLOWER;
+
+//Chart KDJ颜色
++ (UIColor *)chartK;
++ (UIColor *)chartD;
++ (UIColor *)chartJ;
+
+//Chart RSI颜色
++ (UIColor *)chartRSI6;
++ (UIColor *)chartRSI12;
++ (UIColor *)chartRSI24;
+
+//Chart OBV颜色
++ (UIColor *)chartOBV;
 
 @end

@@ -23,6 +23,7 @@
 @property (nonatomic, strong) UIColor *candleRiseColor;         //上涨颜色
 @property (nonatomic, strong) UIColor *candleFallColor;         //下跌颜色
 @property (nonatomic, strong) UIColor *candleEqualColor;        //等值的颜色
+@property (nonatomic, strong) UIColor *candleColor;             //整体颜色
 @property (nonatomic, assign,getter=isGreenUp) BOOL greenUp;    //是否是绿涨红跌
 
 @end
