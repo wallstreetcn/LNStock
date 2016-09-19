@@ -27,6 +27,7 @@ typedef NS_ENUM(NSUInteger, LNStockPriceType) {
     LNStockPriceTypeB
 };
 
+@class LNStockModel;
 @interface LNStockHandler : NSObject
 //单例
 @property (nonatomic, assign) LNStockTitleType titleType;                   //titelle
@@ -62,7 +63,9 @@ typedef NS_ENUM(NSUInteger, LNStockPriceType) {
 //因子类型
 + (LNStockFactorType)factorType;
 //单例
-+(LNStockHandler *)sharedManager;
++ (LNStockHandler *)sharedManager;
+//通过model生成
++ (LNStockHandler *)setupWithStockModel:(LNStockModel *)model;
 
 //默认设置
 - (void)defaultSet;
