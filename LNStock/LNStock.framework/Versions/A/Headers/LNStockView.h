@@ -57,7 +57,7 @@ typedef void (^LNStockViewBlock)(LNStockViewActionType type);
 /*
     View的初始化方法 LNStock专用
  */
-+ (instancetype)createViewWithCode:(NSString *)code isAstock:(BOOL)isAstock frame:(CGRect)frame;
++ (instancetype)createWithStockInfo:(LNStockHandler *)stockInfo frame:(CGRect)frame;
 
 /*
     View的初始化方法(默认大小)

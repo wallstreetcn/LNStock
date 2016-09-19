@@ -13,6 +13,8 @@
 @interface LNStockVC : UIViewController
 @property (nonatomic, copy) NSString *code;  //股票Code
 @property (nonatomic, assign) BOOL isAstock; //是否是A股
+@property (nonatomic, strong) LNStockHandler *stockInfo;
 @property (nonatomic, readonly) LNStockView *quotesView;
-+ (instancetype)setupWithCode:(NSString *)code isAstock:(BOOL)isAstock;
++ (instancetype)setupWithStockInfo:(LNStockHandler *)stockInfo;
++ (instancetype)setupWithCode:(NSString *)code isAstock:(BOOL)isAstock;  //已经弃用
 @end

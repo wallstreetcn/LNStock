@@ -64,6 +64,10 @@ typedef NS_ENUM(NSUInteger, LNStockPriceType) {
 //单例
 +(LNStockHandler *)sharedManager;
 
+//默认设置
+- (void)defaultSet;
+//判断是否是A股股票
+- (BOOL)isStock;
 //判断是否是AStock
 - (BOOL)isAStock;
 //是否是A股指数
