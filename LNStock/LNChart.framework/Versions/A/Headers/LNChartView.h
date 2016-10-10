@@ -12,10 +12,7 @@
 #import "LNChartLegend.h"
 #import "LNChartAnimator.h"
 
-typedef void (^LNChartViewActionBlock)();
-typedef void (^LNChartViewPinchRecognizerBlock)(LNChartData *data);
-typedef void (^LNChartViewPanRecognizerBlock)(BOOL isEnded, LNChartData *data);
-typedef void (^LNChartViewHighlightBlock)(LNChartHighlight *highlight, UILongPressGestureRecognizer *longPress);
+typedef void (^LNChartViewActionBlock)(LNAnimatorActionType type, LNChartData *data, id empty, BOOL isEnd);
 
 @interface LNChartView : LNChartBase
 @property (nonatomic, strong) LNYAxis *leftAxis;                                  //左轴
@@ -24,6 +21,8 @@ typedef void (^LNChartViewHighlightBlock)(LNChartHighlight *highlight, UILongPre
 @property (nonatomic, strong) LNChartLegend *chartLegend;                         //图标
 @property (nonatomic, strong) LNChartAnimator *animator;                          //动画
 @property (nonatomic, assign) ChartViewType chartViewType;                        //Chart类型
+
+@property (nonatomic, copy) LNChartViewActionBlock anctionBlock;
 @property (nonatomic, assign, getter=isDragEnabled) BOOL dragEnabled;             //是否可以拖拽
 @property (nonatomic, assign, getter=isZoomEnabled) BOOL zoomEnabled;             //是否可以缩放
 @property (nonatomic, assign, getter=isLongPressEnabled) BOOL longPressEnabled;   //是否可以长按
@@ -31,11 +30,6 @@ typedef void (^LNChartViewHighlightBlock)(LNChartHighlight *highlight, UILongPre
 @property (nonatomic, strong) UIPanGestureRecognizer *panGestureRecognizer;
 @property (nonatomic, strong) UIPinchGestureRecognizer *pinchGestureRecognizer;
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPressGestureRecognizer;
-
-@property (nonatomic, copy) LNChartViewActionBlock anctionBlock;
-@property (nonatomic, copy) LNChartViewHighlightBlock highlightBlock;
-@property (nonatomic, copy) LNChartViewPanRecognizerBlock panRecognizerBlock;
-@property (nonatomic, copy) LNChartViewPinchRecognizerBlock pinchRecognizerBlock;
 
 //设置数据
 - (void)setupWithData:(NSMutableArray *)data;

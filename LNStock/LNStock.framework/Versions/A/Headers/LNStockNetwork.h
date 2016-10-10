@@ -43,6 +43,8 @@ typedef void(^PriceNetworkBlock)(BOOL isSuccess, id response);
 + (void)getAstockDataWithStockCode:(NSString *)code
                             adjust:(NSString *)adjust
                               type:(NSString *)type
+                               num:(NSString *)num
+                           endTime:(NSString *)endTime
                              block:(PriceNetworkBlock)block;
 #pragma mark - 外汇
 //请求外汇K线图数据

@@ -18,26 +18,25 @@ typedef void (^LNStockViewBlock)(LNStockViewActionType type);
 
 @class LNStockHandler;
 @interface LNStockView : UIView
+@property (nonatomic, assign) BOOL isGreenUp;   //是否是绿涨红跌
+@property (nonatomic, assign) BOOL isNightMode; //是否是夜晚模式
+@property (nonatomic, copy) LNStockViewBlock quotesViewBlock;         //Stock的点击或双击手势回调
+@property (nonatomic, copy) LNStockViewDataBlock quotesViewDataBlock; //block会回调返回实时最新的数据
 
 /*
-    是否是绿涨红跌
+    View的初始化方法 LNStock横版专用
  */
-@property (nonatomic, assign) BOOL isGreenUp;
++ (instancetype)createWithStockInfo:(LNStockHandler *)stockInfo frame:(CGRect)frame;
 
 /*
-    是否是夜晚模式
+    View的初始化方法(默认大小)
  */
-@property (nonatomic, assign) BOOL isNightMode;
++ (instancetype)createViewWithCode:(NSString *)code isAstock:(BOOL)isAstock isNight:(BOOL)isNight;
 
 /*
-    Stock的点击或双击手势回调
+    View的初始化方法 自定义大小 - 头部的高度不变
  */
-@property (nonatomic, copy) LNStockViewBlock quotesViewBlock;
-
-/*
-    block会回调返回实时最新的数据
- */
-@property (nonatomic, copy) LNStockViewDataBlock quotesViewDataBlock;
++ (instancetype)createViewWithFrame:(CGRect)frame code:(NSString *)code isAstock:(BOOL)isAstock isNight:(BOOL)isNight;
 
 /*
     刷新行情数据
@@ -53,20 +52,4 @@ typedef void (^LNStockViewBlock)(LNStockViewActionType type);
     开始轮询
  */
 - (void)startPollRequest;
-
-/*
-    View的初始化方法 LNStock专用
- */
-+ (instancetype)createWithStockInfo:(LNStockHandler *)stockInfo frame:(CGRect)frame;
-
-/*
-    View的初始化方法(默认大小)
- */
-+ (instancetype)createViewWithCode:(NSString *)code isAstock:(BOOL)isAstock isNight:(BOOL)isNight;
-
-/*
-    View的初始化方法 自定义大小 - 头部的高度不变
- */
-+ (instancetype)createViewWithFrame:(CGRect)frame code:(NSString *)code isAstock:(BOOL)isAstock isNight:(BOOL)isNight;
-
 @end
