@@ -13,7 +13,6 @@
 #import "LNDataSet.h"
 #import "LNLineSet.h"
 #import "LNCandleSet.h"
-#import "LNColumnarSet.h"
 #import "LNChartHighlight.h"
 #import "LNChartHandler.h"
 #import "LNChartDefine.h"
@@ -38,7 +37,6 @@
 
 @property (nonatomic, strong) LNLineSet *lineSet;
 @property (nonatomic, strong) LNCandleSet *candleSet;
-@property (nonatomic, strong) LNColumnarSet *volumeSet;
 @property (nonatomic, strong) LNChartHandler *viewHandler;
 @property (nonatomic, strong) LNChartHighlight *highlighter;
 @property (nonatomic, assign) ChartViewType chartType;        //是否是外匯

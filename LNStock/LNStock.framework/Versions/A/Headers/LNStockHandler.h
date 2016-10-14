@@ -77,6 +77,8 @@ typedef NS_ENUM(NSUInteger, LNStockPriceType) {
 - (BOOL)isIndexStock;
 //判断是否是基金
 - (BOOL)isFundStock;
+//判断是否在交易中
+- (BOOL)isTRADE;
 //价格保留位数
 - (NSString *)pricePrecision;
 //股票状态返回格式为显示信息

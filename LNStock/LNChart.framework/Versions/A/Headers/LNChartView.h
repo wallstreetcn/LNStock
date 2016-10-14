@@ -10,17 +10,21 @@
 #import "LNYAxis.h"
 #import "LNLimitLine.h"
 #import "LNChartLegend.h"
+#import "LNChartAction.h"
 #import "LNChartAnimator.h"
+#import "LNChartPointLayer.h"
 
-typedef void (^LNChartViewActionBlock)(LNAnimatorActionType type, LNChartData *data, id empty, BOOL isEnd);
+typedef void (^LNChartViewActionBlock)(LNChartActionType type, LNChartData *data, id empty, BOOL isEnd);
 
 @interface LNChartView : LNChartBase
 @property (nonatomic, strong) LNYAxis *leftAxis;                                  //左轴
 @property (nonatomic, strong) LNYAxis *rightAxis;                                 //右轴
 @property (nonatomic, strong) LNLimitLine *limitLine;                             //虚线
 @property (nonatomic, strong) LNChartLegend *chartLegend;                         //图标
+@property (nonatomic, strong) LNChartAction *chartAction;                         //Action
 @property (nonatomic, strong) LNChartAnimator *animator;                          //动画
 @property (nonatomic, assign) ChartViewType chartViewType;                        //Chart类型
+@property (nonatomic, strong) LNChartPointLayer *pointCALayer;
 
 @property (nonatomic, copy) LNChartViewActionBlock anctionBlock;
 @property (nonatomic, assign, getter=isDragEnabled) BOOL dragEnabled;             //是否可以拖拽
