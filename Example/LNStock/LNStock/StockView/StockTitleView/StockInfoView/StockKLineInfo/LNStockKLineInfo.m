@@ -14,6 +14,7 @@
 
 @implementation LNStockKLineInfo
 -  (void)awakeFromNib {
+    [super awakeFromNib];
     [((UILabel *)self.contentLabels[5]) setAdjustsFontSizeToFitWidth:YES];
     self.backgroundColor = [LNStockColor infoViewBG];
     
@@ -56,13 +57,13 @@
     [dateFormatter setDateFormat:@"yyyy/MM/dd"];
     self.time.text = [dateFormatter stringFromDate:data.date];
     //高
-    ((UILabel *)self.contentLabels[0]).text = [LNStockFormatter formatterDefaultType:[data.high floatValue]];
+    ((UILabel *)self.contentLabels[0]).text = [LNStockFormatter formatterDefaultType:[self.stockInfo pricePrecision] num:[data.high floatValue]];
     //开
-    ((UILabel *)self.contentLabels[1]).text = [LNStockFormatter formatterDefaultType:[data.open floatValue]];
+    ((UILabel *)self.contentLabels[1]).text = [LNStockFormatter formatterDefaultType:[self.stockInfo pricePrecision] num:[data.open floatValue]];
     //低
-    ((UILabel *)self.contentLabels[2]).text = [LNStockFormatter formatterDefaultType:[data.low floatValue]];
+    ((UILabel *)self.contentLabels[2]).text = [LNStockFormatter formatterDefaultType:[self.stockInfo pricePrecision] num:[data.low floatValue]];
     //收
-    ((UILabel *)self.contentLabels[3]).text = [LNStockFormatter formatterDefaultType:[data.close floatValue]];
+    ((UILabel *)self.contentLabels[3]).text = [LNStockFormatter formatterDefaultType:[self.stockInfo pricePrecision] num:[data.close floatValue]];
     
     //设置涨跌幅
     CGFloat change = [data.close floatValue] - [preData.close floatValue];
@@ -124,13 +125,13 @@
     [dateFormatter setDateFormat:@"yyyy/MM/dd"];
      self.timeLabel.text = [dateFormatter stringFromDate:data.date];
     //高
-    ((UILabel *)self.contents[0]).text = [LNStockFormatter formatterDefaultType:[data.high floatValue]];
+    ((UILabel *)self.contents[0]).text = [LNStockFormatter formatterDefaultType:[self.stockInfo pricePrecision] num:[data.high floatValue]];
     //开
-    ((UILabel *)self.contents[1]).text = [LNStockFormatter formatterDefaultType:[data.open floatValue]];
+    ((UILabel *)self.contents[1]).text = [LNStockFormatter formatterDefaultType:[self.stockInfo pricePrecision] num:[data.open floatValue]];
     //低
-    ((UILabel *)self.contents[2]).text = [LNStockFormatter formatterDefaultType:[data.low floatValue]];
+    ((UILabel *)self.contents[2]).text = [LNStockFormatter formatterDefaultType:[self.stockInfo pricePrecision] num:[data.low floatValue]];
     //收
-    ((UILabel *)self.contents[3]).text = [LNStockFormatter formatterDefaultType:[data.close floatValue]];
+    ((UILabel *)self.contents[3]).text = [LNStockFormatter formatterDefaultType:[self.stockInfo pricePrecision] num:[data.close floatValue]];
     
     //设置涨跌幅
     CGFloat change = [data.close floatValue] - [preData.close floatValue];

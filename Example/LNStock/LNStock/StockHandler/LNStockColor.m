@@ -20,7 +20,8 @@ blue:((float)(a & 0xFF))/255.0 alpha:1.0]
 
 @implementation LNStockColor
 
-+ (LNStockColor *)manager {
++ (LNStockColor *)manager
+{
     static LNStockColor *stockColor = nil;
     static dispatch_once_t onceQuoteColor;
     dispatch_once(&onceQuoteColor, ^{
@@ -31,8 +32,9 @@ blue:((float)(a & 0xFF))/255.0 alpha:1.0]
 }
 
 //转换颜色
-+ (UIColor *)colorWithHex:(NSString *)color alpha:(NSString *)alpha {
-    if ([color length] < 6) {           //长度不合法
++ (UIColor *)colorWithHex:(NSString *)color alpha:(NSString *)alpha
+{
+    if ([color length] < 6) {                 //长度不合法
         return [UIColor blackColor];
     }
     NSString *tempString = [color lowercaseString];
@@ -96,22 +98,38 @@ blue:((float)(a & 0xFF))/255.0 alpha:1.0]
 
 + (UIColor *)priceUp
 {
-    return [LNStockColor colorForKey:@"priceUp"];
+    if ([LNStockHandler isGreenUp]) {
+        return [LNStockColor colorForKey:@"priceDown"];
+    } else {
+        return [LNStockColor colorForKey:@"priceUp"];
+    }
 }
 
 + (UIColor *)priceDown
 {
-    return [LNStockColor colorForKey:@"priceDown"];
+    if ([LNStockHandler isGreenUp]) {
+        return [LNStockColor colorForKey:@"priceUp"];
+    } else {
+        return [LNStockColor colorForKey:@"priceDown"];
+    }
 }
 
 + (UIColor *)priceLastUp
 {
-    return [LNStockColor colorForKey:@"priceLastUp"];
+    if ([LNStockHandler isGreenUp]) {
+        return [LNStockColor colorForKey:@"priceLastDown"];
+    } else {
+        return [LNStockColor colorForKey:@"priceLastUp"];
+    }
 }
 
 + (UIColor *)priceLastDown
 {
-    return [LNStockColor colorForKey:@"priceLastDown"];
+    if ([LNStockHandler isGreenUp]) {
+        return [LNStockColor colorForKey:@"priceLastUp"];
+    } else {
+        return [LNStockColor colorForKey:@"priceLastDown"];
+    }
 }
 
 + (UIColor *)titleLabelBG
@@ -227,6 +245,111 @@ blue:((float)(a & 0xFF))/255.0 alpha:1.0]
 + (UIColor *)chartLineFillEndColor
 {
     return [LNStockColor colorForKey:@"chartLineFillEndColor"];
+}
+
++ (UIColor *)chartCandleColor
+{
+    return [LNStockColor colorForKey:@"chartCandleColor"];
+}
+
+//Chart Line颜色
++ (UIColor *)chartLine
+{
+    return [LNStockColor colorForKey:@"chartLine"];
+}
+//Chart 均线颜色
++ (UIColor *)chartAVGLine
+{
+    return [LNStockColor colorForKey:@"chartAVGLine"];
+}
+//Chart 昨收价格线颜色
++ (UIColor *)chartLimitLine
+{
+    return [LNStockColor colorForKey:@"chartLimitLine"];
+}
+
+//Chart MA颜色
++ (UIColor *)chartMA1
+{
+    return [LNStockColor colorForKey:@"chartMA1"];
+}
++ (UIColor *)chartMA2
+{
+    return [LNStockColor colorForKey:@"chartMA2"];
+}
++ (UIColor *)chartMA3
+{
+    return [LNStockColor colorForKey:@"chartMA3"];
+}
++ (UIColor *)chartMA4
+{
+    return [LNStockColor colorForKey:@"chartMA4"];
+}
++ (UIColor *)chartMA5
+{
+    return [LNStockColor colorForKey:@"chartMA5"];
+}
+
+//Chart MACD颜色
++ (UIColor *)chartDIFF
+{
+    return [LNStockColor colorForKey:@"chartDIFF"];
+}
++ (UIColor *)chartDEA
+{
+    return [LNStockColor colorForKey:@"chartDEA"];
+}
++ (UIColor *)chartMACD
+{
+    return [LNStockColor colorForKey:@"chartMACD"];
+}
+
+//Chart BOLL颜色
++ (UIColor *)chartUPPER
+{
+    return [LNStockColor colorForKey:@"chartUPPER"];
+}
++ (UIColor *)chartMID
+{
+    return [LNStockColor colorForKey:@"chartMID"];
+}
++ (UIColor *)chartLOWER
+{
+    return [LNStockColor colorForKey:@"chartLOWER"];
+}
+
+//Chart KDJ颜色
++ (UIColor *)chartK
+{
+    return [LNStockColor colorForKey:@"chartK"];
+}
++ (UIColor *)chartD
+{
+    return [LNStockColor colorForKey:@"chartD"];
+}
++ (UIColor *)chartJ
+{
+    return [LNStockColor colorForKey:@"chartJ"];
+}
+
+//Chart RSI颜色
++ (UIColor *)chartRSI6
+{
+    return [LNStockColor colorForKey:@"chartRSI6"];
+}
++ (UIColor *)chartRSI12
+{
+    return [LNStockColor colorForKey:@"chartRSI12"];
+}
++ (UIColor *)chartRSI24
+{
+    return [LNStockColor colorForKey:@"chartRSI24"];
+}
+
+//Chart OBV颜色
++ (UIColor *)chartOBV
+{
+    return [LNStockColor colorForKey:@"chartOBV"];
 }
 
 @end

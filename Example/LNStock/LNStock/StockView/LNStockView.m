@@ -21,28 +21,28 @@
 #import "LNStockHeaderView.h"
 #import "NSTimer+LNStock.h"
 #import "LNStockOptionView.h"
+#import "LNStockFormatter.h"
+#import "LNStockLayout.h"
 #import <LNChart/LNChartView.h>
 
 @interface LNStockView ()
-@property (nonatomic, assign) CGFloat stockViewW;
-@property (nonatomic, assign) CGFloat stockViewH;
-@property (nonatomic, assign) CGFloat listViewW;              //交易列表的宽
-@property (nonatomic, assign) CGFloat titleViewH;             //头部视图的高
-@property (nonatomic, assign) CGFloat headerViewH;            //头部视图的Y
-@property (nonatomic, assign) CGFloat timeInterval;           //轮询刷新的时间
-@property (nonatomic, assign) CGFloat bottomChartViewH;       //bottomView的高
-@property (nonatomic, strong) NSTimer *timer;                 //定时器
-@property (nonatomic, strong) NSMutableArray *dataArr;        //返回Stock数组
-@property (nonatomic, strong) UIButton *adjustBtn;            //复权显示Button
-@property (nonatomic, strong) UIView *chartBGView;            //图表的父视图
-@property (nonatomic, strong) LNStockMenuView *menuView;
-@property (nonatomic, strong) LNStockListView *listView;
+@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic, assign) CGFloat timeInterval;
+@property (nonatomic, strong) NSMutableArray *dataArr;
+
+@property (nonatomic, strong) UIView *chartBGView;
+@property (nonatomic, strong) UIButton *adjustBtn;
 @property (nonatomic, strong) LNChartView *topChartView;
+@property (nonatomic, strong) LNStockListView *listView;
 @property (nonatomic, strong) LNChartView *bottomChartView;
 @property (nonatomic, strong) LNStockHeaderView *headerView;
 @property (nonatomic, strong) LNStockLodingView *lodingView;
 @property (nonatomic, strong) LNStockOptionView *optionView;
 @property (nonatomic, strong) LNStockTitleView *stockTitleView;
+
+@property (nonatomic, strong) LNStockHandler *stockInfo;
+@property (nonatomic, strong) LNStockLayout *stockLayout;
+
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 @property (nonatomic, strong) UITapGestureRecognizer *tapTwoGestureRecognizer;
 @end
@@ -61,37 +61,38 @@
 }
 
 + (instancetype)createViewWithFrame:(CGRect)frame code:(NSString *)code isAstock:(BOOL)isAstock isNight:(BOOL)isNight {
-    [LNStockHandler sharedManager].code = code;
     [LNStockHandler sharedManager].nightMode = isNight;
-    if (isAstock) {
-        [LNStockHandler sharedManager].priceType = LNStockPriceTypeA;
-    } else {
-        [LNStockHandler sharedManager].priceType = LNStockPriceTypeB;
-        [LNStockHandler sharedManager].titleType = LNChartTitleType_5m;
+    if (!isAstock) {
+        [LNStockHandler sharedManager].titleType = LNChartTitleType_1H;
         [LNStockHandler sharedManager].chartType = LNStockChartType_Candles;
     }
+    return [LNStockView createViewWithCode:code isAstock:isAstock frame:frame];
+}
+
++ (instancetype)createViewWithCode:(NSString *)code isAstock:(BOOL)isAstock frame:(CGRect)frame {
     LNStockView *stockView = [[LNStockView alloc]initWithFrame:frame];
+    stockView.stockInfo.priceType = isAstock ? LNStockPriceTypeA : LNStockPriceTypeB;
+    stockView.stockInfo.code = code;
+    [stockView setupViews];
     return stockView;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
-        [self setupViews];
-    }
-    return self;
-}
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    if (self = [super initWithCoder:aDecoder]) {
-        [self setupViews];
-    }
-    return self;
++ (instancetype)createWithStockInfo:(LNStockHandler *)stockInfo frame:(CGRect)frame {
+    LNStockView *stockView = [[LNStockView alloc]initWithFrame:frame];
+    stockView.stockInfo = stockInfo;
+    [stockView setupViews];
+    return stockView;
 }
 
 - (void)setupViews {
-    [self setupFrame];
-    if ([LNStockHandler isVerticalScreen]) { [self addSubview:self.headerView]; }             //创建HeaderView
-    if ([LNStockHandler priceType] == LNStockPriceTypeA) { [self addSubview:self.listView]; } //创建ListView
+    _timeInterval = 5.0f;
+    self.stockLayout = [[LNStockLayout alloc]init];
+    self.stockLayout.stockFrame = self.frame;
+    [self.stockLayout defaultSetWithIsAStock:[self.stockInfo isAStock]];
+    self.backgroundColor = [UIColor blackColor];
+    
+    if ([LNStockHandler isVerticalScreen]) { [self addSubview:self.headerView]; } //创建HeaderView
+    if ([self.stockInfo isAStock]) { [self addSubview:self.listView]; }           //创建ListView
     [self addSubview:self.quoteTitleView];   //添加titleView
     [self addSubview:self.chartBGView];      //创建chart背景图
     [self addSubview:self.lodingView];       //添加LodingView
@@ -103,27 +104,6 @@
                                              selector:@selector(refreshTitleView)
                                                  name:LNQuoteTitleViewNotification
                                                object:nil];
-}
-
-- (void)setupFrame {
-    _listViewW = 0;
-    _headerViewH = 0;
-    _bottomChartViewH = 0;
-    _titleViewH = kFStockTitleViewH;
-    _stockViewW = self.frame.size.width;
-    _stockViewH = self.frame.size.height;
-   if ([LNStockHandler priceType] == LNStockPriceTypeA) {
-       _listViewW = [LNStockHandler isVerticalScreen] ? 100 : 140;
-       _headerViewH = [LNStockHandler isVerticalScreen] ? kFStockAHeaderH : 0;
-       _titleViewH = [LNStockHandler isVerticalScreen] ? kFStockTitleViewH : 90;
-       _bottomChartViewH = (NSInteger)((_stockViewH - _titleViewH - _headerViewH) / 4);
-   }
-   else {
-       _headerViewH = [LNStockHandler isVerticalScreen] ? kFStockBHeaderH : 0;
-       _titleViewH = [LNStockHandler isVerticalScreen] ? kFStockTitleViewH : 90;
-   }
-    _timeInterval = 5.0f;
-    self.backgroundColor = [UIColor blackColor];
 }
 
 - (void)setupGestureRecognizer {
@@ -164,11 +144,11 @@
 
 - (void)setIsGreenUp:(BOOL)isGreenUp {
     _isGreenUp = isGreenUp;
-    _topChartView.data.candleSet.greenUp = _isGreenUp;
     [LNStockHandler sharedManager].greenUp = _isGreenUp;
-    if ([LNStockHandler priceType] == LNStockPriceTypeA) {
-        _bottomChartView.data.candleSet.greenUp = _isGreenUp;
+    if ([self.stockInfo isAStock]) {
+        self.bottomChartView.data.candleSet.greenUp = _isGreenUp;
     }
+    self.topChartView.data.candleSet.greenUp = _isGreenUp;
     [self refreshChartData];
 }
 
@@ -182,7 +162,7 @@
 //headerView
 - (LNStockHeaderView *)headerView {
     if (!_headerView) {
-        _headerView = [[LNStockHeaderView alloc]init];
+        _headerView = [[LNStockHeaderView alloc]initWithStockInfo:self.stockInfo];
     }
     return _headerView;
 }
@@ -192,12 +172,16 @@
     __weak typeof(self) wself= self;
     if (!_topChartView) {
         _topChartView = [[LNChartView alloc]init];
-        _topChartView.frame = CGRectMake(0, 0, _chartBGView.bounds.size.width, _chartBGView.frame.size.height - _bottomChartViewH);
+        _topChartView.frame = CGRectMake(0, 0, _chartBGView.bounds.size.width, _chartBGView.frame.size.height - _stockLayout.bottomChartViewH);
         _topChartView.chartViewType = ChartViewType_Line;
+        _topChartView.data.candleSet.greenUp = [LNStockHandler isGreenUp];
+        _topChartView.data.lineSet.endFillColor = [LNStockColor chartLineFillEndColor];
+        _topChartView.data.lineSet.startFillColor = [LNStockColor chartLineFillStartColor];
         _topChartView.data.candleSet.candleRiseColor = [LNStockColor chartCandleRiseColor];
         _topChartView.data.candleSet.candleFallColor = [LNStockColor chartCandleFallColor];
-        _topChartView.data.lineSet.startFillColor = [LNStockColor chartLineFillStartColor];
-        _topChartView.data.lineSet.endFillColor = [LNStockColor chartLineFillEndColor];
+        _topChartView.limitLine.lineColor = [LNStockColor chartLimitLine];
+        _topChartView.data.lineSet.lineColors = @[[LNStockColor chartLine], [LNStockColor chartAVGLine]];
+        _topChartView.data.candleSet.MAColors = @[[LNStockColor chartMA1], [LNStockColor chartMA2], [LNStockColor chartMA3], [LNStockColor chartMA4], [LNStockColor chartMA5]];
         
         if ([LNStockHandler isVerticalScreen]) {
             _topChartView.leftAxis.labelPosition = YAxisLabelPositionInsideChart;
@@ -206,35 +190,42 @@
             [_topChartView removeGestureRecognizer:_topChartView.panGestureRecognizer];
             [_topChartView.viewHandler restrainViewPort:0 offsetTop:0 offsetRight:0 offsetBottom:15];
         }
-        if ([LNStockHandler priceType] == LNStockPriceTypeB) {
+        if (![self.stockInfo isAStock]) {
             if (![LNStockHandler isVerticalScreen]) { _topChartView.zoomEnabled = YES; }
             _topChartView.leftAxis.drawLabelsEnabled = NO;
             _topChartView.leftAxis.labelPosition = YAxisLabelPositionOutsideChart;
             _topChartView.rightAxis.labelPosition = YAxisLabelPositionOutsideChart;
             _topChartView.data.highlighter.positionType = HighlightPositionRightOut;
             [_topChartView.viewHandler restrainViewPort:0 offsetTop:0 offsetRight:45 offsetBottom:30];
-        }
-        _topChartView.highlightBlock = ^(LNChartHighlight *highlight, UILongPressGestureRecognizer *longPress) {
-            [wself.bottomChartView addCrossLine:highlight longPress:longPress];
-            [wself changeAdjustButtonHiddenStatus:highlight.isHighlight];
-            [LNStockHandler sharedManager].longPress = highlight.isHighlight;
-            if (highlight.isHighlight) {
-                [wself.quoteTitleView showInfoViewWithArray:wself.dataArr Index:highlight.index];
-            } else {
-                [wself.quoteTitleView hiddenInfoView];
+        }    
+        _topChartView.anctionBlock = ^(LNChartActionType type, LNChartData *data, id empty, BOOL isEnd) {
+            switch (type) {
+                case LNChartActionType_Pan:
+                    [wself.bottomChartView slidingPage:isEnd data:data];
+                    break;
+                case LNChartActionType_Pinch:
+                    [wself.bottomChartView zoomPage:data];
+                    break;
+                case LNChartActionType_LongPress:
+                    [wself.bottomChartView addCrossLine:data.highlighter longPress:empty];
+                    [wself changeAdjustButtonHiddenStatus:data.highlighter.isHighlight];
+                    wself.stockInfo.longPress = data.highlighter.isHighlight;
+                    if (data.highlighter.isHighlight) {
+                        [wself.quoteTitleView showInfoViewWithArray:wself.dataArr Index:data.highlighter.index];
+                    } else {
+                        [wself.quoteTitleView hiddenInfoView];
+                    }
+                    break;
+                case LNChartActionType_LeftAction:  //左拉加載數據回調
+                    if ([wself.stockInfo isAStock]) {
+                        [wself requestAstockDataWithType:LNStockRequestType_LoadMore];
+                    } else {
+                        [wself requestBstockDataWithType:LNStockRequestType_LoadMore];
+                    }
+                    break;
+                case LNChartActionType_RightAction: //右拉加载
+                    break;
             }
-        };
-        
-        _topChartView.panRecognizerBlock = ^(BOOL isEnded, LNChartData *data) {
-            [wself.bottomChartView slidingPage:isEnded data:data];
-        };
-        
-        _topChartView.pinchRecognizerBlock = ^(LNChartData *data) {
-            [wself.bottomChartView zoomPage:data];
-        };
-        
-        _topChartView.anctionBlock = ^(){ //動作回調
-            [wself requestBstockDataWithType:LNStockRequestType_LoadMore];
         };
     }
     return _topChartView;
@@ -245,13 +236,14 @@
     __weak typeof(self) wself= self;
     if (!_bottomChartView) {
         _bottomChartView = [[LNChartView alloc]init];
-        _bottomChartView.frame = CGRectMake(0, CGRectGetMaxY(self.topChartView.frame), self.topChartView.frame.size.width, _bottomChartViewH);
+        _bottomChartView.frame = CGRectMake(0, CGRectGetMaxY(self.topChartView.frame), self.topChartView.frame.size.width, _stockLayout.bottomChartViewH);
         [self updateBottomChartViewType];
-        _bottomChartView.data.candleSet.candleRiseColor = [LNStockColor chartCandleRiseColor];
-        _bottomChartView.data.candleSet.candleFallColor = [LNStockColor chartCandleFallColor];
         _bottomChartView.drawInfoEnabled = NO;
         _bottomChartView.data.sizeRatio = 1.0;
         _bottomChartView.data.drawLoadMoreContent = NO;
+        _bottomChartView.data.candleSet.greenUp = [LNStockHandler isGreenUp];
+        _bottomChartView.data.candleSet.candleRiseColor = [LNStockColor chartCandleRiseColor];
+        _bottomChartView.data.candleSet.candleFallColor = [LNStockColor chartCandleFallColor];
         [_bottomChartView.viewHandler restrainViewPort:45 offsetTop:0 offsetRight:45 offsetBottom:0];
         
         if ([LNStockHandler isVerticalScreen]) {
@@ -261,28 +253,34 @@
             [_bottomChartView removeGestureRecognizer:_bottomChartView.panGestureRecognizer];
             [_bottomChartView.viewHandler restrainViewPort:0 offsetTop:0 offsetRight:0 offsetBottom:0];
         }
-        _bottomChartView.highlightBlock = ^(LNChartHighlight *highlight, UILongPressGestureRecognizer *longPress) {
-            [wself.topChartView addCrossLine:highlight longPress:longPress];
-            [wself changeAdjustButtonHiddenStatus:highlight.isHighlight];
-            [LNStockHandler sharedManager].longPress = highlight.isHighlight;
-            if (highlight.isHighlight) {
-                [wself.quoteTitleView showInfoViewWithArray:wself.dataArr Index:highlight.index];
+        _bottomChartView.anctionBlock = ^(LNChartActionType type, LNChartData *data, id empty, BOOL isEnd) {
+            switch (type) {
+                case LNChartActionType_Pan:
+                    [wself.topChartView slidingPage:isEnd data:data];
+                    break;
+                case LNChartActionType_Pinch:
+                    [wself.topChartView zoomPage:data];
+                    break;
+                case LNChartActionType_LongPress:
+                    [wself.topChartView addCrossLine:data.highlighter longPress:empty];
+                    [wself changeAdjustButtonHiddenStatus:data.highlighter.isHighlight];
+                    wself.stockInfo.longPress = data.highlighter.isHighlight;
+                    if (data.highlighter.isHighlight) {
+                        [wself.quoteTitleView showInfoViewWithArray:wself.dataArr Index:data.highlighter.index];
+                    } else {
+                        [wself.quoteTitleView hiddenInfoView];
+                    }
+                    break;
+                case LNChartActionType_LeftAction:  //左拉加載數據回調
+                    if ([wself.stockInfo isAStock]) {
+                        [wself requestAstockDataWithType:LNStockRequestType_LoadMore];
+                    } else {
+                        [wself requestBstockDataWithType:LNStockRequestType_LoadMore];
+                    }
+                    break;
+                case LNChartActionType_RightAction: //右拉加载
+                    break;
             }
-            else {
-                [wself.quoteTitleView hiddenInfoView];
-            }
-        };
-        
-        _bottomChartView.panRecognizerBlock = ^(BOOL isEnded, LNChartData *data) {
-            [wself.topChartView slidingPage:isEnded data:data];
-        };
-        
-        _bottomChartView.pinchRecognizerBlock = ^(LNChartData *data) {
-            [wself.topChartView zoomPage:data];
-        };
-        
-        _bottomChartView.anctionBlock = ^(){ //動作回調
-            [wself requestBstockDataWithType:LNStockRequestType_LoadMore];
         };
     }
     return _bottomChartView;
@@ -291,7 +289,8 @@
 - (LNStockTitleView *)quoteTitleView {
     if (!_stockTitleView) {
         __weak typeof(self) wself= self;
-        _stockTitleView = [[LNStockTitleView alloc] initWithFrame:CGRectMake(0, _headerViewH, _stockViewW, _titleViewH)];
+        _stockTitleView = [[LNStockTitleView alloc] initWithFrame:CGRectMake(0, _stockLayout.headerViewH, _stockLayout.stockViewW, _stockLayout.titleViewH) stockInfo:self.stockInfo];
+        [self refreshStockRealData];
         _stockTitleView.actionBlock = ^(LNStockTitleViewAction type) {
             switch (type) {
                 //添加横屏刷新按钮动作
@@ -316,23 +315,11 @@
     return _stockTitleView;
 }
 
-- (LNStockMenuView *)menuView {
-    __weak typeof(self) wself= self;
-    if (!_menuView) {
-        _menuView = [[LNStockMenuView alloc] initWithFrame:CGRectMake(_stockViewW - 50, _headerViewH + _titleViewH - 10, 50, 100)];
-        _menuView.block = ^(NSInteger type){
-            [LNStockHandler sharedManager].titleType = type + 1;
-            [wself.quoteTitleView setAChartTitleViewLastBtnWithType:[LNStockHandler titleType]];
-            [wself.menuView hiddenView];
-        };
-    }
-    return _menuView;
-}
-
 - (LNStockOptionView *)optionView {
     __weak typeof(self) wself= self;
     if (!_optionView) {
-        _optionView = [[LNStockOptionView alloc]initWithFrame:CGRectMake(_stockViewW - 60, _titleViewH, 60,_stockViewH - _titleViewH)];
+        CGRect rect = CGRectMake(_stockLayout.stockViewW - 60, _stockLayout.titleViewH, 60,_stockLayout.stockViewH - _stockLayout.titleViewH);
+        _optionView = [[LNStockOptionView alloc]initWithFrame:rect stockInfo:self.stockInfo];
         _optionView.block = ^(LNOptionViewAction type){
             switch (type) {
                 case LNOptionViewAction_Adjust:
@@ -353,10 +340,10 @@
 - (UIView *)chartBGView {
     if (!_chartBGView) {
         _chartBGView = [[UIView alloc]init];
-        _chartBGView.frame = CGRectMake(0, _titleViewH + _headerViewH, _stockViewW - _listViewW, _stockViewH - _titleViewH - _headerViewH);
+        _chartBGView.frame = CGRectMake(0, _stockLayout.titleViewH + _stockLayout.headerViewH, _stockLayout.stockViewW - _stockLayout.listViewW, _stockLayout.stockViewH - _stockLayout.titleViewH - _stockLayout.headerViewH);
         _chartBGView.backgroundColor = [UIColor blackColor];
         [_chartBGView addSubview:self.topChartView];
-        if ([LNStockHandler priceType] == LNStockPriceTypeA) {
+        if ([self.stockInfo  isAStock]) {
             [_chartBGView addSubview:self.bottomChartView];
         }
     }
@@ -365,14 +352,16 @@
 
 - (LNStockLodingView *)lodingView {
     if (!_lodingView) {
-        _lodingView = [[LNStockLodingView alloc]initWithFrame:CGRectMake(0, _headerViewH + _titleViewH, _stockViewW, _stockViewH - _titleViewH - _headerViewH)];
+        _lodingView = [[LNStockLodingView alloc]initWithFrame:CGRectMake(0, _stockLayout.headerViewH + _stockLayout.titleViewH, _stockLayout.stockViewW, _stockLayout.stockViewH - _stockLayout.titleViewH - _stockLayout.headerViewH)];
     }
     return _lodingView;
 }
 
 - (LNStockListView *)listView {
     if (!_listView) {
-        _listView = [[LNStockListView alloc]initWithFrame:CGRectMake(_stockViewW - _listViewW, CGRectGetMaxY(self.quoteTitleView.frame), _listViewW, _stockViewH - _titleViewH - _headerViewH)];
+        _listView = [[LNStockListView alloc]initWithFrame:CGRectMake(_stockLayout.stockViewW - _stockLayout.listViewW, CGRectGetMaxY(self.quoteTitleView.frame), _stockLayout.listViewW, _stockLayout.stockViewH - _stockLayout.titleViewH - _stockLayout.headerViewH)];
+        _listView.stockInfo = self.stockInfo;
+        [_listView getBuyAndSaleGroupData];
     }
     return _listView;
 }
@@ -385,13 +374,19 @@
         _adjustBtn.titleLabel.font = [UIFont systemFontOfSize:12];
         [_adjustBtn setBackgroundColor:[UIColor grayColor]];
         [_adjustBtn addTarget:self action:@selector(adjustButtonAction) forControlEvents:UIControlEventTouchUpInside];
-        if ([LNStockHandler priceType] == LNStockPriceTypeA &&
-            [LNStockHandler isVerticalScreen] &&
-            ![LNStockHandler isFundStock]) {
+        if ([self.stockInfo isAStock] && [LNStockHandler isVerticalScreen] && [self.stockInfo isStock] ) {
             [self.chartBGView addSubview:_adjustBtn];
         }
     }
     return _adjustBtn;
+}
+
+- (LNStockHandler *)stockInfo {
+    if (!_stockInfo) {
+        _stockInfo = [[LNStockHandler alloc]init];
+        [_stockInfo defaultSet];
+    }
+    return _stockInfo;
 }
 
 - (NSMutableArray *)dataArr {
@@ -406,8 +401,7 @@
 - (void)tapOneAction:(UITapGestureRecognizer *)tap {
     //设置竖屏状态
     if ([LNStockHandler isVerticalScreen]) {
-        [LNStockHandler sharedManager].verticalScreen = NO;
-        LNStockVC *vc = [[LNStockVC alloc]init];
+        LNStockVC *vc = [LNStockVC initWithStockInfo:self.stockInfo];
         [[self viewController] presentViewController:vc animated:YES completion:nil];
         [[NSNotificationCenter defaultCenter] postNotificationName:LNQuoteTitleViewNotification object:self userInfo:nil];
         if (self.quotesViewBlock) {
@@ -440,25 +434,24 @@
 
 - (void)showDealListView {
     self.optionView.hidden = YES;
-    if (![LNStockHandler isIndexStock]) {
+    if (![self.stockInfo isIndexStock]) {
         self.listView.hidden = NO;
-        self.chartBGView.frame = CGRectMake(0, _titleViewH + _headerViewH, _stockViewW - _listViewW, self.chartBGView.bounds.size.height);
+        self.chartBGView.frame = CGRectMake(0, _stockLayout.titleViewH + _stockLayout.headerViewH, _stockLayout.stockViewW - _stockLayout.listViewW, self.chartBGView.bounds.size.height);
         [self updateChartViewFrame];
     }
 }
 
 - (void)hiddenDealListView {
-    [self.menuView hiddenView];
     self.listView.hidden = YES;
     if ([LNStockHandler titleType] == LNChartTitleType_5D || [LNStockHandler isVerticalScreen]) {
         self.optionView.hidden = YES;
-        self.chartBGView.frame = CGRectMake(0, _titleViewH + _headerViewH, _stockViewW, self.chartBGView.bounds.size.height);
+        self.chartBGView.frame = CGRectMake(0, _stockLayout.titleViewH + _stockLayout.headerViewH, _stockLayout.stockViewW, self.chartBGView.bounds.size.height);
     } else {
-        if ([LNStockHandler isIndexStock] && [LNStockHandler titleType] == LNChartTitleType_1m) {
-            self.chartBGView.frame = CGRectMake(0, _titleViewH + _headerViewH, _stockViewW, self.chartBGView.bounds.size.height);
+        if ([self.stockInfo isIndexStock] && [LNStockHandler titleType] == LNChartTitleType_1m) {
+            self.chartBGView.frame = CGRectMake(0, _stockLayout.titleViewH + _stockLayout.headerViewH, _stockLayout.stockViewW, self.chartBGView.bounds.size.height);
         } else {
-            self.chartBGView.frame = CGRectMake(0, _titleViewH + _headerViewH, _stockViewW - 60, self.chartBGView.bounds.size.height);
-            self.optionView.hidden = NO;
+            self.chartBGView.frame = CGRectMake(0, _stockLayout.titleViewH + _stockLayout.headerViewH, _stockLayout.stockViewW - 60, self.chartBGView.bounds.size.height);
+            [self.optionView updateOptionView];
         }
     }
     [self updateChartViewFrame];
@@ -466,8 +459,8 @@
 
 - (void)updateChartViewFrame {
     [self changeAdjustButtonHiddenStatus:NO];
-    self.topChartView.frame = CGRectMake(0, 0, _chartBGView.frame.size.width, _chartBGView.frame.size.height - _bottomChartViewH);
-    self.bottomChartView.frame = CGRectMake(0, CGRectGetMaxY(_topChartView.frame), _topChartView.frame.size.width, _bottomChartViewH);
+    self.topChartView.frame = CGRectMake(0, 0, _chartBGView.frame.size.width, _chartBGView.frame.size.height - _stockLayout.bottomChartViewH);
+    self.bottomChartView.frame = CGRectMake(0, CGRectGetMaxY(_topChartView.frame), _topChartView.frame.size.width, _stockLayout.bottomChartViewH);
 }
 
 #pragma mark - NStimer
@@ -487,12 +480,12 @@
 
 //轮询数据
 - (void)refreshStockData {
-    [self refreshStockRealData];  //刷新实时行情
-    if ([LNStockHandler priceType] == LNStockPriceTypeA) {
+    [self refreshStockRealData];
+    if ([self.stockInfo isAStock]) {
         switch ([LNStockHandler titleType]) {
             case LNChartTitleType_1m:
                 [self refreshChartTypeMinute];
-                if (![LNStockHandler isIndexStock]) {
+                if (![self.stockInfo isIndexStock]) {
                     [self.listView getBuyAndSaleGroupData];
                 }
                 break;
@@ -500,7 +493,7 @@
                 [self refreshChartTypeFiveDay];
                 break;
             default:
-                [self refreshChartTypeKLine];
+                [self requestAstockDataWithType:LNStockRequestType_Refresh];
                 break;
         }
     } else {
@@ -540,14 +533,18 @@
 }
 
 - (void)changeAdjustButtonHiddenStatus:(BOOL)highlight {
-    if ([LNStockHandler priceType] == LNStockPriceTypeA) {
+    if ([self.stockInfo isAStock]) {
         if (highlight) {
             self.adjustBtn.hidden = YES;
         } else {
-            if ([LNStockHandler isIndexStock] ||
-                [LNStockHandler isFundStock] ||
+            if (![self.stockInfo isStock] ||
                 [LNStockHandler titleType] == LNChartTitleType_1m ||
-                [LNStockHandler titleType] == LNChartTitleType_5D) {
+                [LNStockHandler titleType] == LNChartTitleType_5D ||
+                [LNStockHandler titleType] == LNChartTitleType_5m ||
+                [LNStockHandler titleType] == LNChartTitleType_15m ||
+                [LNStockHandler titleType] == LNChartTitleType_30m ||
+                [LNStockHandler titleType] == LNChartTitleType_1H
+                ) {
                 self.adjustBtn.hidden = YES;
             } else {
                 self.adjustBtn.hidden = NO;
@@ -558,7 +555,7 @@
 
 - (void)refreshChartView {
     [self updateTopChartViewType];
-    [self refreshChart:[NSMutableArray arrayWithArray:[self getEntityWithArray:self.dataArr]]];
+    [self refreshChart:[NSMutableArray arrayWithArray:[self getBStockEntityWithArray:self.dataArr]]];
 }
 
 - (void)updateTopChartViewType {
@@ -587,30 +584,35 @@
         case LNStockFactorType_MACD:
             _bottomChartView.chartLegend.contents = @[@"DIFF:",@"DEA:",@"MACD:"];
             _bottomChartView.chartViewType = ChartViewType_MACD;
+            _bottomChartView.data.lineSet.lineColors = @[[LNStockColor chartDIFF],[LNStockColor chartDEA],[LNStockColor chartMACD]];
             break;
         case LNStockFactorType_BOLL:
             _bottomChartView.chartLegend.contents = @[@"UPPER:",@"MID:",@"LOWER:"];
             _bottomChartView.chartViewType = ChartViewType_BOLL;
+            _bottomChartView.data.candleSet.candleColor = [LNStockColor chartCandleColor];
+            _bottomChartView.data.lineSet.lineColors = @[[LNStockColor chartUPPER],[LNStockColor chartMID],[LNStockColor chartLOWER]];
             break;
         case LNStockFactorType_KDJ:
             labelCount = 3;
             _bottomChartView.chartViewType = ChartViewType_Line;
             _bottomChartView.leftAxis.drawGridLinesEnabled = YES;
             _bottomChartView.chartLegend.contents = @[@"K:",@"D:",@"J:"];
+            _bottomChartView.data.lineSet.lineColors = @[[LNStockColor chartK],[LNStockColor chartD],[LNStockColor chartJ]];
             break;
         case LNStockFactorType_RSI:
             _bottomChartView.chartLegend.contents = @[@"RSI6:",@"RSI12:",@"RSI24:"];
             _bottomChartView.chartViewType = ChartViewType_Line;
+            _bottomChartView.data.lineSet.lineColors = @[[LNStockColor chartRSI6],[LNStockColor chartRSI12],[LNStockColor chartRSI24]];
             break;
         case LNStockFactorType_OBV:
             _bottomChartView.chartLegend.contents = @[@"OBV:"];
             _bottomChartView.chartViewType = ChartViewType_OBV;
+            _bottomChartView.data.lineSet.lineColors = @[[LNStockColor chartOBV]];
             break;
         default:
             _bottomChartView.chartViewType = ChartViewType_Line;
             break;
     }
-    _bottomChartView.data.lineSet.lineColors = @[kCHex(0xF0AB0A), kCHex(0xE72589), kCHex(0x05E222)];
     _bottomChartView.data.lineSet.fillEnabled = NO;
     _bottomChartView.leftAxis.labelCount = labelCount;
 }
@@ -646,10 +648,10 @@
 
 - (void)refreshChart:(NSMutableArray *)dataArr {
     [self.topChartView setupWithData:dataArr];
-    self.topChartView.data.precision = [LNStockHandler price_precision];
-    if ([LNStockHandler priceType] == LNStockPriceTypeA) {
+    self.topChartView.data.precision = [self.stockInfo pricePrecision];
+    if ([self.stockInfo isAStock]) {
         [self.bottomChartView setupWithData:dataArr];
-        self.bottomChartView.data.precision = [LNStockHandler price_precision];
+        self.bottomChartView.data.precision = [self.stockInfo pricePrecision];
     }
 }
 
@@ -681,10 +683,11 @@
     [self.topChartView.data removeAllDataSet];
     [self.bottomChartView.data removeAllDataSet];
     //必须停止动画时间，会崩溃
-    [self.topChartView.animator stopAnimation];
-    [self.bottomChartView.animator stopAnimation];
-    if ([LNStockHandler priceType] == LNStockPriceTypeA) {
+    [self.topChartView.chartAction stopAnimation];
+    [self.bottomChartView.chartAction stopAnimation];
+    if ([self.stockInfo isAStock]) {
         [self hiddenDealListView]; //隐藏五档列表
+        self.topChartView.data.lineSet.drawLastPoint = NO;
         switch ([LNStockHandler titleType]) {
             case LNChartTitleType_1m:
                 [self showDealListView];
@@ -705,10 +708,10 @@
                 [self setLineChartView];
                 [self refreshChartTypeFiveDay];
                 break;
-//            case LNChartTitleType_5m:
-//            case LNChartTitleType_15m:
-//            case LNChartTitleType_30m:
-//            case LNChartTitleType_1H:
+            case LNChartTitleType_5m:
+            case LNChartTitleType_15m:
+            case LNChartTitleType_30m:
+            case LNChartTitleType_1H:
             case LNChartTitleType_1D:
             case LNChartTitleType_1W:
             case LNChartTitleType_1M:
@@ -734,22 +737,11 @@
                 _bottomChartView.leftAxis.drawLabelsEnabled = _bottomChartView.leftAxis.labelPosition == YAxisLabelPositionOutsideChart;
                 [self updateTopChartViewDateFormatter];
                 [self updateBottomChartViewType];
-                [self refreshChartTypeKLine];
+                [self requestAstockDataWithType:LNStockRequestType_Normal];
                 break;
-            case LNChartTitleType_NULL: {
-                if (self.menuView.showing) {
-                    [self.menuView hiddenView];
-                } else {
-                    self.menuView.showing = YES;
-                    [self addSubview:self.menuView];
-                }
-            }
+            case LNChartTitleType_NULL:
                 break;
-            default: {
-                //上线后新增分钟线后删掉
-                [LNStockHandler sharedManager].titleType = LNChartTitleType_1m;
-                [self refreshChartData];
-            }
+            default:
                 break;
         }
     } else {
@@ -790,10 +782,16 @@
 //A股和外汇Real接口
 - (void)refreshStockRealData {
     __weak typeof(self) wself= self;
-    [LNStockNetwork getStockRealDataWithCode:[LNStockHandler code] block:^(BOOL isSuccess, LNStockModel *model) {
+    if ([self.stockInfo isAStock] && ![LNStockHandler isVerticalScreen]) { //为了实时刷新横版股票时间用，后期会换
+        [self refreshChartTypeMinute];
+    }
+    [LNStockNetwork getStockRealDataWithCode:self.stockInfo.code isAstock:[self.stockInfo isAStock] block:^(BOOL isSuccess, LNStockModel *model) {
         if (isSuccess) {
             [wself.headerView updateStockData:model];        //刷新横版头部试图
             [wself.stockTitleView refreshTitleView:model];   //刷新titleView
+            wself.stockInfo.tradeStatus = model.trade_status;
+            wself.stockInfo.stocktype = model.securities_type;
+            wself.stockInfo.price_precision = model.price_precision;
             //回调外面面板数据
             if (wself.quotesViewDataBlock) {
                 wself.quotesViewDataBlock(model);
@@ -804,10 +802,12 @@
 
 - (void)refreshChartTypeMinute {
     __weak typeof(self) wself= self;
-    [LNStockNetwork getStockMinuteDataWithStockCode:[LNStockHandler code] block:^(BOOL isSuccess, id response) {
+    [LNStockNetwork getStockMinuteDataWithStockCode:self.stockInfo.code block:^(BOOL isSuccess, NSArray *response) {
         self.lodingView.hidden = YES;
         if (isSuccess) {
             NSMutableArray *dataSets = [NSMutableArray array];
+            //存储最后时间
+            wself.stockInfo.currentlyDate = ((LNRealModel *)response.lastObject).date;
             for (LNRealModel *model in response) {
                 LNDataSet *entity = [[LNDataSet alloc]init];
                 entity.date = model.date;
@@ -822,16 +822,16 @@
                 [dataSets addObject:entity];
             }
             if ([LNStockHandler titleType] == LNChartTitleType_1m) {
-                if ([LNStockHandler isIndexStock]) {
+                if ([wself.stockInfo isIndexStock]) {
                     [wself hiddenDealListView];
                 } else {
                     [wself showDealListView];
                 }
-                wself.dataArr = response;
+                //添加最后一个点是否显示
+                wself.topChartView.data.lineSet.drawLastPoint = [wself.stockInfo isTRADE];
+                wself.dataArr = [NSMutableArray arrayWithArray:response];
                 [wself refreshChart:dataSets];
             }
-            //存储最后时间
-            [LNStockHandler sharedManager].currentlyDate = ((LNRealModel *)wself.dataArr.lastObject).date;
         } else {
             NSLog(@"%@",response);
         }
@@ -840,7 +840,7 @@
 
 - (void)refreshChartTypeFiveDay {
     __weak typeof(self) wself= self;
-    [LNStockNetwork getAstockFiveDaysDataWithStockCode:[LNStockHandler code] block:^(BOOL isSuccess, id response) {
+    [LNStockNetwork getAstockFiveDaysDataWithStockCode:self.stockInfo.code block:^(BOOL isSuccess, id response) {
         wself.lodingView.hidden = YES;
         if (isSuccess) {
             NSMutableArray *dataSets = [NSMutableArray array];
@@ -862,21 +862,33 @@
     }];
 }
 
-- (void)refreshChartTypeKLine {
-    NSString *type = @"";
+- (void)requestAstockDataWithType:(LNStockRequestType)type {
+    NSString *codetype = @"";
     switch ([LNStockHandler titleType]) {
+        case LNChartTitleType_5m:
+            codetype = @"2";
+            break;
+        case LNChartTitleType_15m:
+            codetype = @"3";
+            break;
+        case LNChartTitleType_30m:
+            codetype = @"4";
+            break;
+        case LNChartTitleType_1H:
+            codetype = @"5";
+            break;
         case LNChartTitleType_1D:
-            type = @"6";
+            codetype = @"6";
             break;
         case LNChartTitleType_1W:
-            type = @"7";
+            codetype = @"7";
             break;
         case LNChartTitleType_1M:
-            type = @"8";
+            codetype = @"8";
             break;
         default:
             break;
-    } //    NSString *type = @"6";  // 7  8  9
+    }
     __weak typeof(self) wself= self;
     NSString *adjustStr = @"";
     switch ([LNStockHandler adjustType]) {
@@ -889,59 +901,123 @@
             adjustStr = @"forward";
             break;
     }
-    [LNStockNetwork getAstockDataWithStockCode:[LNStockHandler code] adjust:adjustStr type:type block:^(BOOL isSuccess, id response) {
+    
+    NSString *endTime = @"0";
+    NSMutableArray *dataSets = [NSMutableArray array];
+    NSInteger num = [self.topChartView.data computeMaxValCount];
+    if (![LNStockHandler isVerticalScreen]) { num = num*2; }
+    if (type == LNStockRequestType_Refresh) { num = 5; }
+    else if (type == LNStockRequestType_LoadMore) {
+        LNRealModel *model = self.dataArr.firstObject;
+        NSDateFormatter* dateFormat = [LNStockFormatter sharedInstanceFormatter];
+        dateFormat.dateFormat = @"yyyyMMdd";
+        switch ([LNStockHandler titleType]) {
+            case LNChartTitleType_5m:
+            case LNChartTitleType_15m:
+            case LNChartTitleType_30m:
+            case LNChartTitleType_1H:
+                dateFormat.dateFormat = @"yyyyMMddHHmm";
+                break;
+            default:
+                break;
+        }
+        endTime = [dateFormat stringFromDate:model.date];
+    }
+    [LNStockNetwork getAstockDataWithStockCode:self.stockInfo.code
+                                        adjust:adjustStr
+                                          type:codetype
+                                           num:[NSString stringWithFormat:@"%ld",(long)num]
+                                       endTime:endTime
+                                         block:^(BOOL isSuccess, NSArray *response) {
         wself.lodingView.hidden = YES;
-        if (isSuccess) {
-            NSMutableArray *dataSets = [NSMutableArray array];
-            for (LNRealModel *model in response) {
-                LNDataSet *entity = [[LNDataSet alloc]init];
-                entity.date = model.date;
-                entity.volume = model.volume.floatValue;
-                entity.MAValus = @[model.MA1,model.MA2,model.MA3];
-                entity.candleValus = @[model.open,model.high,model.low,model.close];  //开 高 低 收
-                //MACD
-                switch ([LNStockHandler factorType]) {
-                    case LNStockFactorType_MACD:
-                        if (model.macd && model.diff && model.dea) {
-                            entity.values = @[model.diff,model.dea,model.macd];
-                        }
-                        break;
-                    case LNStockFactorType_BOLL:
-                        if (model.mid && model.upper && model.lower) {
-                            entity.values = @[model.mid,model.upper,model.lower];
-                        }
-                        break;
-                    case LNStockFactorType_KDJ:
-                        if (model.kdj_k && model.kdj_d && model.kdj_j) {
-                            entity.values = @[model.kdj_k,model.kdj_d,model.kdj_j];
-                        }
-                        break;
-                    case LNStockFactorType_RSI:
-                        if (model.rsi_6 && model.rsi_12 && model.rsi_24) {
-                            entity.values = @[model.rsi_6,model.rsi_12,model.rsi_24];
-                        }
-                        break;
-                    case LNStockFactorType_OBV:
-                        if (model.obv) {
-                            entity.values = @[model.obv];
-                        }
-                        break;
-                    default:
-                        break;
+        if (isSuccess && response.count > 0) {
+            switch (type) {
+                case LNStockRequestType_Normal:
+                    wself.dataArr = [NSMutableArray arrayWithArray:response];
+                    [dataSets addObjectsFromArray:[wself getAStockEntityWithArray:response]];
+                    break;
+                case LNStockRequestType_Refresh:
+                    [wself refreshStockDataWithArray:response];
+                    [dataSets addObjectsFromArray:[wself getAStockEntityWithArray:wself.dataArr]];
+                    break;
+                case LNStockRequestType_LoadMore: {
+                    NSMutableArray *tempArr = [NSMutableArray array];
+                    [tempArr addObjectsFromArray:response];
+                    [tempArr addObjectsFromArray:wself.dataArr];
+                    wself.dataArr = tempArr;
+                    [dataSets addObjectsFromArray:[wself getAStockEntityWithArray:wself.dataArr]];
                 }
-                [dataSets addObject:entity];
+                    break;
             }
-            
             if ([LNStockHandler titleType] != LNChartTitleType_1m ||
                 [LNStockHandler titleType] != LNChartTitleType_5D) {
-                wself.dataArr = response;
-                [wself refreshChart:dataSets];
-                [wself changeAdjustButtonHiddenStatus:[LNStockHandler isLongPress]];
+                if (type == LNStockRequestType_LoadMore) {
+                    [wself.topChartView updataChartData:dataSets];
+                    [wself.bottomChartView updataChartData:dataSets];
+                } else {
+                    [wself refreshChart:dataSets];
+                }
+                [wself changeAdjustButtonHiddenStatus:[self.stockInfo isLongPress]];
             }
         } else {
             NSLog(@"%@",response);
         }
+                                             
+         //左拉加载回调
+         if (isSuccess && response.count == 0) {
+             if (type == LNStockRequestType_LoadMore) {
+                 [wself.topChartView updataChartData:dataSets];
+                 [wself.bottomChartView updataChartData:dataSets];
+             }
+         }
     }];
+}
+
+- (NSArray *)getAStockEntityWithArray:(NSArray *)arry {
+    NSMutableArray *dataSets = [NSMutableArray array];
+    for (LNRealModel *model in arry) {
+        LNDataSet *entity = [[LNDataSet alloc]init];
+        entity.date = model.date;
+        entity.volume = model.volume.floatValue;
+        if (model.MA1 && model.MA2 && model.MA3) {
+            entity.MAValus = @[model.MA1,model.MA2,model.MA3];
+        }
+        if (model.open && model.high && model.low && model.close) {
+            entity.candleValus = @[model.open,model.high,model.low,model.close];  //开 高 低 收
+        }
+        //MACD
+        switch ([LNStockHandler factorType]) {
+            case LNStockFactorType_MACD:
+                if (model.macd && model.diff && model.dea) {
+                    entity.values = @[model.diff,model.dea,model.macd];
+                }
+                break;
+            case LNStockFactorType_BOLL:
+                if (model.mid && model.upper && model.lower) {
+                    entity.values = @[model.mid,model.upper,model.lower];
+                }
+                break;
+            case LNStockFactorType_KDJ:
+                if (model.kdj_k && model.kdj_d && model.kdj_j) {
+                    entity.values = @[model.kdj_k,model.kdj_d,model.kdj_j];
+                }
+                break;
+            case LNStockFactorType_RSI:
+                if (model.rsi_6 && model.rsi_12 && model.rsi_24) {
+                    entity.values = @[model.rsi_6,model.rsi_12,model.rsi_24];
+                }
+                break;
+            case LNStockFactorType_OBV:
+                if (model.obv) {
+                    entity.values = @[model.obv];
+                }
+                break;
+            default:
+                break;
+        }
+        [dataSets addObject:entity];
+    }
+    return dataSets;
 }
 
 #pragma mark - 外汇
@@ -953,36 +1029,34 @@
     NSMutableArray *dataSets = [NSMutableArray array];
     NSInteger num = [self.topChartView.data computeMaxValCount];
     NSString *codetype = [NSString stringWithFormat:@"%ld",(long)[LNStockHandler titleType] + 1];
-    
     if (![LNStockHandler isVerticalScreen]) { num = num*2; }
-    if (type == LNStockRequestType_Refresh) { num = 10; }
+    if (type == LNStockRequestType_Refresh) { num = 5; }
     else if (type == LNStockRequestType_LoadMore) {
         LNRealModel *model = self.dataArr.firstObject;
         endTime = [NSString stringWithFormat:@"%ld",(long)model.date.timeIntervalSince1970];
     }
-    [LNStockNetwork getBstockDataWithStockCode:[LNStockHandler code]
+    [LNStockNetwork getBstockDataWithStockCode:self.stockInfo.code
                                           type:codetype
                                            num:num
                                        endTime:endTime
                                          block:^(BOOL isSuccess, NSArray *response) {
          wself.lodingView.hidden = YES;
-                                             
          if (isSuccess && response.count > 0) {
              switch (type) {
                  case LNStockRequestType_Normal:
                      wself.dataArr = [NSMutableArray arrayWithArray:response];
-                     [dataSets addObjectsFromArray:[wself getEntityWithArray:response]];
+                     [dataSets addObjectsFromArray:[wself getBStockEntityWithArray:response]];
                      break;
                  case LNStockRequestType_Refresh:
                      [wself refreshStockDataWithArray:response];
-                     [dataSets addObjectsFromArray:[wself getEntityWithArray:wself.dataArr]];
+                     [dataSets addObjectsFromArray:[wself getBStockEntityWithArray:wself.dataArr]];
                      break;
                  case LNStockRequestType_LoadMore: {
                      NSMutableArray *tempArr = [NSMutableArray array];
                      [tempArr addObjectsFromArray:response];
                      [tempArr addObjectsFromArray:wself.dataArr];
                      wself.dataArr = tempArr;
-                     [dataSets addObjectsFromArray:[wself getEntityWithArray:wself.dataArr]];
+                     [dataSets addObjectsFromArray:[wself getBStockEntityWithArray:wself.dataArr]];
                  }
                      break;
              }
@@ -1006,19 +1080,6 @@
      }];
 }
 
-- (NSArray *)getEntityWithArray:(NSArray *)arry {
-    NSMutableArray *entityArr = [NSMutableArray array];
-    for (LNRealModel *model in arry) {
-        LNDataSet *entity = [[LNDataSet alloc]init];
-        entity.date = model.date;
-        entity.volume = model.volume.floatValue;
-        entity.values = @[model.close];
-        entity.candleValus = @[model.open,model.high,model.low,model.close];  //开 高 低 收
-        [entityArr addObject:entity];
-    }
-    return entityArr;
-}
-
 - (void)refreshStockDataWithArray:(NSArray *)arry {
     LNRealModel *model = self.dataArr.lastObject;
     NSMutableArray *modelArr = [NSMutableArray arrayWithArray:self.dataArr];
@@ -1034,6 +1095,23 @@
         }
     }
     self.dataArr = modelArr;
+}
+
+- (NSArray *)getBStockEntityWithArray:(NSArray *)arry {
+    NSMutableArray *entityArr = [NSMutableArray array];
+    for (LNRealModel *model in arry) {
+        LNDataSet *entity = [[LNDataSet alloc]init];
+        entity.date = model.date;
+        entity.volume = model.volume.floatValue;
+        if (model.close) {
+            entity.values = @[model.close];
+        }
+        if (model.open && model.high && model.low && model.close) {
+            entity.candleValus = @[model.open,model.high,model.low,model.close];  //开 高 低 收
+        }
+        [entityArr addObject:entity];
+    }
+    return entityArr;
 }
 
 @end

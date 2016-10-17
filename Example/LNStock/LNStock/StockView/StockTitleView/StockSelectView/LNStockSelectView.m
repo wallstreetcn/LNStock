@@ -17,20 +17,15 @@
 @property (nonatomic, strong) UILabel *line;
 @property (nonatomic, strong) UIButton *typeBtn;
 @property (nonatomic, strong) NSMutableArray *btns;
+@property (nonatomic, strong) NSArray *typeBtnImages;
 @property (nonatomic, strong) UIScrollView *scrollView;
 @end
 
 @implementation LNStockSelectView
 
-- (instancetype)init {
-    if (self = [super init]) {
-        [self setupViews];
-    }
-    return self;
-}
-
-- (instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame stockInfo:(LNStockHandler *)stockInfo {
     if (self == [super initWithFrame:frame]) {
+        self.stockInfo = stockInfo;
         [self setupViews];
     }
     return self;
@@ -48,37 +43,33 @@
     [self addSubview:self.scrollView];
     
     _itemH = 40;
-    CGFloat btnW = 0;
+    CGFloat btnW = [LNStockHandler isVerticalScreen] ? 60 : 80;
     CGFloat edgeX = 5;
     NSArray *btnTitles;
     self.btns = [NSMutableArray array];
-    
     //Button
-    if ([LNStockHandler sharedManager].priceType == LNStockPriceTypeA) {
+    if ([self.stockInfo isAStock]) {
         self.scrollView.contentSize = CGSizeMake(self.frame.size.width, self.bounds.size.height);
-        btnTitles = @[@"分时",@"五日",@"日K",@"周K",@"月K"];
-//        btnTitles = @[@"分时",@"五日",@"日K",@"周K",@"月K",@"分钟"];
-        btnW = (self.frame.size.width - edgeX * 2) / btnTitles.count;
-        UIImageView *arrowView = [[UIImageView alloc] initWithFrame:CGRectMake(self.frame.size.width - 20, 18, 8, 4)];
-        arrowView.image = [UIImage imageNamed:@"LNStock.bundle/sotck_arrow"];
-//        [self.scrollView addSubview:arrowView];
+        btnTitles = @[@"分时",@"五日",@"日K",@"周K",@"月K",@"5分",@"15分",@"30分",@"60分"];
+        self.scrollView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+        self.scrollView.contentSize = CGSizeMake(btnW * btnTitles.count, self.bounds.size.height);
     }
     else { //TypeBtn
+        __weak typeof(self) wself= self;
         self.typeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         self.typeBtn.frame = CGRectMake(0, 0, 50, _itemH);
-        NSArray *imageArr = @[@"LNStock.bundle/stock_btntype_line",
+        self.typeBtnImages = @[@"LNStock.bundle/stock_btntype_line",
                               @"LNStock.bundle/stock_btntype_candle",
                               @"LNStock.bundle/stock_btntype_hollowcandle",
                               @"LNStock.bundle/stock_btntype_bars"];
-        [self.typeBtn setImage:[[UIImage imageNamed:imageArr[[LNStockHandler chartType]]] imageWithTintColor:[LNStockColor selectViewChartTypeBtn]] forState:UIControlStateNormal];
-        __weak typeof(self) wself= self;
+        [self.typeBtn setImage:[[UIImage imageNamed:self.typeBtnImages[[LNStockHandler chartType]]] imageWithTintColor:[LNStockColor selectViewChartTypeBtn]] forState:UIControlStateNormal];
         [self.typeBtn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
             if ([LNStockHandler chartType] + 1 > LNStockChartType_Bars) {
                 [LNStockHandler sharedManager].chartType = 0;
             } else {
                 [LNStockHandler sharedManager].chartType++;
             }
-            [wself.typeBtn setImage:[[UIImage imageNamed:imageArr[[LNStockHandler chartType]]] imageWithTintColor:[LNStockColor selectViewChartTypeBtn]] forState:UIControlStateNormal];
+            [wself.typeBtn setImage:[[UIImage imageNamed:wself.typeBtnImages[[LNStockHandler chartType]]] imageWithTintColor:[LNStockColor selectViewChartTypeBtn]] forState:UIControlStateNormal];
             if (wself.block) {
                 wself.block(10);
             }
@@ -87,10 +78,6 @@
         
         //buttons
         btnTitles = @[@"1m",@"5m",@"15m",@"30m",@"1H",@"2H",@"4H",@"1D",@"1W",@"1M"];
-        btnW = 60.0f;
-        if (![LNStockHandler isVerticalScreen]) {
-            btnW = 75.0f;
-        }
         self.scrollView.frame = CGRectMake(50, 0, self.frame.size.width - 50, self.frame.size.height);
         self.scrollView.contentSize = CGSizeMake(btnW * btnTitles.count, self.bounds.size.height);
     }
@@ -134,11 +121,36 @@
     if (index < self.btns.count) {
         UIButton *btn = self.btns[index];
         btn.selected = YES;
+        //滑动判断
+        CGRect convertRect =  [self.scrollView convertRect:btn.frame toView:self];
+        if (![self.stockInfo isAStock]) { //外汇有个按钮会有问题
+            convertRect = CGRectMake(convertRect.origin.x - 50, convertRect.origin.y, convertRect.size.width, convertRect.size.height);
+        }
+        if (convertRect.origin.x < btn.frame.size.width) {
+            CGFloat num = self.scrollView.contentOffset.x - btn.frame.size.width;
+            if (num < 0) {
+                num = 0;
+            }
+            [self setBgContentOffsetAnimation:num];
+        }
+        if (self.scrollView.frame.size.width <= self.btns.count * btn.frame.size.width) {
+            if (convertRect.origin.x > (self.scrollView.frame.size.width - 2 * btn.frame.size.width)) {
+                CGFloat num = self.scrollView.contentOffset.x + btn.frame.size.width;
+                if (num > self.btns.count * btn.frame.size.width - self.scrollView.frame.size.width) {
+                    num = self.btns.count * btn.frame.size.width - self.scrollView.frame.size.width;
+                }
+                [self setBgContentOffsetAnimation:num];
+            }
+        }
     }
-//    if ([LNStockHandler sharedManager].priceType == LNStockPriceTypeA) {
-//        UIButton *lastBtn = self.btns.lastObject;
-//        [lastBtn setTitle:@"分钟" forState:UIControlStateNormal];
-//    }
+}
+
+//因为setContentOffset animation有时候卡顿所以写此方法 [self.scrollView setContentOffset:CGPointMake(num,0) animated:YES];
+
+-(void)setBgContentOffsetAnimation:(CGFloat )OffsetY {
+    [UIView animateWithDuration:.25 animations:^{
+        self.scrollView.contentOffset = CGPointMake(OffsetY, 0);
+    }]; 
 }
 
 - (void)changeLineLabelFrameWithIndex:(NSInteger)index duration:(CGFloat)duration {
@@ -148,20 +160,9 @@
     }];
 }
 
-//菜单栏点击回调
-- (void)setMinBtnTitleWithIndex:(NSInteger)index {
-    NSArray *menuTitles = @[@"5分",@"15分",@"30分",@"60分"];
-    UIButton *btn = self.btns.lastObject;
-    [self changeBtnStatusExceptIndex:self.btns.count - 1];
-    [btn setTitle:menuTitles[index] forState:UIControlStateNormal];
-    [UIView animateWithDuration:0.3 animations:^{
-        self.line.frame = CGRectMake(btn.frame.origin.x, CGRectGetMaxY(btn.frame) - KILineH, btn.frame.size.width, KILineH);
-    }];
-}
-
 //修改菜单回调(保证横屏和竖屏保持一致)
 - (void)changeBtnTitleWithType:(LNStockTitleType)type {
-    if ([LNStockHandler sharedManager].priceType == LNStockPriceTypeA) {
+    if ([self.stockInfo isAStock]) {
         NSInteger i = 0;
         switch (type) {
             case LNChartTitleType_5D:
@@ -179,19 +180,19 @@
             default:
                 break;
         }
+        //分钟设置Button
+        if (type == LNChartTitleType_5m || type == LNChartTitleType_15m || type == LNChartTitleType_30m || type == LNChartTitleType_1H) {
+            i = type + 4;
+        }
         [self changeBtnStatusExceptIndex:i];
         UIButton *btn = self.btns[i];
         self.line.frame = CGRectMake(btn.frame.origin.x, CGRectGetMaxY(btn.frame) - KILineH, btn.frame.size.width, KILineH);
-        
-        //分钟设置Button
-//        if (type == LNChartTitleType_5m || type == LNChartTitleType_15m || type == LNChartTitleType_30m || type == LNChartTitleType_1H) {
-//            i = type;
-//            [self setMinBtnTitleWithIndex:i - 1];
-//        }
-    } else {
+    }
+    else {
         if (type > LNChartTitleType_5D) {
             type--;
         }
+        [self.typeBtn setImage:[[UIImage imageNamed:self.typeBtnImages[[LNStockHandler chartType]]] imageWithTintColor:[LNStockColor selectViewChartTypeBtn]] forState:UIControlStateNormal];
         [self changeBtnStatusExceptIndex:type];
         if (type < self.btns.count) {
             UIButton *btn = self.btns[type];

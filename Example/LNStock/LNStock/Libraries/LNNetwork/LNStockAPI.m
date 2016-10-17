@@ -11,8 +11,8 @@
 @implementation LNStockAPI
 
 #pragma mark - AStock
-
-NSString *const KIAStockAPI = @"https://mdc.wallstreetcn.com";
+//http://mdc_test.wallstreetcn.com
+NSString *const KIAStockAPI = @"http://mdc.wallstreetcn.com";
 NSString *const KIAStockTestAPI = @"http://101.69.181.106:8080";
 
 //行情搜索 （A股 和 外汇）
@@ -58,7 +58,7 @@ NSString *const KIAStocOBVFields = @"obv";
 NSString *const KIAStockListAPI = @"/sort?";
 
 //行情列表(沪深)Fields
-NSString *const KIAStockListFields = @"prod_name,last_px,px_change_rate,px_change,market_type,securities_type,high_px,low_px";
+NSString *const KIAStockListFields = @"prod_name,last_px,px_change_rate,px_change,high_px,low_px,high_price,low_price,price_precision,market_type,securities_type";
 
 /*
  min_time	时间戳
@@ -109,6 +109,7 @@ NSString *const KIAStockRealFields = @"prod_name,last_px,px_change,px_change_rat
  price_precision	客户端价格显示精度，值表示小数点后显示几位
 */
 
+
 #pragma mark - BStock
 
 NSString *const KIBStockAPI = @"https://forexdata.wallstreetcn.com";
@@ -127,7 +128,9 @@ NSString *const KIBStockKLineAPI = @"/kline?";
 NSString *const KIBStockListAPI = @"/real_list?";
 
 //行情列表(外汇)Fields
-NSString *const KIBStockListFields = @"prod_name,last_px,px_change_rate,px_change,market_type,securities_type,high_px,low_px";
+NSString *const KIBStockListFields = @"prod_name,last_px,px_change_rate,px_change,high_px,low_px,price_precision,market_type,securities_type";
+
+
 
 #pragma mark - 恒生API
 

@@ -20,7 +20,16 @@
     NSArray* fields = [candleInfo valueForKey:@"fields"];
     NSDateFormatter* dateFormat = [LNStockFormatter sharedInstanceFormatter];
     dateFormat.dateFormat = @"yyyyMMdd";
-    
+    switch ([LNStockHandler titleType]) {
+        case LNChartTitleType_5m:
+        case LNChartTitleType_15m:
+        case LNChartTitleType_30m:
+        case LNChartTitleType_1H:
+            dateFormat.dateFormat = @"yyyyMMddHHmm";
+            break;
+        default:
+            break;
+    }
     NSInteger openIndex = [fields indexOfObject:@"open_px"];
     NSInteger highIndex = [fields indexOfObject:@"high_px"];
     NSInteger lowIndex = [fields indexOfObject:@"low_px"];

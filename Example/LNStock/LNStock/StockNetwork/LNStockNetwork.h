@@ -43,6 +43,8 @@ typedef void(^PriceNetworkBlock)(BOOL isSuccess, id response);
 + (void)getAstockDataWithStockCode:(NSString *)code
                             adjust:(NSString *)adjust
                               type:(NSString *)type
+                               num:(NSString *)num
+                           endTime:(NSString *)endTime
                              block:(PriceNetworkBlock)block;
 #pragma mark - 外汇
 //请求外汇K线图数据
@@ -53,7 +55,7 @@ typedef void(^PriceNetworkBlock)(BOOL isSuccess, id response);
                              block:(PriceNetworkBlock)block;
 
 #pragma mark - RealAPI 行情API
-+ (void)getStockRealDataWithCode:(NSString *)code block:(PriceNetworkBlock)block;
++ (void)getStockRealDataWithCode:(NSString *)code isAstock:(BOOL)isAstock block:(PriceNetworkBlock)block;
 
 #pragma mark - 行情列表
 /**
@@ -61,7 +63,7 @@ typedef void(^PriceNetworkBlock)(BOOL isSuccess, id response);
  *
  *  @param type  排序方式，目前仅支持对涨跌幅进行排序pxChangeRate
  *  @param num   数据个数: 该值为非负数。
- *  @param block 返回数据 如果isSuccess=YES, response的数据类型一定是NSArray，数组中的每一个元素都是LNStockModel，以下数据有值：prod_name,prod_code,last_px,px_change,px_change_rate,securities_type,market_type；isSUccess=NO，response为String型，失败提示信息。
+ *  @param block 返回数据 如果isSuccess=YES, response的数据类型一定是NSArray，数组中的每一个元素都是LNStockModel，以下数据有值：prod_name,prod_code,last_px,px_change,px_change_rate,high_px,low_px,price_precision,finance_type,securities_type,market_type；isSUccess=NO，response为String型，失败提示信息。
  */
 + (void)getAstockListDataWithSortType:(SortType)type
                                   num:(NSInteger)num
@@ -69,10 +71,10 @@ typedef void(^PriceNetworkBlock)(BOOL isSuccess, id response);
 
 
 /**
- *  行情列表(外汇、商品、债券、股指、股指期货行)
+ *  行情列表(外汇、商品、债券、股指、股指期货)
  *
  *  @param type  外汇数据的类型: forex(外汇)，commodity(商品)，bond(债券)，indice(股指)，cfdindice(股指期货)
- *  @param block 返回数据 如果isSuccess=YES, response的数据类型一定是NSArray，数组中的每一个元素都是LNStockModel，以下数据有值：prod_name,prod_code,last_px,px_change,px_change_rate,securities_type,market_type；isSuccess=NO，response为String型，失败提示信息。
+ *  @param block 返回数据 如果isSuccess=YES, response的数据类型一定是NSArray，数组中的每一个元素都是LNStockModel，以下数据有值：prod_name,prod_code,last_px,px_change,px_change_rate,high_px,low_px,price_precision,finance_type,securities_type,market_type；isSuccess=NO，response为String型，失败提示信息。
  */
 + (void)getBstockListDataWithType:(StockListType)type
                             block:(PriceNetworkBlock)block;
@@ -81,7 +83,7 @@ typedef void(^PriceNetworkBlock)(BOOL isSuccess, id response);
  *  行情列表(自选，上证指数、深证成指、创业板指)
  *
  *  @param prodCodeArr 存放股票代码的数组，该数组至少有一个元素，股票代码的格式:A股对应 xxxxx.SZ，外汇对应 xxxx
- *  @param block       返回数据 如果isSuccess=YES, response的数据类型一定是NSArray，数组中的每一个元素都是LNStockModel，以下数据有值：prod_name,prod_code,last_px,px_change,px_change_rate,securities_type,market_type；isSuccess=NO，response为String型，失败提示信息。
+ *  @param block       返回数据 如果isSuccess=YES, response的数据类型一定是NSArray，数组中的每一个元素都是LNStockModel，以下数据有值：prod_name,prod_code,last_px,px_change,px_change_rate,high_px,low_px,price_precision,finance_type,securities_type,market_type；isSuccess=NO，response为String型，失败提示信息。
  */
 + (void)getStockListDataWithProdCodeArr:(NSArray *)prodCodeArr
                                   block:(PriceNetworkBlock)block;
@@ -91,7 +93,7 @@ typedef void(^PriceNetworkBlock)(BOOL isSuccess, id response);
  *
  *  @param content 搜索的内容，NSString型
  *  @param num     返回结果的数量，NSInteger型
- *  @param block   返回数据 如果isSuccess=YES, response的数据类型一定是NSArray，数组中的每一个元素都是LNStockModel，以下数据有值：prod_name,prod_code,securities_type,market_type；isSuccess=NO，response为String型，失败提示信息。
+ *  @param block   返回数据 如果isSuccess=YES, response的数据类型一定是NSArray，数组中的每一个元素都是LNStockModel，以下数据有值：prod_name,prod_code,price_precision,finance_type,securities_type,market_type；isSuccess=NO，response为String型，失败提示信息。
  */
 + (void)getStockSearchListWithContent:(NSString *)content
                                   num:(NSString *)num

@@ -11,13 +11,14 @@
 
 typedef void (^LNStockSelectViewBlock)(NSInteger type);
 
+@class LNStockHandler;
 @interface LNStockSelectView : UIView
 @property (nonatomic, assign) CGFloat itemW;
 @property (nonatomic, assign) CGFloat itemH;
+@property (nonatomic, weak) LNStockHandler *stockInfo;
 @property (nonatomic, copy) LNStockSelectViewBlock block;
 
 - (void)setupColor;
-- (void)setMinBtnTitleWithIndex:(NSInteger)index;
 - (void)changeBtnTitleWithType:(LNStockTitleType)type;
-
+- (instancetype)initWithFrame:(CGRect)frame stockInfo:(LNStockHandler *)stockInfo;
 @end

@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class LNStockHandler;
 @interface LNStockKLineInfo : UIView
+@property (nonatomic, weak) LNStockHandler *stockInfo;
 //竖屏
 @property (weak, nonatomic) IBOutlet UILabel *time;
 //高  开  低  收  幅  成交量

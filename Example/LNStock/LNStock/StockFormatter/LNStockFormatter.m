@@ -12,15 +12,15 @@
 
 @implementation LNStockFormatter
 
-+ (NSString *)formatterDefaultType:(CGFloat)num {
-    return [NSString stringWithFormat:[LNStockHandler price_precision],num];
++ (NSString *)formatterDefaultType:(NSString *)formatter num:(CGFloat)num {
+    return [NSString stringWithFormat:formatter,num];
 }
 
-+ (NSString *)formatterPriceType:(CGFloat)num {
++ (NSString *)formatterPriceType:(NSString *)formatter num:(CGFloat)num {
     if (num >= 0) {
-        return [NSString stringWithFormat:@"+%@",[self formatterDefaultType:num]];
+        return [NSString stringWithFormat:@"+%@",[self formatterDefaultType:formatter num:num]];
     } else {
-        return [self formatterDefaultType:num];
+        return [self formatterDefaultType:formatter num:num];
     }
 }
 

@@ -7,8 +7,8 @@
 //
 
 #import "LNStockVC.h"
-#import "LNStockView.h"
 #import "LNStockHandler.h"
+#import "LNStockModel.h"
 
 @interface LNStockVC ()
 @property (nonatomic, strong) LNStockView *quotesView;
@@ -16,13 +16,37 @@
 
 @implementation LNStockVC
 
+- (instancetype)initWithStockInfo:(LNStockHandler *)stockInfo {
+    if (self == [super init]) {
+        self.stockInfo = stockInfo;
+    }
+    return self;
+}
+
+- (instancetype)initWithStockModel:(LNStockModel *)stockModel {
+    if (self == [super init]) {
+        self.stockInfo = [LNStockHandler setupWithStockModel:stockModel];
+    }
+    return self;
+}
+
++ (instancetype)initWithStockModel:(LNStockModel *)stockModel {
+    return [LNStockVC initWithStockInfo:[LNStockHandler setupWithStockModel:stockModel]];
+}
+
++ (instancetype)initWithStockInfo:(LNStockHandler *)stockInfo {
+    LNStockVC *stockVC = [[LNStockVC alloc]init];
+    stockVC.stockInfo = stockInfo;
+    return stockVC;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.view.transform = CGAffineTransformMakeRotation(M_PI_2);
+    [LNStockHandler sharedManager].verticalScreen = NO;
     [self.view addSubview:self.quotesView];
     // Do any additional setup after loading the view.
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -33,6 +57,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
+    [LNStockHandler sharedManager].verticalScreen = YES;
     [[UIApplication sharedApplication] setStatusBarHidden:NO
                                             withAnimation:UIStatusBarAnimationFade];
 }
@@ -49,11 +74,21 @@
 - (LNStockView *)quotesView {
     __weak typeof(self) wself= self;
     if (!_quotesView) {
-        _quotesView = [[LNStockView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-        _quotesView.isGreenUp = [LNStockHandler isGreenUp];
+        CGRect rect = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+        _quotesView = [LNStockView createWithStockInfo:self.stockInfo frame:rect];
         _quotesView.quotesViewBlock = ^(LNStockViewActionType type){
             if (type == LNStockViewActionTypeTapTwo) {
-                [wself dismissViewControllerAnimated:YES completion:nil];
+                if (wself.navigationController == nil && wself.presentingViewController != nil) {
+                    [wself dismissViewControllerAnimated:YES completion:^{}];
+                    return;
+                }
+                if ([wself.navigationController.viewControllers firstObject] == wself) {
+                    if (wself.navigationController.presentingViewController != nil) {
+                        [wself.navigationController dismissViewControllerAnimated:YES completion:^{}];
+                    }
+                } else {
+                    [wself.navigationController popViewControllerAnimated:YES];
+                }
             }
         };
     }

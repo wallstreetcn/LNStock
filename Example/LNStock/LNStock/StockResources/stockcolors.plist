@@ -4,6 +4,160 @@
 <dict>
 	<key>day</key>
 	<dict>
+		<key>chartLimitLine</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#2973E3</string>
+		</dict>
+		<key>chartCandleColor</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#4A90E2</string>
+		</dict>
+		<key>chartDIFF</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#FFA050</string>
+		</dict>
+		<key>chartDEA</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#7878FA</string>
+		</dict>
+		<key>chartMACD</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#05E222</string>
+		</dict>
+		<key>chartUPPER</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#FFA050</string>
+		</dict>
+		<key>chartMID</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#FA5FAA</string>
+		</dict>
+		<key>chartLOWER</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#7878FA</string>
+		</dict>
+		<key>chartK</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#FFA050</string>
+		</dict>
+		<key>chartD</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#FA5FAA</string>
+		</dict>
+		<key>chartJ</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#7878FA</string>
+		</dict>
+		<key>chartRSI6</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#FFA050</string>
+		</dict>
+		<key>chartRSI12</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#FA5FAA</string>
+		</dict>
+		<key>chartRSI24</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#7878FA</string>
+		</dict>
+		<key>chartOBV</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#FFA050</string>
+		</dict>
+		<key>chartLine</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#4A8FE3</string>
+		</dict>
+		<key>chartAVGLine</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#F9D124</string>
+		</dict>
+		<key>chartMA1</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#F51F7D</string>
+		</dict>
+		<key>chartMA2</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#F0AB0A</string>
+		</dict>
+		<key>chartMA3</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#756BF7</string>
+		</dict>
+		<key>chartMA4</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#E7C70F</string>
+		</dict>
+		<key>chartMA5</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#47D8E7</string>
+		</dict>
 		<key>borderLine</key>
 		<dict>
 			<key>alpha</key>
@@ -210,6 +364,13 @@
 	</dict>
 	<key>night</key>
 	<dict>
+		<key>chartCandleColor</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#4A90E2</string>
+		</dict>
 		<key>borderLine</key>
 		<dict>
 			<key>alpha</key>
@@ -320,28 +481,28 @@
 			<key>alpha</key>
 			<string>1</string>
 			<key>color</key>
-			<string>#0xFA132D</string>
+			<string>#03DC4E</string>
 		</dict>
 		<key>priceLastDown</key>
 		<dict>
 			<key>alpha</key>
 			<string>1</string>
 			<key>color</key>
-			<string>#e84740</string>
+			<string>#59f05a</string>
 		</dict>
 		<key>priceLastUp</key>
 		<dict>
 			<key>alpha</key>
 			<string>1</string>
 			<key>color</key>
-			<string>#59f05a</string>
+			<string>#e84740</string>
 		</dict>
 		<key>priceUp</key>
 		<dict>
 			<key>alpha</key>
 			<string>1</string>
 			<key>color</key>
-			<string>#03DC4E</string>
+			<string>#FA132D</string>
 		</dict>
 		<key>selectViewBG</key>
 		<dict>
@@ -412,6 +573,153 @@
 			<string>#1860FE</string>
 			<key>alpha</key>
 			<string>0.15</string>
+		</dict>
+		<key>chartDIFF</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#FFA050</string>
+		</dict>
+		<key>chartDEA</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#7878FA</string>
+		</dict>
+		<key>chartMACD</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#05E222</string>
+		</dict>
+		<key>chartUPPER</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#FFA050</string>
+		</dict>
+		<key>chartMID</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#FA5FAA</string>
+		</dict>
+		<key>chartLOWER</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#7878FA</string>
+		</dict>
+		<key>chartK</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#FFA050</string>
+		</dict>
+		<key>chartD</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#FA5FAA</string>
+		</dict>
+		<key>chartJ</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#7878FA</string>
+		</dict>
+		<key>chartRSI6</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#FFA050</string>
+		</dict>
+		<key>chartRSI12</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#FA5FAA</string>
+		</dict>
+		<key>chartRSI24</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#7878FA</string>
+		</dict>
+		<key>chartOBV</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#FFA050</string>
+		</dict>
+		<key>chartLine</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#4A8FE3</string>
+		</dict>
+		<key>chartAVGLine</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#F9D124</string>
+		</dict>
+		<key>chartMA1</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#F51F7D</string>
+		</dict>
+		<key>chartMA2</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#F0AB0A</string>
+		</dict>
+		<key>chartMA3</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#756BF7</string>
+		</dict>
+		<key>chartMA4</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#E7C70F</string>
+		</dict>
+		<key>chartMA5</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#47D8E7</string>
+		</dict>
+		<key>chartLimitLine</key>
+		<dict>
+			<key>alpha</key>
+			<string>1</string>
+			<key>color</key>
+			<string>#2973E3</string>
 		</dict>
 	</dict>
 </dict>

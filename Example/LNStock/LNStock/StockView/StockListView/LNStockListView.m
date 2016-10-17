@@ -55,6 +55,7 @@
 }
 
 - (void)setupViews {
+    self.stockInfo.code = @"";
     self.cellH = (self.bounds.size.height - cellHeaderH)/10;
     self.tableView = [[UITableView alloc]initWithFrame:self.bounds];
     [self setupColor];
@@ -63,7 +64,6 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self addSubview:self.tableView];
     [self setupRefreshControl];
-    [self getBuyAndSaleGroupData];
 }
 
 - (void)setupColor {
@@ -119,6 +119,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     LNStockDealListCell *cell = [LNStockDealListCell createWithXib];
+    cell.stockInfo = self.stockInfo;
     if (indexPath.section == 0) {
         if (self.requestedPriceArr.count) {
             NSMutableDictionary *dict = [NSMutableDictionary dictionary];
@@ -147,7 +148,7 @@
 
 - (void)getBuyAndSaleGroupData {
     __weak typeof (self)wSelf = self;
-    [LNStockNetwork getDealListDataWithStockCode:[LNStockHandler code] block:^(BOOL isSuccess, NSDictionary *response) {
+    [LNStockNetwork getDealListDataWithStockCode:self.stockInfo.code block:^(BOOL isSuccess, NSDictionary *response) {
         if (isSuccess) {
             self.preClosePx = [response valueForKey:@"preclose_px"];
             self.dealNumberArr = [response valueForKey:@"DealNumberArr"];

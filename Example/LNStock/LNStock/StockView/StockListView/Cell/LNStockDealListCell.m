@@ -19,6 +19,7 @@
 }
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.backgroundColor = [LNStockColor stockViewBG];
     self.requestedPriceLabel.textColor = [LNStockColor priceUp];
@@ -41,22 +42,22 @@
     NSNumber *preClosePx = [dict valueForKey:@"preclose_px"];
     NSNumber *price = [dict valueForKey:@"RequestedPrice"];
     self.buyOrSaleLable.text = [dict valueForKey:@"BuyOrSale"];
-    self.requestedPriceLabel.text = [LNStockFormatter formatterDefaultType:price.floatValue];
+    self.requestedPriceLabel.text = [LNStockFormatter formatterDefaultType:[self.stockInfo pricePrecision] num:price.floatValue];
     self.dealNumberLabel.text = [NSString stringWithFormat:@"%.0f",[[dict valueForKey:@"DealNumber"] integerValue]/100.0];
     
     if (price.floatValue > preClosePx.floatValue) {
-        self.requestedPriceLabel.textColor = [UIColor redColor];
+        self.requestedPriceLabel.textColor = [LNStockColor priceUp];
     } else if (price.floatValue == preClosePx.floatValue) {
-        if ([LNStockHandler isNightMode]) {
-            self.requestedPriceLabel.textColor = [UIColor whiteColor];
-        } else {
-            self.requestedPriceLabel.textColor = [UIColor blackColor];
-        }
+        self.requestedPriceLabel.textColor = [LNStockHandler isNightMode] ? [UIColor whiteColor] : [UIColor blackColor];
     } else {
-        self.requestedPriceLabel.textColor = [LNStockColor priceDown];
+        if (price.floatValue == 0) {
+            self.requestedPriceLabel.textColor = [LNStockColor stockHALT];
+        } else {
+            self.requestedPriceLabel.textColor = [LNStockColor priceDown];
+        }
     }
     //判断如果停牌颜色设置
-    if ([[LNStockHandler tradeStatus] isEqualToString:@"HALT"]) {
+    if ([self.stockInfo.tradeStatus isEqualToString:@"HALT"]) {
         self.requestedPriceLabel.textColor = [LNStockColor stockHALT];
     }
 }

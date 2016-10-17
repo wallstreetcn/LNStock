@@ -19,6 +19,7 @@
     NSArray *fieldsArray = [stockDic valueForKey:@"fields"];
     NSArray *dataArray = [stockDic valueForKey:code];
     
+    self.prod_code = code;
     NSInteger lastPxIndex = [fieldsArray indexOfObject:@"last_px"];
     if (lastPxIndex < fieldsArray.count) {
         self.last_px = [dataArray objectAtIndex:lastPxIndex];
@@ -55,13 +56,19 @@
     }
     
     NSInteger highPxIndex = [fieldsArray indexOfObject:@"high_px"];
-    if (highPxIndex < fieldsArray.count) {
+    NSInteger highPriceIndex = [fieldsArray indexOfObject:@"high_price"];
+    if (highPxIndex < fieldsArray.count && highPriceIndex >= fieldsArray.count) {
         self.high_px = [dataArray objectAtIndex:highPxIndex];
+    }else if (highPriceIndex < fieldsArray.count && highPxIndex >= fieldsArray.count) {
+        self.high_px = [dataArray objectAtIndex:highPriceIndex];
     }
     
     NSInteger lowPxIndex = [fieldsArray indexOfObject:@"low_px"];
-    if (lowPxIndex < fieldsArray.count) {
+    NSInteger lowPriceIndex = [fieldsArray indexOfObject:@"low_price"];
+    if (lowPxIndex < fieldsArray.count && lowPriceIndex >= fieldsArray.count) {
         self.low_px = [dataArray objectAtIndex:lowPxIndex];
+    }else if (lowPriceIndex < fieldsArray.count && lowPxIndex >= fieldsArray.count) {
+        self.low_px = [dataArray objectAtIndex:lowPriceIndex];
     }
     
     NSInteger peRateIndex = [fieldsArray indexOfObject:@"pe_rate"];
@@ -104,7 +111,6 @@
     NSInteger price_precisionIndex = [fieldsArray indexOfObject:@"price_precision"];
     if (price_precisionIndex < fieldsArray.count) {
         self.price_precision = [dataArray objectAtIndex:price_precisionIndex];
-        [LNStockHandler sharedManager].price_precision = self.price_precision;
     }
     
     //股票面板选择
@@ -123,14 +129,12 @@
     NSInteger securities_typeIndex = [fieldsArray indexOfObject:@"securities_type"];
     if (securities_typeIndex < fieldsArray.count) {
         self.securities_type = [dataArray objectAtIndex:securities_typeIndex];
-        [LNStockHandler sharedManager].stocktype = self.securities_type;
     }
     
     //交易状态
     NSInteger tradeStatusValueIndex = [fieldsArray indexOfObject:@"trade_status"];
     if (tradeStatusValueIndex < fieldsArray.count) {
         self.trade_status = [dataArray objectAtIndex:tradeStatusValueIndex];
-        [LNStockHandler sharedManager].tradeStatus = self.trade_status;
     }
     
     //外汇
@@ -165,6 +169,13 @@
     if (week52_highIndex < fieldsArray.count) {
         self.week_52_high = [dataArray objectAtIndex:week52_highIndex];
     }
+    
+    //finance_type是由客户端来判断复制的.
+    if ([self.market_type isEqualToString:@"forexdata"]) {
+        self.finance_type = self.securities_type;
+    } else if ([self.market_type isEqualToString:@"mdc"]) {
+        self.finance_type = @"stock";
+    }
 }
 
 + (NSMutableArray *)parseDataWithDataDic:(NSDictionary *)dataDic {
@@ -185,12 +196,11 @@
         NSDictionary *dataDic = [NSDictionary dictionaryWithObject:snapshotDic forKey:@"data"];
         LNStockModel *model = [[LNStockModel alloc]init];
         [model setupWithCode:key dataDic:dataDic];
-        model.prod_code = key;
-        //沪深排行的所有股票均为A股
+        //沪深排行榜数据中没有mark_type，在本地赋值
         model.market_type = @"mdc";
+        model.finance_type = @"stock";
         [returnArray addObject:model];
     }
-    
     return returnArray;
 }
 
@@ -217,8 +227,6 @@
         
         LNStockModel *model = [[LNStockModel alloc]init];
         [model setupWithCode:keys.firstObject dataDic:dataDic];
-        model.prod_code = keys.firstObject;
-        
         [returnArray addObject:model];
     }
     return returnArray;
@@ -243,15 +251,11 @@
         if (!dataArray) {
             continue;
         }
-        
         NSDictionary *snapshot = [NSDictionary dictionaryWithObjectsAndKeys:dataArray, prodCode, fieldsArray, @"fields", nil];
         NSDictionary *snapshotDic = [NSDictionary dictionaryWithObject:snapshot forKey:@"snapshot"];
         NSDictionary *dataDic = [NSDictionary dictionaryWithObject:snapshotDic forKey:@"data"];
-        
         LNStockModel *model = [[LNStockModel alloc]init];
         [model setupWithCode:prodCode dataDic:dataDic];
-        model.prod_code = prodCode;
-        
         [returnArray addObject:model];
     }
     return returnArray;
@@ -268,7 +272,11 @@
     [aCoder encodeObject:self.hq_type_code forKey:@"hq_type_code"];
     [aCoder encodeObject:self.price_precision forKey:@"price_precision"];
     [aCoder encodeObject:self.market_type forKey:@"market_type"];
+    [aCoder encodeObject:self.finance_type forKey:@"finance_type"];
     [aCoder encodeObject:self.securities_type forKey:@"securities_type"];
+    
+    [aCoder encodeObject:self.stockUrl forKey:@"stockUrl"];
+    [aCoder encodeObject:self.htmlTag forKey:@"htmlTag"];
     
     [aCoder encodeObject:self.last_px forKey:@"last_px"];
     [aCoder encodeObject:self.px_change forKey:@"px_change"];
@@ -315,7 +323,11 @@
         self.hq_type_code = [aDecoder decodeObjectForKey:@"hq_type_code"];
         self.price_precision = [aDecoder decodeObjectForKey:@"price_precision"];
         self.market_type = [aDecoder decodeObjectForKey:@"market_type"];
+        self.finance_type = [aDecoder decodeObjectForKey:@"finance_type"];
         self.securities_type = [aDecoder decodeObjectForKey:@"securities_type"];
+        
+        self.stockUrl = [aDecoder decodeObjectForKey:@"stockUrl"];
+        self.htmlTag = [aDecoder decodeObjectForKey:@"htmlTag"];
         
         self.last_px = [aDecoder decodeObjectForKey:@"last_px"];
         self.px_change = [aDecoder decodeObjectForKey:@"px_change"];

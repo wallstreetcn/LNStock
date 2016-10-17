@@ -14,7 +14,7 @@
 				AFCCBFFC1CFFF27B00D07BA6 /* MultiPlatform Build */,
 			);
 			dependencies = (
-				AFCCBFFB1CFFF27400D07BA6 /* PBXTargetDependency */,
+				AFC83C2C1D8010C1003B3E65 /* PBXTargetDependency */,
 				AF9214471D00525900F3E172 /* PBXTargetDependency */,
 			);
 			name = LNStockFramework;
@@ -23,8 +23,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		AF348BF11D00869C00E1F181 /* LNRealModel.h in Headers */ = {isa = PBXBuildFile; fileRef = AF348BEF1D00869C00E1F181 /* LNRealModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AF348BF21D00869C00E1F181 /* LNRealModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AF348BF01D00869C00E1F181 /* LNRealModel.m */; };
 		AF365AE91D7960210001E524 /* stock_optionbtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF365AE71D7960210001E524 /* stock_optionbtn@2x.png */; };
 		AF365AEA1D7960210001E524 /* stock_optionbtn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF365AE81D7960210001E524 /* stock_optionbtn@3x.png */; };
 		AF3BBA3B1D001F1D00B08922 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF3BBA3A1D001F1D00B08922 /* CoreGraphics.framework */; };
@@ -44,11 +42,11 @@
 		AF6766881D01337A0073A329 /* stock_menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF6766861D01337A0073A329 /* stock_menu@2x.png */; };
 		AF6766A11D017C270073A329 /* LNStockLodingView.h in Headers */ = {isa = PBXBuildFile; fileRef = AF67669F1D017C270073A329 /* LNStockLodingView.h */; };
 		AF6766A21D017C270073A329 /* LNStockLodingView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6766A01D017C270073A329 /* LNStockLodingView.m */; };
+		AF8B0DFB1DAA26D800CD6D23 /* LNStockLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = AF8B0DF91DAA26D800CD6D23 /* LNStockLayout.h */; };
+		AF8B0DFC1DAA26D800CD6D23 /* LNStockLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = AF8B0DFA1DAA26D800CD6D23 /* LNStockLayout.m */; };
 		AF9214341D004A0100F3E172 /* LNStockDealListCell.h in Headers */ = {isa = PBXBuildFile; fileRef = AF9214311D004A0100F3E172 /* LNStockDealListCell.h */; };
 		AF9214351D004A0100F3E172 /* LNStockDealListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9214321D004A0100F3E172 /* LNStockDealListCell.m */; };
 		AF92886F1D7992A500D41F9E /* stockcolors.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF92886E1D7992A500D41F9E /* stockcolors.plist */; };
-		AF9288F51D80092700D41F9E /* LNStockModel.h in Headers */ = {isa = PBXBuildFile; fileRef = AF9288F31D80092700D41F9E /* LNStockModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AF9288F61D80092700D41F9E /* LNStockModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AF9288F41D80092700D41F9E /* LNStockModel.m */; };
 		AF9AC80D1D64452E0074F567 /* stock_btntype_candle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF9AC8091D64452E0074F567 /* stock_btntype_candle@2x.png */; };
 		AF9AC80E1D64452E0074F567 /* stock_btntype_candle@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF9AC80A1D64452E0074F567 /* stock_btntype_candle@3x.png */; };
 		AF9AC80F1D64452E0074F567 /* stock_btntype_hollowcandle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AF9AC80B1D64452E0074F567 /* stock_btntype_hollowcandle@2x.png */; };
@@ -66,6 +64,10 @@
 		AFB994011D1920E6008D8A02 /* stock_btntype_bars@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AFB993FB1D1920E6008D8A02 /* stock_btntype_bars@3x.png */; };
 		AFB994041D1920E6008D8A02 /* stock_btntype_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AFB993FE1D1920E6008D8A02 /* stock_btntype_line@2x.png */; };
 		AFB994051D1920E6008D8A02 /* stock_btntype_line@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = AFB993FF1D1920E6008D8A02 /* stock_btntype_line@3x.png */; };
+		AFC83C271D800F0F003B3E65 /* LNRealModel.h in Headers */ = {isa = PBXBuildFile; fileRef = AFC83C231D800F0F003B3E65 /* LNRealModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AFC83C281D800F0F003B3E65 /* LNRealModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC83C241D800F0F003B3E65 /* LNRealModel.m */; };
+		AFC83C291D800F0F003B3E65 /* LNStockModel.h in Headers */ = {isa = PBXBuildFile; fileRef = AFC83C251D800F0F003B3E65 /* LNStockModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AFC83C2A1D800F0F003B3E65 /* LNStockModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AFC83C261D800F0F003B3E65 /* LNStockModel.m */; };
 		AFCA12E31D75892D00C6A710 /* LNStockColor.h in Headers */ = {isa = PBXBuildFile; fileRef = AFCA12E11D75892D00C6A710 /* LNStockColor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AFCA12E41D75892D00C6A710 /* LNStockColor.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCA12E21D75892D00C6A710 /* LNStockColor.m */; };
 		AFCCBEB71CFFE12F00D07BA6 /* LNStock.h in Copy Files */ = {isa = PBXBuildFile; fileRef = AFCCBEB61CFFE12F00D07BA6 /* LNStock.h */; };
@@ -76,7 +78,7 @@
 		AFCCBEF91CFFE1A300D07BA6 /* LNStockHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCBEC81CFFE1A300D07BA6 /* LNStockHandler.m */; };
 		AFCCBEFC1CFFE1A300D07BA6 /* LNStockNetwork.h in Headers */ = {isa = PBXBuildFile; fileRef = AFCCBECD1CFFE1A300D07BA6 /* LNStockNetwork.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AFCCBEFD1CFFE1A300D07BA6 /* LNStockNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCBECE1CFFE1A300D07BA6 /* LNStockNetwork.m */; };
-		AFCCBEFE1CFFE1A300D07BA6 /* LNStockVC.h in Headers */ = {isa = PBXBuildFile; fileRef = AFCCBED01CFFE1A300D07BA6 /* LNStockVC.h */; };
+		AFCCBEFE1CFFE1A300D07BA6 /* LNStockVC.h in Headers */ = {isa = PBXBuildFile; fileRef = AFCCBED01CFFE1A300D07BA6 /* LNStockVC.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AFCCBEFF1CFFE1A300D07BA6 /* LNStockVC.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCBED11CFFE1A300D07BA6 /* LNStockVC.m */; };
 		AFCCBF001CFFE1A300D07BA6 /* LNStockView.h in Headers */ = {isa = PBXBuildFile; fileRef = AFCCBED31CFFE1A300D07BA6 /* LNStockView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AFCCBF011CFFE1A300D07BA6 /* LNStockView.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCCBED41CFFE1A300D07BA6 /* LNStockView.m */; };
@@ -129,7 +131,7 @@
 			remoteGlobalIDString = AF92143D1D00519E00F3E172;
 			remoteInfo = LNStockResources;
 		};
-		AFCCBFFA1CFFF27400D07BA6 /* PBXContainerItemProxy */ = {
+		AFC83C2B1D8010C1003B3E65 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = AFCCBEAB1CFFE12F00D07BA6 /* Project object */;
 			proxyType = 1;
@@ -153,8 +155,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		AF348BEF1D00869C00E1F181 /* LNRealModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNRealModel.h; sourceTree = "<group>"; };
-		AF348BF01D00869C00E1F181 /* LNRealModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNRealModel.m; sourceTree = "<group>"; };
 		AF365AE71D7960210001E524 /* stock_optionbtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stock_optionbtn@2x.png"; sourceTree = "<group>"; };
 		AF365AE81D7960210001E524 /* stock_optionbtn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stock_optionbtn@3x.png"; sourceTree = "<group>"; };
 		AF3BBA3A1D001F1D00B08922 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -174,14 +174,14 @@
 		AF6766861D01337A0073A329 /* stock_menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stock_menu@2x.png"; sourceTree = "<group>"; };
 		AF67669F1D017C270073A329 /* LNStockLodingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNStockLodingView.h; sourceTree = "<group>"; };
 		AF6766A01D017C270073A329 /* LNStockLodingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNStockLodingView.m; sourceTree = "<group>"; };
+		AF8B0DF91DAA26D800CD6D23 /* LNStockLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNStockLayout.h; sourceTree = "<group>"; };
+		AF8B0DFA1DAA26D800CD6D23 /* LNStockLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNStockLayout.m; sourceTree = "<group>"; };
 		AF9214311D004A0100F3E172 /* LNStockDealListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNStockDealListCell.h; sourceTree = "<group>"; };
 		AF9214321D004A0100F3E172 /* LNStockDealListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNStockDealListCell.m; sourceTree = "<group>"; };
 		AF9214331D004A0100F3E172 /* LNStockDealListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LNStockDealListCell.xib; sourceTree = "<group>"; };
 		AF92143E1D00519E00F3E172 /* LNStock.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LNStock.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF9214401D00519E00F3E172 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF92886E1D7992A500D41F9E /* stockcolors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = stockcolors.plist; sourceTree = "<group>"; };
-		AF9288F31D80092700D41F9E /* LNStockModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNStockModel.h; sourceTree = "<group>"; };
-		AF9288F41D80092700D41F9E /* LNStockModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNStockModel.m; sourceTree = "<group>"; };
 		AF9AC8091D64452E0074F567 /* stock_btntype_candle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stock_btntype_candle@2x.png"; sourceTree = "<group>"; };
 		AF9AC80A1D64452E0074F567 /* stock_btntype_candle@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stock_btntype_candle@3x.png"; sourceTree = "<group>"; };
 		AF9AC80B1D64452E0074F567 /* stock_btntype_hollowcandle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stock_btntype_hollowcandle@2x.png"; sourceTree = "<group>"; };
@@ -201,6 +201,10 @@
 		AFB993FB1D1920E6008D8A02 /* stock_btntype_bars@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stock_btntype_bars@3x.png"; sourceTree = "<group>"; };
 		AFB993FE1D1920E6008D8A02 /* stock_btntype_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stock_btntype_line@2x.png"; sourceTree = "<group>"; };
 		AFB993FF1D1920E6008D8A02 /* stock_btntype_line@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stock_btntype_line@3x.png"; sourceTree = "<group>"; };
+		AFC83C231D800F0F003B3E65 /* LNRealModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNRealModel.h; sourceTree = "<group>"; };
+		AFC83C241D800F0F003B3E65 /* LNRealModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNRealModel.m; sourceTree = "<group>"; };
+		AFC83C251D800F0F003B3E65 /* LNStockModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNStockModel.h; sourceTree = "<group>"; };
+		AFC83C261D800F0F003B3E65 /* LNStockModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNStockModel.m; sourceTree = "<group>"; };
 		AFCA12E11D75892D00C6A710 /* LNStockColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LNStockColor.h; sourceTree = "<group>"; };
 		AFCA12E21D75892D00C6A710 /* LNStockColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LNStockColor.m; sourceTree = "<group>"; };
 		AFCCBEB31CFFE12F00D07BA6 /* libLNStock.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLNStock.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -388,6 +392,17 @@
 			path = StockBHeader;
 			sourceTree = "<group>";
 		};
+		AFC83C221D800F0F003B3E65 /* StockModel */ = {
+			isa = PBXGroup;
+			children = (
+				AFC83C231D800F0F003B3E65 /* LNRealModel.h */,
+				AFC83C241D800F0F003B3E65 /* LNRealModel.m */,
+				AFC83C251D800F0F003B3E65 /* LNStockModel.h */,
+				AFC83C261D800F0F003B3E65 /* LNStockModel.m */,
+			);
+			path = StockModel;
+			sourceTree = "<group>";
+		};
 		AFCCBEAA1CFFE12F00D07BA6 = {
 			isa = PBXGroup;
 			children = (
@@ -413,9 +428,9 @@
 				AFCCBEB61CFFE12F00D07BA6 /* LNStock.h */,
 				AFF7BA381D3617CD002F9E71 /* Libraries */,
 				AFCCBED21CFFE1A300D07BA6 /* StockView */,
+				AFC83C221D800F0F003B3E65 /* StockModel */,
 				AFCCBECF1CFFE1A300D07BA6 /* StockVC */,
 				AFCCBEC61CFFE1A300D07BA6 /* StockHandler */,
-				AFCCBEC91CFFE1A300D07BA6 /* StockModel */,
 				AFCCBECC1CFFE1A300D07BA6 /* StockNetwork */,
 				AF504EDF1D054C78006C7B3B /* StockFormatter */,
 				AF67665B1D012BA40073A329 /* StockResources */,
@@ -441,19 +456,10 @@
 				AFCA12E21D75892D00C6A710 /* LNStockColor.m */,
 				AFCCBEC71CFFE1A300D07BA6 /* LNStockHandler.h */,
 				AFCCBEC81CFFE1A300D07BA6 /* LNStockHandler.m */,
+				AF8B0DF91DAA26D800CD6D23 /* LNStockLayout.h */,
+				AF8B0DFA1DAA26D800CD6D23 /* LNStockLayout.m */,
 			);
 			path = StockHandler;
-			sourceTree = "<group>";
-		};
-		AFCCBEC91CFFE1A300D07BA6 /* StockModel */ = {
-			isa = PBXGroup;
-			children = (
-				AF348BEF1D00869C00E1F181 /* LNRealModel.h */,
-				AF348BF01D00869C00E1F181 /* LNRealModel.m */,
-				AF9288F31D80092700D41F9E /* LNStockModel.h */,
-				AF9288F41D80092700D41F9E /* LNStockModel.m */,
-			);
-			path = StockModel;
 			sourceTree = "<group>";
 		};
 		AFCCBECC1CFFE1A300D07BA6 /* StockNetwork */ = {
@@ -668,15 +674,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFCCBEC51CFFE18C00D07BA6 /* LNStock.h in Headers */,
+				AFCCBEFE1CFFE1A300D07BA6 /* LNStockVC.h in Headers */,
+				AFCCBF001CFFE1A300D07BA6 /* LNStockView.h in Headers */,
+				AFC83C271D800F0F003B3E65 /* LNRealModel.h in Headers */,
+				AFC83C291D800F0F003B3E65 /* LNStockModel.h in Headers */,
+				AFCA12E31D75892D00C6A710 /* LNStockColor.h in Headers */,
 				AFB40F7D1D1399C0006382D7 /* LNStockDefine.h in Headers */,
 				AFFE15EA1D49E39500AFC046 /* LNStockOptionView.h in Headers */,
-				AF9288F51D80092700D41F9E /* LNStockModel.h in Headers */,
-				AF348BF11D00869C00E1F181 /* LNRealModel.h in Headers */,
 				AF65FF751D5C6AEF00CE5B9C /* ViewUtils.h in Headers */,
-				AFCA12E31D75892D00C6A710 /* LNStockColor.h in Headers */,
-				AFF7BA4A1D3617CD002F9E71 /* LNStockAPI.h in Headers */,
-				AFCCBF001CFFE1A300D07BA6 /* LNStockView.h in Headers */,
 				AFCCBEF81CFFE1A300D07BA6 /* LNStockHandler.h in Headers */,
+				AFF7BA4A1D3617CD002F9E71 /* LNStockAPI.h in Headers */,
+				AF8B0DFB1DAA26D800CD6D23 /* LNStockLayout.h in Headers */,
 				AFF7BA541D3617CD002F9E71 /* UIView+LNStock.h in Headers */,
 				AF9214341D004A0100F3E172 /* LNStockDealListCell.h in Headers */,
 				AFCCBEFC1CFFE1A300D07BA6 /* LNStockNetwork.h in Headers */,
@@ -699,7 +707,6 @@
 				AFCCBF041CFFE1A300D07BA6 /* LNStockListView.h in Headers */,
 				AFCCBF0F1CFFE1A300D07BA6 /* LNStockKLineInfo.h in Headers */,
 				AF65FF701D5C6A9E00CE5B9C /* NSTimer+LNStock.h in Headers */,
-				AFCCBEFE1CFFE1A300D07BA6 /* LNStockVC.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -748,7 +755,7 @@
 		AFCCBEAB1CFFE12F00D07BA6 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = vvusu;
 				TargetAttributes = {
 					AF92143D1D00519E00F3E172 = {
@@ -786,12 +793,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF92886F1D7992A500D41F9E /* stockcolors.plist in Resources */,
 				AFF7BDB71D37A882002F9E71 /* LNStockAHeader.xib in Resources */,
 				AFF7BDB81D37A882002F9E71 /* LNStockBHeader.xib in Resources */,
 				AFF7BDB91D37A882002F9E71 /* LNStockDealListCell.xib in Resources */,
 				AFF7BDBA1D37A882002F9E71 /* LNStockATitleView.xib in Resources */,
 				AFF7BDBB1D37A882002F9E71 /* LNStockBTitleView.xib in Resources */,
-				AF92886F1D7992A500D41F9E /* stockcolors.plist in Resources */,
 				AFF7BDBC1D37A882002F9E71 /* LNStockKLineInfo.xib in Resources */,
 				AFF7BDBD1D37A882002F9E71 /* LNStockTrendInfo.xib in Resources */,
 				AFB994041D1920E6008D8A02 /* stock_btntype_line@2x.png in Resources */,
@@ -865,10 +872,10 @@
 				AFF7BA531D3617CD002F9E71 /* UIControl+LNStock.m in Sources */,
 				AFCCBF0A1CFFE1A300D07BA6 /* LNStockTitleView.m in Sources */,
 				AFB40F851D13A2E2006382D7 /* LNStockAHeader.m in Sources */,
-				AF348BF21D00869C00E1F181 /* LNRealModel.m in Sources */,
 				AFB40F7A1D139770006382D7 /* LNStockHeaderView.m in Sources */,
 				AFB40F8C1D13BD40006382D7 /* LNStockBHeader.m in Sources */,
 				AFCCBF0E1CFFE1A300D07BA6 /* LNStockBTitleView.m in Sources */,
+				AF8B0DFC1DAA26D800CD6D23 /* LNStockLayout.m in Sources */,
 				AF504EE81D054CBF006C7B3B /* LNStockFormatter.m in Sources */,
 				AFCCBF051CFFE1A300D07BA6 /* LNStockListView.m in Sources */,
 				AFF7BA551D3617CD002F9E71 /* UIView+LNStock.m in Sources */,
@@ -879,8 +886,8 @@
 				AFCA12E41D75892D00C6A710 /* LNStockColor.m in Sources */,
 				AF65FF761D5C6AEF00CE5B9C /* ViewUtils.m in Sources */,
 				AF6766A21D017C270073A329 /* LNStockLodingView.m in Sources */,
-				AF9288F61D80092700D41F9E /* LNStockModel.m in Sources */,
 				AFF7BA4F1D3617CD002F9E71 /* LNStockRequest.m in Sources */,
+				AFC83C2A1D800F0F003B3E65 /* LNStockModel.m in Sources */,
 				AFCCBEF91CFFE1A300D07BA6 /* LNStockHandler.m in Sources */,
 				AFFE15EB1D49E39500AFC046 /* LNStockOptionView.m in Sources */,
 				AFCCBEFF1CFFE1A300D07BA6 /* LNStockVC.m in Sources */,
@@ -891,6 +898,7 @@
 				AFCCBF121CFFE1A300D07BA6 /* LNStockTrendInfo.m in Sources */,
 				AF9214351D004A0100F3E172 /* LNStockDealListCell.m in Sources */,
 				AFCCBEFD1CFFE1A300D07BA6 /* LNStockNetwork.m in Sources */,
+				AFC83C281D800F0F003B3E65 /* LNRealModel.m in Sources */,
 				AFCCBF101CFFE1A300D07BA6 /* LNStockKLineInfo.m in Sources */,
 				AFCCBF011CFFE1A300D07BA6 /* LNStockView.m in Sources */,
 			);
@@ -904,10 +912,10 @@
 			target = AF92143D1D00519E00F3E172 /* LNStockResources */;
 			targetProxy = AF9214461D00525900F3E172 /* PBXContainerItemProxy */;
 		};
-		AFCCBFFB1CFFF27400D07BA6 /* PBXTargetDependency */ = {
+		AFC83C2C1D8010C1003B3E65 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = AFCCBEB21CFFE12F00D07BA6 /* LNStock */;
-			targetProxy = AFCCBFFA1CFFF27400D07BA6 /* PBXContainerItemProxy */;
+			targetProxy = AFC83C2B1D8010C1003B3E65 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -958,8 +966,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -981,7 +991,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1002,8 +1012,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1019,7 +1031,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

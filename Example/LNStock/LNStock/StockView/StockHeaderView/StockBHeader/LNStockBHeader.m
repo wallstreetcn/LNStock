@@ -20,6 +20,7 @@
 @implementation LNStockBHeader
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     [self setupColors];
 }
 
@@ -33,23 +34,23 @@
     self.lastPrice = self.newPrice;
     self.newPrice = priceData.last_px.floatValue;
     
-    self.lastPx.text = [LNStockFormatter formatterDefaultType:priceData.last_px.floatValue];
-    self.pxChange.text = [LNStockFormatter formatterPriceType:priceData.px_change.floatValue];
+    self.lastPx.text = [LNStockFormatter formatterDefaultType:[self.stockInfo pricePrecision] num:priceData.last_px.floatValue];
+    self.pxChange.text = [LNStockFormatter formatterPriceType:[self.stockInfo pricePrecision] num:priceData.px_change.floatValue];
     self.pxChangeRate.text = [LNStockFormatter formatterChangeRateType:priceData.px_change_rate.floatValue];
     
     NSDateFormatter *dateFormatter = [LNStockFormatter sharedInstanceFormatter];
     [dateFormatter setDateFormat:@"MM-dd HH:mm:ss"];
     self.self.time.text = [dateFormatter stringFromDate:[NSDate dateWithTimeIntervalSince1970:priceData.update_time.integerValue]];
-    self.trade_status.text = [LNStockHandler tradeStatusContents];
+    self.trade_status.text = [self.stockInfo tradeStatusContents];
     
-    self.openPx.text = [LNStockFormatter formatterDefaultType:priceData.open_px.floatValue];
-    self.closePx.text = [LNStockFormatter formatterDefaultType:priceData.preclose_px.floatValue];
-    self.buyPx.text = [LNStockFormatter formatterDefaultType:priceData.buy_px.floatValue];
-    self.sellPx.text = [LNStockFormatter formatterDefaultType:priceData.sell_px.floatValue];
-    self.highPx.text = [LNStockFormatter formatterDefaultType:priceData.high_px.floatValue];
-    self.lowPx.text = [LNStockFormatter formatterDefaultType:priceData.low_px.floatValue];
-    self.lowPx_52.text = [LNStockFormatter formatterDefaultType:priceData.week_52_low.floatValue];
-    self.highPx_52.text = [LNStockFormatter formatterDefaultType:priceData.week_52_high.floatValue];
+    self.openPx.text = [LNStockFormatter formatterDefaultType:[self.stockInfo pricePrecision] num:priceData.open_px.floatValue];
+    self.closePx.text = [LNStockFormatter formatterDefaultType:[self.stockInfo pricePrecision] num:priceData.preclose_px.floatValue];
+    self.buyPx.text = [LNStockFormatter formatterDefaultType:[self.stockInfo pricePrecision] num:priceData.buy_px.floatValue];
+    self.sellPx.text = [LNStockFormatter formatterDefaultType:[self.stockInfo pricePrecision] num:priceData.sell_px.floatValue];
+    self.highPx.text = [LNStockFormatter formatterDefaultType:[self.stockInfo pricePrecision] num:priceData.high_px.floatValue];
+    self.lowPx.text = [LNStockFormatter formatterDefaultType:[self.stockInfo pricePrecision] num:priceData.low_px.floatValue];
+    self.lowPx_52.text = [LNStockFormatter formatterDefaultType:[self.stockInfo pricePrecision] num:priceData.week_52_low.floatValue];
+    self.highPx_52.text = [LNStockFormatter formatterDefaultType:[self.stockInfo pricePrecision] num:priceData.week_52_high.floatValue];
     
     //颜色
     self.lastPx.textColor = [LNStockFormatter priceColor:priceData.px_change.floatValue];
@@ -58,9 +59,6 @@
     
     //判断如果停牌颜色设置
     if ([priceData.trade_status isEqualToString:@"HALT"] || priceData.trade_status.length == 0) {
-        self.lastPx.text = @"- -";
-        self.pxChange.text = @"- -";
-        self.pxChangeRate.text = @"- -";
         self.lastPx.textColor = [LNStockColor stockHALT];
         self.pxChange.textColor = [LNStockColor stockHALT];
         self.pxChangeRate.textColor = [LNStockColor stockHALT];

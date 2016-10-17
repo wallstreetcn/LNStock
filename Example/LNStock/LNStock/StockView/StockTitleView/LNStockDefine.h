@@ -21,12 +21,6 @@ blue:((float)(a & 0xFF))/255.0 alpha:1.0]
 #define kFBaseWidth [[UIScreen mainScreen]bounds].size.width
 #define kFBaseHeight [[UIScreen mainScreen]bounds].size.height
 
-//默认StockView 高度
-#define kFStockBGH 473.0
-#define kFStockAHeaderH 173.0   //AStock 头部视图高度
-#define kFStockBHeaderH 185.0   //BStock 头部视图高度
-#define kFStockTitleViewH 50.0  //Stock  头部视图高度
-
 /*
     LNStock 控制面板 Notification
  */

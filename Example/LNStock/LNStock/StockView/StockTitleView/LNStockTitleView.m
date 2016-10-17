@@ -25,9 +25,10 @@
 
 @implementation LNStockTitleView
 
-- (instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame stockInfo:(LNStockHandler *)stockInfo {
     self = [super initWithFrame:frame];
     if (self) {
+        self.stockInfo = stockInfo;
         [self setupViews];
     }
     return self;
@@ -37,7 +38,7 @@
     [self setupColor];
     //添加头部试图
     if (![LNStockHandler isVerticalScreen]) {
-        if ([LNStockHandler priceType] == LNStockPriceTypeA) {
+        if ([self.stockInfo isAStock]) {
             [self addSubview:self.ATitleView];
         } else {
             [self addSubview:self.BTitleView];
@@ -51,6 +52,7 @@
     __weak typeof (self)wself = self;
     if (!_ATitleView) {
         _ATitleView = [LNStockATitleView createWithXib];
+        _ATitleView.stockInfo = self.stockInfo;
         _ATitleView.frame = CGRectMake(0, 0, self.frame.size.width, 40);
         _ATitleView.backgroundColor = self.backgroundColor;
         _ATitleView.block = ^(LNStockATitleViewAction action) {
@@ -75,6 +77,7 @@
     if (!_BTitleView) {
         __weak typeof (self)wself = self;
         _BTitleView = [LNStockBTitleView createWithXib];
+        _BTitleView.stockInfo = self.stockInfo;
         _BTitleView.frame = CGRectMake(0, 0, self.frame.size.width, 40);
         _BTitleView.block = ^(LNStockBTitleViewAction action) {
             switch (action) {
@@ -97,6 +100,7 @@
 - (LNStockTrendInfo *)trendInfoView {
     if (!_trendInfoView) {
         _trendInfoView = [LNStockTrendInfo createWithXib];
+        _trendInfoView.stockInfo = self.stockInfo;
         if ([LNStockHandler isVerticalScreen]) {
             _trendInfoView.frame = CGRectMake(0,0, self.frame.size.width, 40);
         } else {
@@ -115,6 +119,7 @@
             _kLineInfoView = [LNStockKLineInfo createXibWithIndex:1];
             _kLineInfoView.frame = CGRectMake(0,40, self.frame.size.width, 40);
         }
+        _kLineInfoView.stockInfo = self.stockInfo;
     }
     return _kLineInfoView;
 }
@@ -122,14 +127,16 @@
 - (LNStockSelectView *)selectView {
     if (!_selectView) {
         __weak typeof(self) wself= self;
-        if ([LNStockHandler sharedManager].isVerticalScreen) {
-            _selectView = [[LNStockSelectView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 40)];
+        CGRect viewFrame = CGRectZero;
+        if ([LNStockHandler isVerticalScreen]) {
+            viewFrame = CGRectMake(0, 0, self.frame.size.width, 40);
         } else {
-            _selectView = [[LNStockSelectView alloc] initWithFrame:CGRectMake(0, 40, self.frame.size.width, 40)];
+            viewFrame = CGRectMake(0, 40, self.frame.size.width, 40);
         }
+        _selectView = [[LNStockSelectView alloc] initWithFrame:viewFrame stockInfo:self.stockInfo];
         __block LNStockTitleType titleType = LNChartTitleType_NULL;
         _selectView.block = ^(NSInteger type) {
-            if ([LNStockHandler priceType] == LNStockPriceTypeA) {
+            if ([wself.stockInfo isAStock]) {
                 switch (type) {
                     case 0:
                         titleType = LNChartTitleType_1m;
@@ -147,6 +154,18 @@
                         titleType = LNChartTitleType_1M;
                         break;
                     case 5:
+                        titleType = LNChartTitleType_5m;
+                        break;
+                    case 6:
+                        titleType = LNChartTitleType_15m;
+                        break;
+                    case 7:
+                        titleType = LNChartTitleType_30m;
+                        break;
+                    case 8:
+                        titleType = LNChartTitleType_1H;
+                        break;
+                    case 9:
                         titleType = LNChartTitleType_NULL;
                         break;
                     default:
@@ -213,18 +232,13 @@
 }
 
 #pragma mark - set aChartTitleView
-- (void)setAChartTitleViewLastBtnWithType:(LNStockTitleType)type {
-    NSInteger i = type;
-    [self.selectView setMinBtnTitleWithIndex:i - 1];
-}
-
 - (void)changeChartTitleViewWithType:(LNStockTitleType)type {
     [self.selectView changeBtnTitleWithType:type];
 }
 
 #pragma mark - 显示不同的Info View
 - (void)showInfoViewWithArray:(NSArray *)array Index:(NSInteger)index {
-    if ([LNStockHandler priceType] == LNStockPriceTypeA) {
+    if ([self.stockInfo isAStock]) {
         switch ([LNStockHandler titleType]) {
             case LNChartTitleType_1m:
             case LNChartTitleType_5D: {
@@ -250,7 +264,7 @@
 
 //轮询刷新竖版的title
 - (void)refreshTitleView:(LNStockModel *)model {
-    if ([LNStockHandler priceType] == LNStockPriceTypeA){
+    if ([self.stockInfo isAStock]){
         [self.ATitleView refreshTitleData:model];
     } else {
         [self.BTitleView refreshTitleData:model];

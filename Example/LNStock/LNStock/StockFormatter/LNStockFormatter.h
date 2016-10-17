@@ -11,11 +11,11 @@
 
 @interface LNStockFormatter : NSObject
 + (UIColor *)priceColor:(CGFloat)num;
-+ (NSString *)formatterPriceType:(CGFloat)num;
-+ (NSString *)formatterDefaultType:(CGFloat)num;
++ (NSString *)volumeFormatterWithNum:(CGFloat)num;
 + (NSString *)formatterChangeRateType:(CGFloat)num;
 + (NSString *)formatterChangeRateTwoType:(CGFloat)num;
-+ (NSString *)volumeFormatterWithNum:(CGFloat)num;
 + (NSString *)businessAmountFormatterWithNum:(CGFloat)num;
++ (NSString *)formatterPriceType:(NSString *)formatter num:(CGFloat)num;
++ (NSString *)formatterDefaultType:(NSString *)formatter num:(CGFloat)num;
 + (NSDateFormatter *)sharedInstanceFormatter;
 @end

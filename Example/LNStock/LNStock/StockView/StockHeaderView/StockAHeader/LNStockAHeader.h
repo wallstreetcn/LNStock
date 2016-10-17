@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class LNStockModel;
+@class LNStockModel,LNStockHandler;
 @interface LNStockAHeader : UIView
 //行情数据的命名与恒生接口的Key相匹配，px即为price
 //TopView
@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lastPx;           //最新价
 @property (weak, nonatomic) IBOutlet UILabel *pxChange;         //涨跌额
 @property (weak, nonatomic) IBOutlet UILabel *pxChangeRate;     //涨跌幅
+@property (weak, nonatomic) IBOutlet UILabel *trade_status;     //交易状态
+@property (weak, nonatomic) IBOutlet UILabel *time;             //时间
 
 //TopRightView
 @property (weak, nonatomic) IBOutlet UILabel *openPx;           //今开
@@ -38,7 +40,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *borderView;
 @property (weak, nonatomic) IBOutlet UIImageView *divideLineImageView;
-
+@property (nonatomic, weak) LNStockHandler *stockInfo;
 + (id)createWithXib;
 - (void)setupColors;
 - (void)setupDataWith:(LNStockModel *)priceData;

@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@class LNStockModel;
+@class LNStockModel,LNStockHandler;
 @interface LNStockHeaderView : UIView
+@property (nonatomic, weak) LNStockHandler *stockInfo;
 - (void)setupColor;
 - (void)updateStockData:(LNStockModel *)model;
+- (instancetype)initWithStockInfo:(LNStockHandler *)stockInfo;
 @end

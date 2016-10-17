@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class LNStockHandler;
 @interface LNStockListView : UIView
+@property (nonatomic, weak) LNStockHandler *stockInfo;     
 @property (nonatomic, strong) UITableView *tableView;
 //数据请求
 - (void)setupColor;

@@ -16,6 +16,7 @@ typedef NS_ENUM(NSInteger, LNStockATitleViewAction) {
 
 typedef void (^LNStockATitleViewActionBlock)(LNStockATitleViewAction);
 
+@class LNStockHandler;
 @interface LNStockATitleView : UIView
 
 @property (weak, nonatomic) IBOutlet UILabel *stockName;
@@ -26,6 +27,7 @@ typedef void (^LNStockATitleViewActionBlock)(LNStockATitleViewAction);
 @property (weak, nonatomic) IBOutlet UIButton *closeBtn;
 @property (weak, nonatomic) IBOutlet UILabel *priceChange;
 @property (weak, nonatomic) IBOutlet UILabel *priceChangeRate;
+@property (nonatomic, weak) LNStockHandler *stockInfo; 
 @property (copy, nonatomic) LNStockATitleViewActionBlock block;
 
 + (id)createWithXib;

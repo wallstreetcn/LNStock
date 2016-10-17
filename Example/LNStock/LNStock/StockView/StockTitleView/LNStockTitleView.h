@@ -24,14 +24,13 @@ typedef void (^LNStockTitleActionBlock)(LNStockTitleViewAction titleActionType);
 @interface LNStockTitleView : UIView
 @property (nonatomic, strong) NSDictionary *Titledic;
 @property (nonatomic, copy) LNStockTitleActionBlock actionBlock;
-- (instancetype)initWithFrame:(CGRect)frame;
-
-//轮询刷新竖版的title
+@property (nonatomic, weak) LNStockHandler *stockInfo;
 - (void)setupColor;
 - (void)hiddenInfoView;
 - (void)refreshTitleView:(LNStockModel *)model;
 - (void)changeChartTitleViewWithType:(LNStockTitleType)type;
-- (void)setAChartTitleViewLastBtnWithType:(LNStockTitleType)type;
+//- (void)setAChartTitleViewLastBtnWithType:(LNStockTitleType)type;
 - (void)showInfoViewWithArray:(NSArray *)array Index:(NSInteger)index;
+- (instancetype)initWithFrame:(CGRect)frame stockInfo:(LNStockHandler *)stockInfo;
 
 @end

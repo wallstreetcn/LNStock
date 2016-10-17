@@ -15,6 +15,7 @@
 @implementation LNStockTrendInfo
 
 -  (void)awakeFromNib {
+    [super awakeFromNib];
     NSArray *titles = [NSArray array];
     if ([LNStockHandler isVerticalScreen]) {
         titles = @[@"现",@"均",@"幅",@"量"];
@@ -42,6 +43,7 @@
 }
 
 + (id)createWithXib {
+    [super awakeFromNib];
     NSString *class = NSStringFromClass([self class]);
     return [[NSBundle mainBundle] loadNibNamed:[NSString stringWithFormat:@"LNStock.bundle/%@",class] owner:nil options:nil].firstObject;
 }
@@ -54,8 +56,8 @@
     self.timeLabel.text = createdAtString;
     
     CGFloat changeRate = ([data.price floatValue] - [data.preClosePx floatValue])/[data.preClosePx floatValue];
-    ((UILabel *)self.contents[0]).text = [LNStockFormatter formatterDefaultType:[data.price floatValue]];
-    ((UILabel *)self.contents[1]).text = [LNStockFormatter formatterDefaultType:[data.averagePrice floatValue]];
+    ((UILabel *)self.contents[0]).text = [LNStockFormatter formatterDefaultType:[self.stockInfo pricePrecision] num:[data.price floatValue]];
+    ((UILabel *)self.contents[1]).text = [LNStockFormatter formatterDefaultType:[self.stockInfo pricePrecision] num:[data.averagePrice floatValue]];
     ((UILabel *)self.contents[2]).text = [LNStockFormatter formatterChangeRateType:changeRate * 100];
     ((UILabel *)self.contents[3]).text = [LNStockFormatter volumeFormatterWithNum:[data.volume doubleValue]];
     

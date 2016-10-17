@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class LNStockModel;
+@class LNStockModel,LNStockHandler;
 @interface LNStockBHeader : UIView
 
 @property (weak, nonatomic) IBOutlet UILabel *lastPx;           //最新价
@@ -30,6 +30,7 @@
 
 @property (weak, nonatomic) IBOutlet UIView *borderView;
 @property (weak, nonatomic) IBOutlet UIImageView *divideLineImageView;
+@property (nonatomic, weak) LNStockHandler *stockInfo;
 
 + (id)createWithXib;
 - (void)setupColors;

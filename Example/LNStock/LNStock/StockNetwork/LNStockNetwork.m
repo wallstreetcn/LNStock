@@ -74,6 +74,7 @@
 
 #pragma mark - A股分时交易数据（五档）
 + (void)getDealListDataWithStockCode:(NSString *)code block:(PriceNetworkBlock)block {
+    if (!code) { return; }
     LNStockRequest *request = [[LNStockRequest alloc] init];
     request.url = [NSString stringWithFormat:@"%@%@fields=bid_grp,offer_grp,preclose_px",KIAStockAPI,KIAStockPriceAPI];
     request.url = [request.url stringByReplacingOccurrencesOfString:@"symbol" withString:code];
@@ -208,13 +209,20 @@
 }
 
 #pragma mark - K线
-+ (void)getAstockDataWithStockCode:(NSString *)code adjust:(NSString *)adjust type:(NSString *)type block:(PriceNetworkBlock)block {
++ (void)getAstockDataWithStockCode:(NSString *)code
+                            adjust:(NSString *)adjust
+                              type:(NSString *)type
+                               num:(NSString *)num
+                           endTime:(NSString *)endTime
+                             block:(PriceNetworkBlock)block {
+    
     NSString *urlSting = [NSString stringWithFormat:@"%@%@",KIAStockAPI,KIAStockKLineAPI];
     urlSting = [urlSting stringByReplacingOccurrencesOfString:@"symbol" withString:code];
     urlSting = [urlSting stringByReplacingOccurrencesOfString:@"interval" withString:type];
     LNStockRequest * request = [[LNStockRequest alloc] init];
     request.url = urlSting;
-    [request.parameters setValue:@"500" forKey:@"data_count"];        //请求个数
+    [request.parameters setValue:num forKey:@"data_count"];           //请求个数
+    [request.parameters setValue:endTime forKey:@"end_time"];         //时间
     [request.parameters setValue:type forKey:@"candle_period"];       //K线类型
     [request.parameters setValue:adjust forKey:@"adjust_price_type"]; //复权类型
     NSString *fields = KIAStockKLineFields;
@@ -263,14 +271,15 @@
 }
 
 #pragma mark - RealAPI 行情API
-+ (void)getStockRealDataWithCode:(NSString *)code block:(PriceNetworkBlock)block {
++ (void)getStockRealDataWithCode:(NSString *)code isAstock:(BOOL)isAstock block:(PriceNetworkBlock)block {
     LNStockRequest * request = [[LNStockRequest alloc] init];
     request.url = [NSString stringWithFormat:@"%@%@",KIAStockAPI,KIStockRealAPI];
     request.headers = [NSDictionary dictionaryWithObjectsAndKeys:@"application/json",@"Accept", nil];
     [request.parameters setValue:code forKey:@"en_prod_code"];
     [request.parameters setValue:@"" forKey:@"format"];
     [request.parameters setValue:KIAStockRealFields forKey:@"fields"];
-    if ([code rangeOfString:@"."].location == NSNotFound) {  //是否是外汇
+    //是否是外汇
+    if (!isAstock) {
         request.url = [NSString stringWithFormat:@"%@%@",KIBStockAPI,KIBStockPriceAPI];
         [request.parameters setValue:KIBStockRealFields forKey:@"fields"];
     }
@@ -292,6 +301,8 @@
             block(NO,error.localizedDescription);
         }
     }];
+}
++ (void)getStockRealDataWithCode:(NSString *)code block:(PriceNetworkBlock)block {
 }
 
 #pragma mark - 外汇
@@ -543,6 +554,13 @@
                         model.prod_name = [item valueForKey:@"ProdName"];
                         model.market_type = [item valueForKey:@"market_type"];
                         model.securities_type = [item valueForKey:@"securities_type"];
+                        if ([model.market_type isEqualToString:@"forexdata"]) {
+                            model.finance_type = model.securities_type;
+                        }else if ([model.market_type isEqualToString:@"mdc"]) {
+                            model.finance_type = @"stock";
+                        }
+                        model.stockUrl = [item valueForKey:@"url"];
+                        model.htmlTag = [item valueForKey:@"htmlTag"];
                         [array addObject:model];
                     }
                 }

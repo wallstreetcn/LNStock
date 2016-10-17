@@ -19,8 +19,9 @@
 @end
 @implementation LNStockOptionView
 
-- (instancetype)initWithFrame:(CGRect)frame {
+- (instancetype)initWithFrame:(CGRect)frame stockInfo:(LNStockHandler *)stockInfo {
     if (self == [super initWithFrame:frame]) {
+        self.stockInfo = stockInfo;
         [self setupViews];
     }
     return self;
@@ -36,30 +37,34 @@
     UIColor *btnSelColor = [LNStockColor optionViewBtnS];
     UIImage *btnSelImage = [[UIImage imageNamed:@"LNStock.bundle/stock_optionbtn"] imageWithTintColor:[LNStockColor optionViewBtnImage]];
     CGFloat adjustBtnW = self.frame.size.width;
-    if (![LNStockHandler isIndexStock] && ![LNStockHandler isFundStock]) {
-        adjustBtnH = 40;
-        self.adjustBtns = [NSMutableArray array];
-        for (int i = 0; i < btnTitles.count; i++) {
-            UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-            btn.frame = CGRectMake(0, i*adjustBtnH, adjustBtnW, adjustBtnH);
-            btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
-            [btn setTitleColor:btnNorColor forState:UIControlStateNormal];
-            [btn setTitleColor:btnSelColor forState:UIControlStateSelected];
-            [btn setImage:btnSelImage forState:UIControlStateSelected];
-            [btn setTitle:btnTitles[i] forState:UIControlStateNormal];
-            [btn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 40)];
-            [btn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
-                [wSelf updateAdjustBtns:wSelf.adjustBtns Index:i];
-                [LNStockHandler sharedManager].adjustType = i;
-                if (wSelf.block) {
-                    wSelf.block(LNOptionViewAction_Adjust);
+    if ([self.stockInfo isStock]) { //5m 15m 30m 60m 没有复权
+        if ([LNStockHandler titleType] == LNChartTitleType_1D ||
+            [LNStockHandler titleType] == LNChartTitleType_1W ||
+            [LNStockHandler titleType] == LNChartTitleType_1M) {
+                adjustBtnH = 40;
+                self.adjustBtns = [NSMutableArray array];
+                for (int i = 0; i < btnTitles.count; i++) {
+                    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+                    btn.frame = CGRectMake(0, i*adjustBtnH, adjustBtnW, adjustBtnH);
+                    btn.titleLabel.font = [UIFont systemFontOfSize:12.0];
+                    [btn setTitleColor:btnNorColor forState:UIControlStateNormal];
+                    [btn setTitleColor:btnSelColor forState:UIControlStateSelected];
+                    [btn setImage:btnSelImage forState:UIControlStateSelected];
+                    [btn setTitle:btnTitles[i] forState:UIControlStateNormal];
+                    [btn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 40)];
+                    [btn addBlockForControlEvents:UIControlEventTouchUpInside block:^(id  _Nonnull sender) {
+                        [wSelf updateAdjustBtns:wSelf.adjustBtns Index:i];
+                        [LNStockHandler sharedManager].adjustType = i;
+                        if (wSelf.block) {
+                            wSelf.block(LNOptionViewAction_Adjust);
+                        }
+                    }];
+                    if (i == [LNStockHandler adjustType]) {
+                        btn.selected = YES;
+                    }
+                    [self addSubview:btn];
+                    [self.adjustBtns addObject:btn];
                 }
-            }];
-            if (i == [LNStockHandler adjustType]) {
-                btn.selected = YES;
-            }
-            [self addSubview:btn];
-            [self.adjustBtns addObject:btn];
         }
     }
     //——————————————————————————————————
@@ -70,18 +75,20 @@
     CGFloat scrollViewH = self.frame.size.height - scrollViewY;
     
     //指数A股没有前后复权
-    if ([LNStockHandler isIndexStock] || [LNStockHandler isFundStock]) {
+    if ([self.stockInfo isStock]) { //5m 15m 30m 60m 没有复权
+        if ([LNStockHandler titleType] == LNChartTitleType_1D ||
+            [LNStockHandler titleType] == LNChartTitleType_1W ||
+            [LNStockHandler titleType] == LNChartTitleType_1M) {
+            UILabel *lineLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, scrollViewY, scrollViewW - 10, 2)];
+            lineLabel.text = @"--------------------";
+            lineLabel.textColor = [UIColor colorWithRed:182/255.0 green:184/255.0 blue:181/255.0 alpha:1];
+            lineLabel.font = [UIFont systemFontOfSize:5];
+            [self addSubview:lineLabel];
+        }
+    } else {
         scrollViewY = 0;
         scrollViewH = self.frame.size.height;
     }
-    else {
-        UILabel *lineLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, scrollViewY, scrollViewW - 10, 2)];
-        lineLabel.text = @"--------------------";
-        lineLabel.textColor = [UIColor colorWithRed:182/255.0 green:184/255.0 blue:181/255.0 alpha:1];
-        lineLabel.font = [UIFont systemFontOfSize:5];
-        [self addSubview:lineLabel];
-    }
-    
     self.factorBtns = [NSMutableArray array];
     NSArray *factorTitles = @[@"交易量",@"MACD",@"BOLL",@"KDJ",@"RSI",@"OBV"]; //,@"MACD",@"BOLL",@"KDJ",@"RSI",@"OBV"
     self.scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, scrollViewY, self.frame.size.width, scrollViewH)];
@@ -125,6 +132,16 @@
 
 - (void)setupColor {
     self.backgroundColor = [LNStockColor chartBG];
+}
+
+- (void)updateOptionView {
+    self.hidden = NO;
+    if ([self.stockInfo isStock]) {
+        for(UIView *view in [self subviews]) {
+            [view removeFromSuperview];
+        }
+        [self setupViews];
+    }
 }
 
 @end

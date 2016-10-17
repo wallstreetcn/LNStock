@@ -14,7 +14,7 @@
     static NSURLSession *session;
     dispatch_once(&onceToken, ^{
         NSURLSessionConfiguration *config = [NSURLSessionConfiguration ephemeralSessionConfiguration];
-        config.HTTPMaximumConnectionsPerHost = 3;
+        config.HTTPMaximumConnectionsPerHost = 5;
         session = [NSURLSession sessionWithConfiguration:config];
     });
     return session;
