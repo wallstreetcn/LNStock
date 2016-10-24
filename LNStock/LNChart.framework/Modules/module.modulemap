@@ -1,0 +1,6 @@
+framework module LNChart {
+  umbrella header "LNChart.h"
+
+  export *
+  module * { export * }
+}

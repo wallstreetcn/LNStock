@@ -1,0 +1,6 @@
+framework module LNStock {
+  umbrella header "LNStock.h"
+
+  export *
+  module * { export * }
+}
